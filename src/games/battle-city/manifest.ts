@@ -18,6 +18,10 @@ export default {
     { key: '/ / Enter', description: '玩家 2 开火 / 菜单确认' },
     { key: 'P / Esc', description: '暂停游戏' },
   ],
+  virtualGamepad: {
+    directions: ['UP', 'DOWN', 'LEFT', 'RIGHT'],
+    buttons: [{ id: 'A', action: 'DROP', label: '开火 / 确认' }],
+  },
   touchControls: [
     { action: 'UP', label: '向上', symbol: '↑' },
     { action: 'LEFT', label: '向左', symbol: '←' },

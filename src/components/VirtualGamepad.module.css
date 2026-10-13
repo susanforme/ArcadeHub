@@ -1,0 +1,116 @@
+.pad {
+  position: absolute;
+  inset: 0;
+  flex-shrink: 0;
+  pointer-events: none;
+  z-index: 2;
+  --pad-opacity: 0.65;
+}
+.position {
+  position: absolute;
+  top: var(--portrait-top);
+  bottom: var(--portrait-bottom);
+  left: var(--portrait-left);
+  right: var(--portrait-right);
+  width: var(--portrait-size);
+  height: var(--portrait-size);
+}
+.dpad {
+  margin: 0;
+  padding: 0;
+  min-inline-size: 0;
+  pointer-events: auto;
+  touch-action: none;
+  border-radius: 50%;
+  background: #9bacbf12;
+  border: 1px solid #dce9ff18;
+}
+.direction,
+.action {
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid #ffffff45;
+  color: white;
+  background: color-mix(
+    in srgb,
+    var(--button-color, #607080) calc(var(--pad-opacity) * 100%),
+    transparent
+  );
+  box-shadow:
+    inset 0 2px 8px #ffffff25,
+    0 3px 12px #00000030;
+  transition:
+    background 80ms,
+    box-shadow 80ms;
+}
+.direction {
+  position: absolute;
+  width: 35%;
+  height: 35%;
+  font-size: 19px;
+}
+.UP {
+  top: 0;
+  left: 32.5%;
+}
+.DOWN {
+  bottom: 0;
+  left: 32.5%;
+}
+.LEFT {
+  left: 0;
+  top: 32.5%;
+}
+.RIGHT {
+  right: 0;
+  top: 32.5%;
+}
+.A {
+  --button-color: #d94059;
+}
+.B {
+  --button-color: #387af1;
+}
+.action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 28px;
+}
+.action small {
+  font-weight: 500;
+  font-size: 10px;
+}
+.pad button[aria-pressed="true"] {
+  background: var(--button-color, #387af1);
+  border-color: #ffffffb0;
+  box-shadow:
+    inset 0 2px 8px #ffffff40,
+    0 0 16px var(--button-color, #387af1);
+}
+.pad button:disabled {
+  opacity: 0.35;
+}
+@media (orientation: landscape) {
+  .position {
+    top: var(--landscape-top);
+    bottom: var(--landscape-bottom);
+    left: var(--landscape-left);
+    right: var(--landscape-right);
+    width: var(--landscape-size);
+    height: var(--landscape-size);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .direction,
+  .action {
+    transition: none;
+  }
+}

@@ -12,6 +12,9 @@ export default {
     { key: '↑ ↓ ← → / WASD', description: '改变方向' },
     { key: 'P / Esc', description: '暂停游戏' },
   ],
+  virtualGamepad: {
+    directions: ['UP', 'DOWN', 'LEFT', 'RIGHT'],
+  },
   touchControls: [
     { action: 'LEFT', label: '向左', symbol: '←' },
     { action: 'UP', label: '向上', symbol: '↑' },

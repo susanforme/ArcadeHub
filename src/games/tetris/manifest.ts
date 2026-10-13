@@ -15,6 +15,13 @@ export default {
     { key: 'Space', description: '直接落底' },
     { key: 'P / Esc', description: '暂停游戏' },
   ],
+  virtualGamepad: {
+    directions: ['LEFT', 'RIGHT', 'DOWN'],
+    buttons: [
+      { id: 'A', action: 'UP', label: '旋转' },
+      { id: 'B', action: 'DROP', label: '落底' },
+    ],
+  },
   touchControls: [
     { action: 'LEFT', label: '向左', symbol: '←' },
     { action: 'UP', label: '旋转', symbol: '↻' },

@@ -14,6 +14,22 @@ export default {
     { key: '点击 / 轻触画面', description: '开始 / 跳跃' },
     { key: 'P / Esc', description: '暂停游戏' },
   ],
+  virtualGamepad: {
+    layout: {
+      portrait: {
+        A: { anchor: 'bottom-right', x: 16, y: 76, size: 60 },
+        B: { anchor: 'bottom-left', x: 16, y: 76, size: 60 },
+      },
+      landscape: {
+        A: { anchor: 'bottom-right', x: 24, y: 24, size: 64 },
+        B: { anchor: 'bottom-left', x: 24, y: 24, size: 64 },
+      },
+    },
+    buttons: [
+      { id: 'A', action: 'UP', label: '跳跃' },
+      { id: 'B', action: 'DOWN', label: '俯身' },
+    ],
+  },
   touchControls: [
     { action: 'UP', label: '跳跃', symbol: '跳跃' },
     { action: 'DOWN', label: '俯身', symbol: '俯身' },

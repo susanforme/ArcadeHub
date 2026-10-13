@@ -13,6 +13,9 @@ export default {
     { key: '点击 / 轻触画面', description: '开始 / 振翅' },
     { key: 'P / Esc', description: '暂停游戏' },
   ],
+  virtualGamepad: {
+    buttons: [{ id: 'A', action: 'UP', label: '振翅' }],
+  },
   touchControls: [{ action: 'UP', label: '振翅', symbol: '振翅' }],
   load: () => import('./index'),
 } satisfies GameManifest;

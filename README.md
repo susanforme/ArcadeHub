@@ -46,6 +46,10 @@ export default {
   cover,
   description: '游戏介绍',
   controls: [{ key: '← →', description: '移动' }],
+  virtualGamepad: {
+    directions: ['LEFT', 'RIGHT'],
+    buttons: [{ id: 'A', action: 'UP', label: '跳跃' }],
+  },
   touchControls: [
     { action: 'LEFT', label: '向左', symbol: '←' },
     { action: 'RIGHT', label: '向右', symbol: '→' },
@@ -71,7 +75,45 @@ Canvas 根据实际显示尺寸乘设备 DPR 分配渲染像素，摄像机缩�
 
 IndexedDB `arcadehub` / `games` 以游戏 ID 保存本局分数、最高分、游戏快照和更新时间。最高分与快照在同一事务中更新。每 5 秒、暂停、离开游戏时自动保存；游戏结束保留最高分并清除可继续的快照。新游戏替换旧进度，保留历史最高分。异常或损坏快照不会直接恢复。清除站点数据会清除存档，设备间不自动同步；意外关闭可能丢失最近约 5 秒的进度。
 
-键盘支持方向键/WASD、P/Esc 暂停；俄罗斯方块增加 Space 落底。触屏按钮由各游戏 manifest 声明。手柄支持方向键/左摇杆、A 对应向上或旋转、B 落底、Start 暂停。窗口失焦或隐藏自动暂停。音量与静音设置保存在 localStorage，音效资源随应用分发。
+键盘支持方向键/WASD、P/Esc 暂停；俄罗斯方块增加 Space 落底。虚拟手柄由各游戏 manifest 的 `virtualGamepad` 声明，触屏设备默认显示，也可通过工具栏显示或隐藏。手柄支持方向键/左摇杆、A 对应向上或旋转、B 落底、Start 暂停。窗口失焦或隐藏自动暂停。音量与静音设置保存在 localStorage，音效资源随应用分发。
+
+## 公用虚拟手柄
+
+`VirtualGamepad` 在 React 中绘制十字方向键与 A/B 操作键，直接接入当前会话的 `InputManager`。按钮身份与游戏动作分开：例如俄罗斯方块 A 映射 `UP`（旋转），B 映射 `DROP`（落底）；坦克 A 映射 `DROP`（开火/菜单确认）。未声明的按钮不显示，方向键可以只配置需要的方向。旧 `touchControls` 字段保留兼容类型，新的手柄界面使用 `virtualGamepad`。
+
+```ts
+virtualGamepad: {
+  directions: ['UP', 'DOWN', 'LEFT', 'RIGHT'],
+  directionMode: 'four-way',
+  buttons: [
+    { id: 'A', action: 'UP', label: '旋转', color: '#d94059' },
+    { id: 'B', action: 'DROP', label: '落底' },
+  ],
+  opacity: 0.65,
+  layout: {
+    portrait: {
+      dpad: { anchor: 'bottom-left', x: 16, y: 16, size: 132 },
+      A: { anchor: 'bottom-right', x: 92, y: 64, size: 60 },
+      B: { anchor: 'bottom-right', x: 16, y: 16, size: 60 },
+    },
+    landscape: {
+      dpad: { anchor: 'bottom-left', x: 24, y: 24, size: 144 },
+      A: { anchor: 'bottom-right', x: 104, y: 72, size: 64 },
+      B: { anchor: 'bottom-right', x: 24, y: 24, size: 64 },
+    },
+  },
+}
+```
+
+所有现有游戏都将手柄绝对定位覆盖在游戏区域两侧，不占用布局空间，Canvas 继续使用完整游戏区域。
+
+横竖屏位置按视口方向切换，位置相对于游戏区域。方向键整体、A、B 可以分别锚定四个角，`x/y/size` 为 CSS 像素，自动叠加对应边缘安全区；缺省位置使用公用默认值。按钮建议至少 44px；方向区建议至少 132px。`opacity` 范围为 0～1，仅影响正常状态的按钮背景，按下时高亮。游戏配置属于源码，不接受外部运行时数据。
+
+默认 `four-way` 同时只输出一个方向，多指操作方向键时最近操作优先；`eight-way` 允许组合方向。方向区可以滑动换向，中心死区或滑出范围释放方向，手指回来可以继续输入。方向与动作按钮支持同时按住，多个手指操作同一动作时最后一个释放才松开。游戏用 `consume(action)` 读取一次按下，用 `down(action)` 查询持续按住；长按重复、开火频率和跳跃高度由游戏规则决定。
+
+Pointer Events 统一处理触屏、鼠标和触笔，指针捕获处理按钮外抬手；取消、失去捕获、窗口失焦、切后台、暂停、重开、隐藏及退出时清理相应输入。旋转屏幕时释放手柄输入。键盘、虚拟手柄、Canvas 和实体手柄保持独立来源，保留原有 `press(action)` / `release(action)` 调用，也可传第二个 `source` 参数。暂停后实体手柄仍按住的动作需先释放再按下。Canvas 原有点击、滑动操作继续保留。按钮支持 Enter/Space 与辅助技术点击，动画尊重减少动态效果设置。
+
+实现参考 [MDN Pointer Events](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events) 的捕获、取消与 `touch-action` 用法，以及 [React useEffect](https://react.dev/reference/react/useEffect) 的订阅清理方式，没有新增依赖。
 
 ## 离线行为
 

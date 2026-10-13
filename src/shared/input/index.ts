@@ -14,7 +14,9 @@ const keys: Record<string, Action> = {
   KeyP: 'PAUSE',
 };
 export class InputManager {
-  private held = new Set<Action>();
+  private held = new Map<string, Set<Action>>();
+  private suppressedPads = new Set<Action>();
+  private resetListeners = new Set<() => void>();
   private pressed = new Set<Action>();
   private pads = new Set<Action>();
   private keydown = (event: KeyboardEvent) => {
@@ -26,27 +28,47 @@ export class InputManager {
     const action = keys[event.code];
     if (!action) return;
     event.preventDefault();
-    if (!event.repeat) this.press(action);
+    if (!event.repeat) this.press(action, `key:${event.code}`);
   };
   private keyup = (event: KeyboardEvent) => {
     const action = keys[event.code];
-    if (action) this.release(action);
+    if (action) this.release(action, `key:${event.code}`);
   };
   private blur = () => this.reset();
+  private visibility = () => {
+    if (document.hidden) this.reset();
+  };
   constructor() {
     window.addEventListener('keydown', this.keydown);
     window.addEventListener('keyup', this.keyup);
     window.addEventListener('blur', this.blur);
+    document.addEventListener('visibilitychange', this.visibility);
   }
-  press(action: Action) {
-    if (!this.held.has(action)) this.pressed.add(action);
-    this.held.add(action);
+  press(action: Action, source = 'default') {
+    if (!this.down(action)) this.pressed.add(action);
+    let actions = this.held.get(source);
+    if (!actions) {
+      actions = new Set();
+      this.held.set(source, actions);
+    }
+    actions.add(action);
   }
-  release(action: Action) {
-    this.held.delete(action);
+  release(action: Action, source = 'default') {
+    const actions = this.held.get(source);
+    actions?.delete(action);
+    if (!actions?.size) this.held.delete(source);
   }
   down(action: Action) {
-    return this.held.has(action) || this.pads.has(action);
+    return (
+      [...this.held.values()].some((actions) => actions.has(action)) ||
+      (this.pads.has(action) && !this.suppressedPads.has(action))
+    );
+  }
+  onReset(listener: () => void) {
+    this.resetListeners.add(listener);
+    return () => {
+      this.resetListeners.delete(listener);
+    };
   }
   consume(action: Action) {
     const pressed = this.pressed.delete(action);
@@ -68,20 +90,27 @@ export class InputManager {
       if (pad.buttons[1]?.pressed) next.add('DROP');
       if (pad.buttons[9]?.pressed) next.add('PAUSE');
     }
+    for (const action of this.suppressedPads)
+      if (!next.has(action)) this.suppressedPads.delete(action);
     for (const action of next)
-      if (!this.pads.has(action)) this.pressed.add(action);
+      if (!this.pads.has(action) && !this.down(action))
+        this.pressed.add(action);
     this.pads = next;
   }
   reset() {
     this.held.clear();
     this.pressed.clear();
+    this.suppressedPads = new Set(this.pads);
+    for (const listener of this.resetListeners) listener();
   }
   destroy() {
     this.reset();
     this.pads.clear();
+    this.resetListeners.clear();
     window.removeEventListener('keydown', this.keydown);
     window.removeEventListener('keyup', this.keyup);
     window.removeEventListener('blur', this.blur);
+    document.removeEventListener('visibilitychange', this.visibility);
   }
 }
 export const Input = { current: null as InputManager | null };

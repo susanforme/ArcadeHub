@@ -602,6 +602,7 @@
   display: block;
 }
 .overlay {
+  z-index: 3;
   position: absolute;
   inset: 0;
   display: flex;
@@ -682,27 +683,6 @@
   font-size: 10px;
   margin-top: 21px;
   margin-bottom: 28px;
-}
-.touchControls {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  padding-top: 15px;
-}
-.touchControls button {
-  min-width: 44px;
-  padding: 0 10px;
-  white-space: nowrap;
-  height: 38px;
-  border-radius: 7px;
-  border: 1px solid #d7e0c9;
-  background: #e8eedf;
-  touch-action: none;
-  user-select: none;
-  font-size: 17px;
-}
-.touchControls button:last-child {
-  font-size: 14px;
 }
 .settingsPanel {
   background: #fcfdf7;
@@ -1131,16 +1111,6 @@
   max-height: none;
   min-height: 0;
   border-radius: 0;
-}
-.expandedPlayer .touchControls {
-  padding: 10px 16px;
-  flex-shrink: 0;
-  background: #16232f;
-}
-.expandedPlayer .touchControls button {
-  background: #233542;
-  border-color: #3c505a;
-  color: #dce9df;
 }
 .expandedPlayer .error {
   margin: 0;

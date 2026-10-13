@@ -13,6 +13,9 @@ export default {
     { key: '滑动画面', description: '朝滑动方向转向' },
     { key: 'P / Esc', description: '暂停游戏' },
   ],
+  virtualGamepad: {
+    directions: ['UP', 'DOWN', 'LEFT', 'RIGHT'],
+  },
   touchControls: [
     { action: 'LEFT', label: '向左', symbol: '←' },
     { action: 'UP', label: '向上', symbol: '↑' },

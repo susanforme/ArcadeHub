@@ -3,7 +3,7 @@ import styles from '../app/App.module.css';
 import { events } from '../core/event-bus';
 import { runtime } from '../core/game-runtime';
 import type { GameManifest, SessionState } from '../core/types';
-import { Input } from '../shared/input';
+import { VirtualGamepad } from './VirtualGamepad';
 
 export function GameCanvas({
   game,
@@ -17,6 +17,14 @@ export function GameCanvas({
   onState: (state: SessionState) => void;
 }) {
   const [expanded, setExpanded] = useState(true);
+  const [showGamepad, setShowGamepad] = useState(
+    () =>
+      window.matchMedia('(any-pointer: coarse)').matches ||
+      navigator.maxTouchPoints > 0,
+  );
+  const gamepad = game.virtualGamepad;
+  const gamepadEnabled = showGamepad && !!gamepad;
+
   const [fullscreen, setFullscreen] = useState(false);
   const [fullscreenError, setFullscreenError] = useState('');
   const ownsFullscreen = useRef(false);
@@ -105,6 +113,18 @@ export function GameCanvas({
           <span>最高 {Math.max(bestScore, state.score)}</span>
         </div>
         <div className={styles.playerActions}>
+          {gamepad && (
+            <button
+              type="button"
+              aria-pressed={showGamepad}
+              onClick={() => {
+                setShowGamepad(!showGamepad);
+                container.current?.focus();
+              }}
+            >
+              {showGamepad ? '隐藏手柄' : '显示手柄'}
+            </button>
+          )}
           <button
             type="button"
             disabled={state.status === 'loading' || state.status === 'over'}
@@ -145,6 +165,12 @@ export function GameCanvas({
         aria-label={`${game.name}游戏区域`}
       >
         <div className={styles.canvas} ref={parent} />
+        {gamepadEnabled && (
+          <VirtualGamepad
+            config={gamepad}
+            disabled={state.status !== 'playing' || !!error}
+          />
+        )}
         {(state.status !== 'playing' || error) && (
           <div className={styles.overlay}>
             <span className={styles.eyebrow}>{game.subtitle}</span>
@@ -196,30 +222,6 @@ export function GameCanvas({
             )}
           </div>
         )}
-      </section>
-      <section className={styles.touchControls} aria-label="触屏控制">
-        {game.touchControls.map(({ action, label, symbol }) => (
-          <button
-            type="button"
-            key={action}
-            aria-label={label}
-            onPointerDown={(event) => {
-              event.preventDefault();
-              event.currentTarget.setPointerCapture(event.pointerId);
-              Input.current?.press(action);
-            }}
-            onPointerUp={() => Input.current?.release(action)}
-            onPointerCancel={() => Input.current?.release(action)}
-            onLostPointerCapture={() => Input.current?.release(action)}
-            onKeyDown={(event) => {
-              if ((event.key === 'Enter' || event.key === ' ') && !event.repeat)
-                Input.current?.press(action);
-            }}
-            onKeyUp={() => Input.current?.release(action)}
-          >
-            {symbol}
-          </button>
-        ))}
       </section>
     </div>
   );
