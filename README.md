@@ -1,6 +1,6 @@
 # ArcadeHub · Web Game Center
 
-基于 Rsbuild 2、React、TypeScript、Phaser 4.2.1 的纯前端游戏插件平台。包含贪吃蛇、俄罗斯方块、Flappy Bird、小恐龙跑酷、2048，以及游戏大厅、详情、动态加载、IndexedDB 存档、音效和设置。无账号、无后端。
+基于 Rsbuild 2、React、TypeScript、Phaser 4.2.1 的纯前端游戏插件平台。包含贪吃蛇、俄罗斯方块、Flappy Bird、小恐龙跑酷、2048、吃豆人、坦克大战，以及游戏大厅、详情、动态加载、IndexedDB 存档、音效和设置。无账号、无后端。
 
 ## 运行
 
@@ -15,6 +15,8 @@ bun run preview
 ```
 
 `check` 沿用项目的 Biome 自动修复命令。生产构建结束后生成 `dist/sw.js`，部署整个 `dist` 到静态服务器根路径。正式站点需要 HTTPS（localhost 可直接测试）。
+
+生产构建通过 jsDelivr 加载 Howler 2.2.4、Phaser 4.2.1、React / React DOM 19.3.0（包括 JSX runtime 和 client 子路径），不再将这些包打入本地 JS。开发模式仍使用本地依赖。CDN 地址集中在 `scripts/cdn.ts`，import map 将 React DOM 引用的 React 范围地址统一到固定版本；Service Worker 同时缓存 CDN 模块及 Scheduler，首次加载和缓存需要能访问 jsDelivr。
 
 ## 结构与边界
 
@@ -94,3 +96,17 @@ IndexedDB `arcadehub` / `games` 以游戏 ID 保存本局分数、最高分、�
 通过现有 Phaser 4 插件实现，使用 Graphics、Text 和 Tween 绘制棋盘、移动/合并动画及胜利界面，没有引入原版的 HTML 页面或 DOM 渲染器。参考 [gabrielecirulli/2048](https://github.com/gabrielecirulli/2048) 的规则与配色，保留 MIT 许可。
 
 方向键/WASD、手柄方向键、屏幕按钮或在棋盘上滑动均可操作。相同数字每步最多合并一次；只在有效移动后生成一个新方块，90% 为 2，10% 为 4。合成 2048 后可继续挑战；无可用方向时结束。沿用平台全屏、小屏、DPR、暂停、音效设置、最高纪录、IndexedDB 进度存档和离线缓存。存档保存已经提交的棋盘状态，动画过程不会损坏进度。
+
+## 吃豆人 Pac-Man
+
+使用 Phaser 4.2.1 复刻经典模式，参考 [masonicGIT/pacman](https://github.com/masonicGIT/pacman) 的 28 × 31 迷宫、244 颗豆子（含 4 颗能量豆）、幽灵目标与散开/追击规则。没有嵌入原版页面、原生 Canvas 渲染器或游戏循环。方向键/WASD、屏幕按钮、手柄和滑动转向，支持提前输入转弯和行进中掉头。
+
+普通豆子 10 分、能量豆 50 分；能量期间吃幽灵依次得 200/400/800/1600 分，幽灵眼睛返回巢穴后重生。侧面隧道互通；3 条生命，10000 分赠送一次生命。吃掉 70/170 颗豆子时出现奖励水果；清空迷宫进入下一关，移动速度逐渐增加。复用全屏、小屏、DPR、暂停、音量设置、最高纪录及 IndexedDB 进度，存档包含剩余豆子、角色位置、生命、关卡和计时器。
+
+保留原仓库 GPL-3.0 许可、来源 commit 和修改说明，生产构建附带 `licenses/pacman.txt` 及完整应用源码包 `sources/arcadehub.tar.gz`，游戏底部可直接打开。原版开始、死亡、吃幽灵、吃水果和加生命音效随游戏分发。当前实现聚焦经典模式，移动速度、幽灵出笼延时、转场及水果图形为近似实现；其他变体、Turbo、练习回放和过场动画不在本次范围内。
+
+## 坦克大战
+
+基于 [feichao93/battle-city](https://github.com/feichao93/battle-city) 的 MIT 引擎、35 个原版关卡、像素素材和音效，适配现有 Phaser 插件。支持单人和同屏双人、选关、六种道具及关卡结算。玩家 1 使用 WASD + J / Space，玩家 2 使用方向键 + /；单人也可使用方向键、触屏按钮和手柄。P / Esc 暂停。
+
+存档保留当前关卡开局时的生命、分数与升级，继续时重新开始该关。此次未移植局域网联机、关卡编辑器、画廊和 AI 托管界面。来源版本与许可见 `src/games/battle-city/assets/README.md`；构建包含 `licenses/battle-city.txt`。

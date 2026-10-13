@@ -37,7 +37,9 @@ function GameDetail({ game, save }: { game: GameManifest; save?: GameSave }) {
             <span className={styles.headingDot}>.</span>
           </h1>
         </div>
-        <span className={styles.pill}>单人 · 离线可玩</span>
+        <span className={styles.pill}>
+          {game.localPlayers === 2 ? '单人 / 双人' : '单人'} · 离线可玩
+        </span>
       </div>
       <div className={styles.detailGrid}>
         <div>

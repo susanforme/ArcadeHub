@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+<title>坦克大战 Battle City</title>
+<rect width="640" height="400" fill="#090b10"/>
+<g fill="#9c4a00" stroke="#6b0800" stroke-width="4"><path d="M60 48h112v32H60zM60 88h48v32H60zM60 128h112v32H60zM60 168h48v32H60zM480 48h112v32H480zM544 88h48v32H544zM480 128h112v32H480zM544 168h48v32H544z"/></g>
+<text x="320" y="99" fill="#b53121" font-family="monospace" font-size="52" font-weight="bold" text-anchor="middle">BATTLE</text>
+<text x="320" y="151" fill="#b53121" font-family="monospace" font-size="52" font-weight="bold" text-anchor="middle">CITY</text>
+<g transform="translate(273 205)" shape-rendering="crispEdges"><path fill="#6b6b00" d="M0 12h22v80H0zM72 12h22v80H72z"/><path fill="#e7e794" d="M4 16h14v8H4zM4 32h14v8H4zM4 48h14v8H4zM4 64h14v8H4zM4 80h14v8H4zM76 16h14v8H76zM76 32h14v8H76zM76 48h14v8H76zM76 64h14v8H76zM76 80h14v8H76z"/><path fill="#e79c21" d="M22 24h50v56H22z"/><path fill="#e7e794" d="M31 34h32v30H31zM42 0h10v44H42z"/><path fill="#6b6b00" d="M37 44h20v14H37z"/></g>
+<text x="320" y="348" text-anchor="middle" font-family="monospace" font-size="16" fill="#adadad">35 STAGES · DEFEND YOUR BASE</text>
+</svg>

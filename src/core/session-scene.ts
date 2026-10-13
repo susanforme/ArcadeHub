@@ -11,7 +11,7 @@ export abstract class SessionScene extends Phaser.Scene {
   protected status: SessionState['status'] = 'playing';
   protected savedSnapshot: unknown;
   private saveElapsed = 0;
-  private unsubscribers: (() => void)[] = [];
+  private unSubscribers: (() => void)[] = [];
   private onBlur = () => {
     if (this.status === 'playing') this.togglePause();
   };
@@ -27,7 +27,7 @@ export abstract class SessionScene extends Phaser.Scene {
   protected begin() {
     this.controls = new InputManager();
     Input.current = this.controls;
-    this.unsubscribers = [
+    this.unSubscribers = [
       events.on('pause', () => this.togglePause()),
       events.on('restart', () => this.scene.restart({ snapshot: null })),
     ];
@@ -35,7 +35,7 @@ export abstract class SessionScene extends Phaser.Scene {
     document.addEventListener('visibilitychange', this.onVisibility);
     this.events.once('shutdown', () => {
       this.persist();
-      for (const unsubscribe of this.unsubscribers) unsubscribe();
+      for (const unsubscribe of this.unSubscribers) unsubscribe();
       window.removeEventListener('blur', this.onBlur);
       document.removeEventListener('visibilitychange', this.onVisibility);
       this.controls.destroy();

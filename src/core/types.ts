@@ -8,6 +8,7 @@ export interface GameManifest {
   description: string;
   category: '街机' | '益智';
   cover: string;
+  localPlayers?: 1 | 2;
   controls: { key: string; description: string }[];
   touchControls: { action: Action; label: string; symbol: string }[];
   load: () => Promise<{ default: GamePlugin }>;

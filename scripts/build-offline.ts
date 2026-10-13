@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { cdnAssets } from './cdn';
 
 async function filesAt(directory: string): Promise<string[]> {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -17,9 +18,17 @@ const files = (await filesAt('dist')).filter(
   (file) => !file.endsWith('sw.js') && !file.endsWith('.map'),
 );
 const hash = createHash('sha256');
+hash.update('offline-v2');
 for (const file of files.sort()) hash.update(await readFile(file));
+hash.update(JSON.stringify(cdnAssets));
 const cache = `arcadehub-${hash.digest('hex').slice(0, 12)}`;
-const urls = files.map((file) => `/${file.slice(5)}`);
+// Cloudflare redirects /index.html; redirected responses cannot serve navigation.
+const urls = [
+  ...files.map((file) =>
+    file === 'dist/index.html' ? '/' : `/${file.slice(5)}`,
+  ),
+  ...cdnAssets,
+];
 await writeFile(
   'dist/sw.js',
   `
@@ -32,9 +41,9 @@ self.addEventListener('activate', event => {
   event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('arcadehub-') && key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim()));
 });
 self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
+  if (event.request.method !== 'GET' || (new URL(event.request.url).origin !== self.location.origin && !ASSETS.includes(event.request.url))) return;
   event.respondWith(caches.open(CACHE).then(async cache => {
-    if (event.request.mode === 'navigate') return (await cache.match('/index.html')) || fetch(event.request);
+    if (event.request.mode === 'navigate') return (await cache.match('/')) || fetch(event.request);
     return (await cache.match(event.request)) || fetch(event.request);
   }));
 });

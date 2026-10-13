@@ -22,6 +22,7 @@ describe('game discovery', () => {
       expect.arrayContaining([
         '2048',
         'flappy-bird',
+        'pacman',
         'snake',
         'tetris',
         't-rex-runner',
