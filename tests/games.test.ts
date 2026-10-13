@@ -19,7 +19,13 @@ import {
 describe('game discovery', () => {
   test('discovers manifests without a manually maintained list', () => {
     expect(games.map((game) => game.id)).toEqual(
-      expect.arrayContaining(['flappy-bird', 'snake', 'tetris']),
+      expect.arrayContaining([
+        '2048',
+        'flappy-bird',
+        'snake',
+        'tetris',
+        't-rex-runner',
+      ]),
     );
   });
   test('rejects duplicate ids', () => {

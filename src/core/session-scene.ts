@@ -71,7 +71,7 @@ export abstract class SessionScene extends Phaser.Scene {
     this.publish();
     if (this.status === 'paused') this.persist();
   }
-  private persist() {
+  protected persist() {
     const id: string = this.game.registry.get('gameId');
     void writeSave(
       id,

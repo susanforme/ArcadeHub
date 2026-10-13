@@ -690,7 +690,9 @@
   padding-top: 15px;
 }
 .touchControls button {
-  width: 44px;
+  min-width: 44px;
+  padding: 0 10px;
+  white-space: nowrap;
   height: 38px;
   border-radius: 7px;
   border: 1px solid #d7e0c9;

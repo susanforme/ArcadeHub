@@ -1,6 +1,6 @@
 # ArcadeHub · Web Game Center
 
-基于 Rsbuild 2、React、TypeScript、Phaser 4.2.1 的纯前端游戏插件平台。包含贪吃蛇、俄罗斯方块、Flappy Bird，以及游戏大厅、详情、动态加载、IndexedDB 存档、音效和设置。无账号、无后端。
+基于 Rsbuild 2、React、TypeScript、Phaser 4.2.1 的纯前端游戏插件平台。包含贪吃蛇、俄罗斯方块、Flappy Bird、小恐龙跑酷、2048，以及游戏大厅、详情、动态加载、IndexedDB 存档、音效和设置。无账号、无后端。
 
 ## 运行
 
@@ -82,3 +82,15 @@ IndexedDB `arcadehub` / `games` 以游戏 ID 保存本局分数、最高分、�
 空格、↑、W、点击/轻触 Canvas 或屏幕“振翅”按钮均可开始飞行及振翅。等待输入期间不会下坠；穿过一组管道计 1 分，撞管道或地面结束。支持暂停、恢复、自动存档和最高纪录，以及现有的网页/浏览器全屏与 DPR 渲染。像素贴图使用最近邻采样，避免放大后模糊。
 
 资源来自 [samuelcust/flappy-bird-assets](https://github.com/samuelcust/flappy-bird-assets)，版本与 MIT 许可保存在游戏 assets 目录，生产产物附带 `licenses/flappy-bird.txt`。原始振翅、得分、撞击、死亡、开始音效随游戏一起分发，遵循全局音量和静音设置；离线缓存包含这些资源。
+
+## 小恐龙跑酷
+
+使用 Phaser 4.2.1 复刻 T-Rex Runner，采用 [wayou/t-rex-runner](https://github.com/wayou/t-rex-runner) 的原始 2× 精灵图、跳跃/撞击/里程音效，以及原版的碰撞形状与速度参数。源码记录了来源 commit 和 BSD 许可，构建产物附带 `licenses/t-rex-runner.txt`。
+
+空格、↑、W、点击或轻触可开始/跳跃；按住跳得更高，松开短跳；↓ 或 S 俯身，空中按下可快速落地。障碍包括不同大小的仙人掌组，以及速度达到门槛后出现的不同高度翼龙。速度逐渐加快，每 100 分播放里程音效，每 700 分切换夜景 12 秒。支持本地进度、最高纪录、暂停、原有全屏、小屏、DPR 和离线运行。
+
+## 2048
+
+通过现有 Phaser 4 插件实现，使用 Graphics、Text 和 Tween 绘制棋盘、移动/合并动画及胜利界面，没有引入原版的 HTML 页面或 DOM 渲染器。参考 [gabrielecirulli/2048](https://github.com/gabrielecirulli/2048) 的规则与配色，保留 MIT 许可。
+
+方向键/WASD、手柄方向键、屏幕按钮或在棋盘上滑动均可操作。相同数字每步最多合并一次；只在有效移动后生成一个新方块，90% 为 2，10% 为 4。合成 2048 后可继续挑战；无可用方向时结束。沿用平台全屏、小屏、DPR、暂停、音效设置、最高纪录、IndexedDB 进度存档和离线缓存。存档保存已经提交的棋盘状态，动画过程不会损坏进度。
