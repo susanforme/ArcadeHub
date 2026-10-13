@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400"><title>贪吃蛇</title>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#aac6a5" stroke-opacity=".35"/></pattern></defs>
+<rect width="640" height="400" fill="#d8efd7"/><rect width="640" height="400" fill="url(#grid)"/>
+<circle cx="322" cy="200" r="148" fill="#c5e2c2"/>
+<path d="M185 244H280V148H375V244H450" stroke="#24533e" stroke-width="55" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M185 235H280V139H375V235H450" stroke="#5ca577" stroke-width="55" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<rect x="415" y="202" width="66" height="64" rx="21" fill="#21553d"/><circle cx="458" cy="218" r="6" fill="#e3f6d5"/><circle cx="458" cy="249" r="6" fill="#e3f6d5"/>
+<path d="M481 234h17m-1 0 7-6m-7 6 7 6" fill="none" stroke="#da7b5a" stroke-width="4"/>
+<rect x="156" y="119" width="36" height="36" rx="12" fill="#ed9565"/><path d="m175 118 9-11" stroke="#24533e" stroke-width="4"/>
+<path d="M106 295h14m-7-7v14M521 98h14m-7-7v14" stroke="#7ba675" stroke-width="2"/>
+</svg>

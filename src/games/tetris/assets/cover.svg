@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400"><title>俄罗斯方块</title>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#bdb0d3" stroke-opacity=".3"/></pattern><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="0" flood-color="#bcb0d0" flood-opacity=".6"/></filter></defs>
+<rect width="640" height="400" fill="#e7def4"/><rect width="640" height="400" fill="url(#grid)"/>
+<g transform="translate(185 40) rotate(-9 130 150)" stroke="#e7def4" stroke-width="5" stroke-linejoin="round" filter="url(#shadow)">
+<path d="M0 220h110v55H0zM55 165h55v55H55z" fill="#dca374"/>
+<path d="M110 220h55v55h-55zM110 165h110v55H110zM165 110h55v55h-55z" fill="#83aa99"/>
+<path d="M165 220h110v55H165zM220 165h55v55h-55zM220 110h55v55h-55z" fill="#aaa0d4"/>
+<path d="M0 110h55v55H0zM0 165h55v55H0zM55 110h55v55H55zM55 55h55v55H55z" fill="#e4bf67"/>
+<path d="M110 0h55v55h-55zM55-55h165V0H55z" fill="#7a68a0"/>
+</g><path d="M111 106h14m-7-7v14M520 295h14m-7-7v14" stroke="#a494bb" stroke-width="2"/>
+</svg>
