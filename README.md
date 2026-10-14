@@ -184,3 +184,21 @@ React 使用 `useI18n()`，Phaser 使用 `t()`，静态文字随语言变化更�
 将 [giacoballoccu/MetalSlugClone](https://github.com/giacoballoccu/MetalSlugClone) 的 Unity 2018 工程改写为原生 Phaser 插件，复用原角色动画、背景与音效，提供海滩、夜间残骸、神庙三关，以及手枪/重机枪/近战/手雷和三种 Boss。支持平台键盘、实体及虚拟手柄、暂停、全屏、中英切换和完整战斗状态存档。
 
 J/X 射击，Space/K 跳跃，L/C 手雷，↑/W 向上瞄准，↓/S 下蹲。关卡布局和 Boss 攻击重新编排；原版事件演出、乘船/水下/载具等差异见 `src/games/metal-slug/README.md`。上游版本和资源校验值见 `assets/SOURCE.json`；原仓库没有根级许可证，保留来源和权利声明并生成 `licenses/metal-slug-notice.txt`。
+
+## 炸弹人 Bomberman Clone
+
+移植 [danielcspaiva/Bomberman-Clone](https://github.com/danielcspaiva/Bomberman-Clone) 为 Phaser 插件，保留原地图、素材、音效、随机敌人和三种升级，支持单人击杀及本地双人对战。方向键选择模式，Enter 开始；P1 方向键 + Space，P2 WASD + Q，单人也支持 WASD/Q；虚拟手柄 A 放炸弹/开始，B 切换模式。接入暂停、重开、全局音量、中英切换及完整状态存档。来源、修复差异与素材权利边界见 `src/games/bomberman/README.md`。
+
+## 森林冰火人 Fireboy & Watergirl
+
+原创三关双人合作平台解谜插件。火男孩方向键移动、↑ 跳跃、↓ 拉杆；冰女孩 A/D 移动、W 跳跃、S 拉杆。匹配属性水池、毒池、各色宝石、石箱压板、门后拉杆和双人出口组成合作关卡；虚拟手柄 A 跳跃、B 拉杆、X 切换角色、Y 开始/继续，支持触屏单人轮流控制两角色。接入中英切换、暂停、完整存档与离线资源。原创角色与封面，场景物件和音效采用 Kenney CC0 素材，来源见 `src/games/fireboy-watergirl/README.md`。
+
+## 推箱子（Sokoban）
+
+`sokoban` 益智游戏包含 David W. Skinner 的完整社区关卡集 Microban II（135关）和 Sasquatch（50关），共185关，保持原布局、顺序和编号，使用 [Kenney Sokoban CC0 素材](https://kenney.nl/assets/sokoban)。方向键 / WASD 推箱，Z / U / B 撤销，R 重置本关，L 或画面按钮分页选关；通关后 Enter / 空格 / A 进入下一关。每个关卡首次完成计100分，重玩和选关不会重复加分。支持暂停、双语、音量、虚拟手柄及完整存档。旧原创地图存档不能用于社区地图，将从社区首关开始，平台保留历史最高分。原始关卡、作者转载条件与版本校验见 `src/games/sokoban/collections/README.md`；生产构建附带 `levels/sokoban/` 原始文件与署名，并纳入离线缓存。
+
+## 割绳子
+
+`cut-the-rope`：12 个递进物理谜题，鼠标或手指划绳，点击气泡戳破、点击风箱吹气。R 重试，L 选关，Enter 进入下一关，P / Esc 暂停。
+使用 Phaser 内置 Matter，以 120 Hz 固定步长模拟分段绳索、惯性与浮力；进度和每关最佳星数保存在本地，继续游戏从当前关起点恢复。
+美术采用 Kenney 的 Candy、Monster Builder 和 Physics Assets（CC0），风箱图标来自 Delapouite / Game-icons.net（CC BY 3.0）；详细来源和署名见 `src/games/cut-the-rope/assets/NOTICE.txt`。关卡为参考经典机制设计的原创布局。

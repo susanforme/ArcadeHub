@@ -117,6 +117,17 @@ export function GameCanvas({
           </span>
         </div>
         <div className={styles.playerActions}>
+          {state.status === 'over' && (
+            <button
+              type="button"
+              onClick={() => {
+                events.emit('restart', undefined);
+                container.current?.focus();
+              }}
+            >
+              {t('game.playAgainAction')}
+            </button>
+          )}
           {gamepad && (
             <button
               type="button"
@@ -179,7 +190,7 @@ export function GameCanvas({
             disabled={state.status !== 'playing' || !!error}
           />
         )}
-        {(state.status !== 'playing' || error) && (
+        {(state.status === 'loading' || state.status === 'paused' || error) && (
           <div className={styles.overlay}>
             <span className={styles.eyebrow}>{t(game.subtitle)}</span>
             <h2>
@@ -187,17 +198,13 @@ export function GameCanvas({
                 ? t('player.loadFailed')
                 : state.status === 'loading'
                   ? t('player.loadingTitle')
-                  : state.status === 'paused'
-                    ? t('player.pausedTitle')
-                    : t('player.gameOverTitle')}
+                  : t('player.pausedTitle')}
             </h2>
             <p>
               {text(error) ||
                 (state.status === 'paused'
                   ? t('player.pausedDescription')
-                  : state.status === 'over'
-                    ? `${text(state.message ?? 'game.gameOver')} · ${t('game.score')} ${state.score}`
-                    : t('player.loadingDescription'))}
+                  : t('player.loadingDescription'))}
             </p>
             {state.status === 'paused' && (
               <button
@@ -209,18 +216,6 @@ export function GameCanvas({
                 }}
               >
                 {t('game.resumeAction')}{' '}
-              </button>
-            )}
-            {state.status === 'over' && (
-              <button
-                type="button"
-                className={styles.primary}
-                onClick={() => {
-                  events.emit('restart', undefined);
-                  container.current?.focus();
-                }}
-              >
-                {t('game.playAgainAction')}{' '}
               </button>
             )}
             {error && (

@@ -1,0 +1,24 @@
+{
+  "repository": "https://github.com/rprouse/Arduban",
+  "commit": "ebaf236540eb9329040eb434f536e69fcad79f9b",
+  "author": "David W. Skinner",
+  "email": "sasquatch@bentonrea.com",
+  "originalWebsite": "http://users.bentonrea.com/~sasquatch/sokoban/",
+  "permissionRecord": "https://lists.gnu.org/archive/html/enigma-devel/2003-12/msg00018.html",
+  "files": [
+    {
+      "file": "microban-ii.txt",
+      "path": "Assets/Levels/Microban II.txt",
+      "levels": 135,
+      "gitBlob": "a8df0df38d1f90c5cf3fb543d70abe25cad27174",
+      "sha256": "1dc2d8fadf1cdd45a43d69e88c7078676a481245cc0589ac9fc4a7f622e3cdc3"
+    },
+    {
+      "file": "sasquatch.txt",
+      "path": "Assets/Levels/Sasquatch.txt",
+      "levels": 50,
+      "gitBlob": "2e161dc2830517d9c2884fc5ccb37e6efd845e76",
+      "sha256": "6068d4e4e1a293e56ef4d5af6037d76539256726d1d0adcd9534d612a678d99b"
+    }
+  ]
+}

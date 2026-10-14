@@ -1,0 +1,19 @@
+Bomberman Clone adaptation for ArcadeHub
+Source: https://github.com/danielcspaiva/Bomberman-Clone
+Commit: 63e2838212227bbcdcb6aa6f6b19c550987bd449
+Author: Daniel C. S. Paiva
+
+The upstream repository contains no standalone license file. Its README
+invites forks and contributions, and states that this project was built
+solely for educational purposes. The author does not own copyrights to
+Bomberman or the sprites and music used. Attribution is not a license grant.
+Original artwork, music and trademarks retain their respective owners' rights.
+
+Upstream asset references:
+https://www.spriters-resource.com/snes/sbomber5/
+https://downloads.khinsider.com/bomberman
+
+Changes: Phaser CanvasTexture adapter; platform-owned fixed-step simulation,
+input, pause/restart, audio, bilingual text and validated session snapshots.
+Bombs and blasts use individual simulation timers. Bricks stop blast rays;
+single-player WASD/Q and multiplayer winner calculation are corrected.

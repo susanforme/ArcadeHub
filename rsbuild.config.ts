@@ -17,6 +17,22 @@ export default defineConfig(({ envMode }) => ({
         : undefined,
     copy: [
       {
+        from: './src/games/cut-the-rope/assets/*.txt',
+        to: 'licenses/cut-the-rope/[name][ext]',
+      },
+      {
+        from: './src/games/sokoban/collections',
+        to: 'levels/sokoban',
+      },
+      {
+        from: './src/games/sokoban/assets/LICENSE',
+        to: 'licenses/sokoban.txt',
+      },
+      {
+        from: './src/games/bomberman/assets/NOTICE.txt',
+        to: 'licenses/bomberman-notice.txt',
+      },
+      {
         from: './src/games/metal-slug/assets/NOTICE.txt',
         to: 'licenses/metal-slug-notice.txt',
       },

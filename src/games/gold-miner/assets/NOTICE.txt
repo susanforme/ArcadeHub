@@ -1,0 +1,13 @@
+Gold Miner artwork
+Mining Pixel Game Asset by acdrnx
+Source: https://opengameart.org/content/mining-pixel-game-asset
+Download: https://opengameart.org/sites/default/files/Mining-Gfx.zip
+License: CC0 1.0 Universal (as specified on the source page)
+https://creativecommons.org/publicdomain/zero/1.0/
+Selected sprites have transparent margins trimmed. The cover is composed from
+these same imported sprites. SOURCE.json records the exact source files.
+
+Gold Miner sound effects
+Interface Sounds by Kenney
+Source: https://kenney.nl/assets/interface-sounds
+License: CC0 1.0 Universal; original license retained in LICENSE.txt.

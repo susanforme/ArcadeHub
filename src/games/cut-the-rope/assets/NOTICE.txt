@@ -1,0 +1,32 @@
+Community artwork used by the ArcadeHub Cut the Rope inspired game:
+
+Kenney Platformer Art Candy (CC0)
+https://kenney.nl/assets/platformer-art-candy
+lollipopWhiteRed -> candy.png; cakeHalfMid -> ground.png
+
+Kenney Monster Builder Pack (CC0)
+https://kenney.nl/assets/monster-builder-pack
+body_greenF -> body.png; eye_human_green -> eye.png;
+mouthH -> mouth.png; mouth_closed_happy -> smile.png; leg_greenA -> foot.png
+Monster assembled in the scene from these original parts.
+
+Kenney Physics Assets (CC0)
+https://kenney.nl/assets/physics-assets
+starGold -> star.png; elementMetal001 -> pin.png; elementMetal006 -> spike.png
+Original licenses are included alongside these assets.
+
+Bellows icon by Delapouite (CC BY 3.0)
+https://game-icons.net/1x1/delapouite/bellows.html
+https://creativecommons.org/licenses/by/3.0/
+Source: https://game-icons.net/icons/ffffff/transparent/1x1/delapouite/bellows.svg
+Added an accessibility title; displayed rotated / mirrored in the game.
+Attribution is also displayed in the level-selection screen.
+
+cover.svg is an ArcadeHub composition of these Kenney images.
+
+Gameplay and level design reference:
+https://www.zeptolab.com/games/cut-the-rope
+https://support.arkadium.com/en/support/solutions/articles/44002797498--cut-the-rope-how-to-play-tips-scoring
+12 original layouts based on cutting order, pendulum momentum, bubbles,
+air cushions, and spikes. No original commercial game artwork or source code.
+Physics uses the Matter version bundled by Phaser 4.2.1.

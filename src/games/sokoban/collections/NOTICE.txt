@@ -1,0 +1,16 @@
+Microban II (135 levels) and Sasquatch (50 levels)
+Copyright David W. Skinner
+sasquatch@bentonrea.com
+http://users.bentonrea.com/~sasquatch/sokoban/
+
+The original, unmodified level files are distributed with this application.
+Author's distribution terms as preserved in the Enigma development archive:
+"These sets may be freely distributed provided they remain unchanged and
+credited with my name and email address."
+https://lists.gnu.org/archive/html/enigma-devel/2003-12/msg00018.html
+
+The level sets are not covered by Kenney's CC0 artwork license or by the
+community mirror's software license. ArcadeHub converts exterior spaces to
+non-playable void and pads ragged rows at runtime without changing walls,
+crates, goals, player positions, level order, or original numbering.
+Mirror and fixed revision: see SOURCE.json.

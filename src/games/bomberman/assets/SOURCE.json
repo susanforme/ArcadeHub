@@ -1,0 +1,111 @@
+{
+  "repository": "https://github.com/danielcspaiva/Bomberman-Clone",
+  "commit": "63e2838212227bbcdcb6aa6f6b19c550987bd449",
+  "license": "No standalone license file. Upstream README declares educational use and no ownership of Bomberman sprites or music.",
+  "files": [
+    {
+      "path": "Assets/Sprites/super-bomberman.png",
+      "sha256": "ce020cf0d851e3a483cc6d877a3d8ecc9944b74dc01a354701ac6f1de1d583f5"
+    },
+    {
+      "path": "Assets/Sprites/walking-white.png",
+      "sha256": "1e8c1c01d709a019bab16eb657753e4bc7322434ea4f5e1130b8232bb13887a1"
+    },
+    {
+      "path": "Assets/Sprites/walking-black.png",
+      "sha256": "e612cf9d60c5f65fde76d1a78229bbe31733e558dda8e6d72953d177aeb57954"
+    },
+    {
+      "path": "Assets/Sprites/solidblock.png",
+      "sha256": "44fe6bf016d131c2d84070e9ebafa0dd9610998a37d9e66fe72528305db8ec57"
+    },
+    {
+      "path": "Assets/Sprites/field.png",
+      "sha256": "d732bc2307b0139229198482a6bb64ef89fe8395f14fa680e95686efe8b33f35"
+    },
+    {
+      "path": "Assets/Sprites/wall.png",
+      "sha256": "a903e3ed61f8b02945990462e4ea536b9c5e947177f559641261e2fae7771747"
+    },
+    {
+      "path": "Assets/Sprites/bomb.png",
+      "sha256": "33ccd0f81455277158ca38752cdd76c86570db1e4e20072a81149e191b1f297e"
+    },
+    {
+      "path": "Assets/Sprites/explosion.png",
+      "sha256": "97a50f3cce1a65139edb56384aa1760c1d607811704097255847a5f9e1ab6ce5"
+    },
+    {
+      "path": "Assets/Sprites/Enemies.png",
+      "sha256": "05dd0f18c0f340ac73de2105d22c343d01bd56835fc193547f0807345b151a0b"
+    },
+    {
+      "path": "Assets/Sprites/statusbar-clean.png",
+      "sha256": "327b7fdfe19f79cc4e22ec670b1673f7087878524facb7adea6a75f7ed74c941"
+    },
+    {
+      "path": "Assets/Sprites/white-head.png",
+      "sha256": "1daab0fad83976594834de8ab52265573352efb4ef5bb23e16f8dacbe4e6478d"
+    },
+    {
+      "path": "Assets/Sprites/black-head.png",
+      "sha256": "5144dd6c45be492117471c40b69fdef8519d67775a72663a22e61210e2c2854b"
+    },
+    {
+      "path": "Assets/Sprites/heart.png",
+      "sha256": "62b35246e5506c3b98e70defbe440d3c47f662064c616efa8ddf7d05f457ec7f"
+    },
+    {
+      "path": "Assets/Sprites/items.png",
+      "sha256": "d276e231c7a88131afb568e2adb4d5ddd3599723577b3411dd6d85603ee9a03b"
+    },
+    {
+      "path": "Assets/Audio/apito.wav",
+      "sha256": "c688850df492109c021ae9438e4e489f3b7e248eb6ee2eb5f8040104aa2dfd69"
+    },
+    {
+      "path": "Assets/Audio/Level-1.mp3",
+      "sha256": "8e4dc79b651f9f4e16408180e8c1f4e9af73d041644005ec4dd7c1e84ef76bcf"
+    },
+    {
+      "path": "Assets/Audio/Title.mp3",
+      "sha256": "76c3afd15b1c41994a7f17afa21dc8cab81daf59bbe7de3e569b1ce888b5acfc"
+    },
+    {
+      "path": "Assets/Audio/Stage Complete.mp3",
+      "sha256": "d87d2bd47a6f2a60a04d0dec32e9e41a3afaa2f2943de16e6415ec7ac892814f"
+    },
+    {
+      "path": "Assets/Audio/Bomb2.wav",
+      "sha256": "8456d047e498f3702af87295cf3720d2135b65908d89b228c9ace95b582f20ae"
+    },
+    {
+      "path": "Assets/Audio/Place Bomb2.wav",
+      "sha256": "06190b6af96bd92ecab645c1e387b5cd7cd6120da5530b856e006d5d77210a13"
+    },
+    {
+      "path": "JS/script.js",
+      "sha256": "e6bc16c76b0b085996b0f0e353ab5ab738e3d6ac32709367f65d4619e109ea7a"
+    },
+    {
+      "path": "JS/map.js",
+      "sha256": "55d41a00bedf2fc17e2425585ced6ed1b65bef132b227a975d23ecabf262c989"
+    },
+    {
+      "path": "JS/sprite.js",
+      "sha256": "0970f564e4456036eb8affd14fcba825a6f4ae201dd774d3499ddd79cb53c541"
+    },
+    {
+      "path": "JS/audio.js",
+      "sha256": "51e266985a909941e2bf4ed7035297325b847224f40bd309b32e6c6e587c0be0"
+    },
+    {
+      "path": "README.md",
+      "sha256": "8252dbdcfe1acf093e575a4f1f031ebc7a3f869a2391a16d236e4b7756b9f4b9"
+    },
+    {
+      "path": "Screenshots/screenshot-1.png",
+      "sha256": "cf260a534b5acfa8365536db617ff340435c4f0c5be2d17a598143a884462fde"
+    }
+  ]
+}

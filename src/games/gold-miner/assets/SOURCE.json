@@ -1,0 +1,74 @@
+{
+  "pack": "Mining Pixel Game Asset",
+  "author": "acdrnx",
+  "license": "CC0-1.0",
+  "url": "https://opengameart.org/content/mining-pixel-game-asset",
+  "download": "https://opengameart.org/sites/default/files/Mining-Gfx.zip",
+  "files": {
+    "gold": {
+      "source": "Mining-Gfx/AtlasSingle/item/item_gold.png",
+      "crop": [1, 1, 62, 63],
+      "sha256": "4684ebac3476e742c2ef26c7a78a059141b86260f0202cbe6f3db00f4e608d29"
+    },
+    "diamond": {
+      "source": "Mining-Gfx/AtlasSingle/hud/sym_diamond.png",
+      "crop": [35, 41, 94, 86],
+      "sha256": "77110f9518803d6b0dd7ddceb30cdc0767bbd26f4255206487b36faa1489c520"
+    },
+    "rock": {
+      "source": "Mining-Gfx/AtlasSingle/tiles/rock.png",
+      "crop": [0, 0, 64, 64],
+      "sha256": "6728e01aaa6086b5b8a62baf30c3a693c4d35c9538ed3667382794dfbffb006a"
+    },
+    "bag": {
+      "source": "Mining-Gfx/AtlasSingle/item/item_bag.png",
+      "crop": [0, 0, 55, 54],
+      "sha256": "e7cc26403f187806e1ae371e8fa21b8630c70e2dcafe47849faf9d84e6665cc9"
+    },
+    "dynamite": {
+      "source": "Mining-Gfx/AtlasSingle/item/item_dynamite0.png",
+      "crop": [10, 15, 92, 81],
+      "sha256": "4e4a686401f5f5210418fbf5e087ae8b0aa005233537a07b306108eefa1ad1d6"
+    },
+    "strength": {
+      "source": "Mining-Gfx/AtlasSingle/item/item_energydrink.png",
+      "crop": [15, 4, 51, 59],
+      "sha256": "e1e3cddca8d6984cc70db990517d9baed2f23eaa715d1a09905cdbc92ae2ce2f"
+    },
+    "polish": {
+      "source": "Mining-Gfx/AtlasSingle/shop/shop_diamond1.png",
+      "crop": [9, 2, 155, 128],
+      "sha256": "cbe3c0603fe97afdcd186100c0751834c64d79e1234e7449b11d86f2e299e211"
+    },
+    "miner": {
+      "source": "Mining-Gfx/AtlasSingle/actor/cm-r-wink_1.png",
+      "crop": [15, 6, 48, 64],
+      "sha256": "6a29fbf2556edf00b2dd3ad12d83aa741d74e3230441b930d9c6f6edeb827795"
+    },
+    "sky": {
+      "source": "Mining-Gfx/AtlasSingle/background/background.png",
+      "crop": [0, 0, 192, 128],
+      "sha256": "7484ee65fe612cdfe0590ece705c5370adbfebeec981cebc16868654b5236e00"
+    },
+    "hills": {
+      "source": "Mining-Gfx/AtlasSingle/background/lb-px-background_hill1.png",
+      "crop": [0, 0, 969, 225],
+      "sha256": "1a06cc5da6a322aeaf8390f92b9303797c8c5ca92c40235613f1999bbaa23381"
+    },
+    "earth": {
+      "source": "Mining-Gfx/AtlasSingle/tiles/pxy-earth_0.png",
+      "crop": [0, 0, 66, 66],
+      "sha256": "12e1db08c473fc52e203bb69fd759f086442f821dbb17ce2eaee75e39a0dde89"
+    },
+    "surface": {
+      "source": "Mining-Gfx/AtlasSingle/tiles/pxy-surface_1.png",
+      "crop": [0, 0, 66, 66],
+      "sha256": "5b1cad99e3cf00a044607127c29103bde1b32fe6ea8a1a705ffe231474eea943"
+    },
+    "blast": {
+      "source": "Mining-Gfx/AtlasSingle/lb-r-fire1.png",
+      "crop": [155, 182, 168, 194],
+      "sha256": "a31e368ffb3ce29dc1f9ad4f50851a0e4937711e135490143c1f4df60cf241ac"
+    }
+  }
+}
