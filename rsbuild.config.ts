@@ -17,6 +17,18 @@ export default defineConfig(({ envMode }) => ({
         : undefined,
     copy: [
       {
+        from: './src/games/brotato/assets/*.txt',
+        to: 'licenses/brotato/[name][ext]',
+      },
+      {
+        from: './src/games/minesweeper/assets/*.txt',
+        to: 'licenses/minesweeper/[name][ext]',
+      },
+      {
+        from: './src/games/carrot-fantasy/assets/NOTICE.txt',
+        to: 'licenses/carrot-fantasy-notice.txt',
+      },
+      {
         from: './src/games/cut-the-rope/assets/*.txt',
         to: 'licenses/cut-the-rope/[name][ext]',
       },

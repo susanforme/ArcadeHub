@@ -1,0 +1,291 @@
+[
+  {
+    "part": "body_yellowC",
+    "sha256": "7589b9940e6036d0119d3b006bc679f926d3293ad3efc488b9308e11f793889a"
+  },
+  {
+    "part": "leg_yellowA",
+    "sha256": "0bea32efd4836abaa8ce1ce5f72e42577ccb9b4eb243a7a96bce0600befa9f81"
+  },
+  {
+    "part": "leg_yellowA",
+    "sha256": "0bea32efd4836abaa8ce1ce5f72e42577ccb9b4eb243a7a96bce0600befa9f81"
+  },
+  {
+    "part": "eye_cute_dark",
+    "sha256": "57cd6eca9648085ceea93ab118a949763eb17caccd0872038372a173c872351f"
+  },
+  {
+    "part": "eye_cute_dark",
+    "sha256": "57cd6eca9648085ceea93ab118a949763eb17caccd0872038372a173c872351f"
+  },
+  {
+    "part": "mouth_closed_happy",
+    "sha256": "87e081751c9d0a9fd36c389215bf86ffaa394b5dc5ac0bb6f4944884fa7bc120"
+  },
+  {
+    "part": "body_greenD",
+    "sha256": "159ef02d39449c3889e5eac3a8992004a320029d9b612ee85c97a360d05330c8"
+  },
+  {
+    "part": "leg_greenA",
+    "sha256": "f1c2ab357e497e35b19286a8f503913eac0c3e013802414871db9fbec31aa615"
+  },
+  {
+    "part": "leg_greenA",
+    "sha256": "f1c2ab357e497e35b19286a8f503913eac0c3e013802414871db9fbec31aa615"
+  },
+  {
+    "part": "eye_cute_dark",
+    "sha256": "57cd6eca9648085ceea93ab118a949763eb17caccd0872038372a173c872351f"
+  },
+  {
+    "part": "eye_cute_dark",
+    "sha256": "57cd6eca9648085ceea93ab118a949763eb17caccd0872038372a173c872351f"
+  },
+  {
+    "part": "mouth_closed_teeth",
+    "sha256": "71d14f1c2318b17eac4a1aff9962e9f8d5655f247867e1fac7afe5cd8e9187b1"
+  },
+  {
+    "part": "body_redC",
+    "sha256": "330314f50233112b54a235f33859eaf378fe2cc4eee3e25d9a55b911c5b3243e"
+  },
+  {
+    "part": "leg_redA",
+    "sha256": "05d4d0322f7bbcda4115a50a2213390691c7356d02540694af7200126996862f"
+  },
+  {
+    "part": "leg_redA",
+    "sha256": "05d4d0322f7bbcda4115a50a2213390691c7356d02540694af7200126996862f"
+  },
+  {
+    "part": "eye_angry_red",
+    "sha256": "1f74bdc6e5eb73e2a1a2daee012c3c685664ca23b24043eb9f9808827da979a9"
+  },
+  {
+    "part": "eye_angry_red",
+    "sha256": "1f74bdc6e5eb73e2a1a2daee012c3c685664ca23b24043eb9f9808827da979a9"
+  },
+  {
+    "part": "mouth_closed_teeth",
+    "sha256": "71d14f1c2318b17eac4a1aff9962e9f8d5655f247867e1fac7afe5cd8e9187b1"
+  },
+  {
+    "part": "body_darkA",
+    "sha256": "ed7df2cce4ec2eac0b4928ca0728f06e7ad2c5b9c08e7a457031f2bc1a7df6e4"
+  },
+  {
+    "part": "leg_darkA",
+    "sha256": "e70686278624f9b0e5235f3bd9664d4c514344f17eee09e0536b57c824f4fc5d"
+  },
+  {
+    "part": "leg_darkA",
+    "sha256": "e70686278624f9b0e5235f3bd9664d4c514344f17eee09e0536b57c824f4fc5d"
+  },
+  {
+    "part": "eye_angry_red",
+    "sha256": "1f74bdc6e5eb73e2a1a2daee012c3c685664ca23b24043eb9f9808827da979a9"
+  },
+  {
+    "part": "eye_angry_red",
+    "sha256": "1f74bdc6e5eb73e2a1a2daee012c3c685664ca23b24043eb9f9808827da979a9"
+  },
+  {
+    "part": "mouth_closed_teeth",
+    "sha256": "71d14f1c2318b17eac4a1aff9962e9f8d5655f247867e1fac7afe5cd8e9187b1"
+  },
+  {
+    "part": "body_blueB",
+    "sha256": "092a9f8fc27b55e3aa2ce984d515ebd6fe3bd826a76b10956195a4f6cf83f29c"
+  },
+  {
+    "part": "leg_blueA",
+    "sha256": "ad599bc339d428a38c3bf627c73e79e96392b97962286f322633f4695d51b8de"
+  },
+  {
+    "part": "leg_blueA",
+    "sha256": "ad599bc339d428a38c3bf627c73e79e96392b97962286f322633f4695d51b8de"
+  },
+  {
+    "part": "eye_human_blue",
+    "sha256": "d6984b7923f535a639e0120b184da3b64a9cf46cf93dfe827a31e837afd2e8f6"
+  },
+  {
+    "part": "eye_human_blue",
+    "sha256": "d6984b7923f535a639e0120b184da3b64a9cf46cf93dfe827a31e837afd2e8f6"
+  },
+  {
+    "part": "mouth_closed_teeth",
+    "sha256": "71d14f1c2318b17eac4a1aff9962e9f8d5655f247867e1fac7afe5cd8e9187b1"
+  },
+  {
+    "part": "body_redF",
+    "sha256": "7c96b6efdcb7c9b17ba73000ca87da51c637ffb5559c76eb4006c014a7e26467"
+  },
+  {
+    "part": "leg_redA",
+    "sha256": "05d4d0322f7bbcda4115a50a2213390691c7356d02540694af7200126996862f"
+  },
+  {
+    "part": "leg_redA",
+    "sha256": "05d4d0322f7bbcda4115a50a2213390691c7356d02540694af7200126996862f"
+  },
+  {
+    "part": "eye_angry_red",
+    "sha256": "1f74bdc6e5eb73e2a1a2daee012c3c685664ca23b24043eb9f9808827da979a9"
+  },
+  {
+    "part": "eye_angry_red",
+    "sha256": "1f74bdc6e5eb73e2a1a2daee012c3c685664ca23b24043eb9f9808827da979a9"
+  },
+  {
+    "part": "mouth_closed_teeth",
+    "sha256": "71d14f1c2318b17eac4a1aff9962e9f8d5655f247867e1fac7afe5cd8e9187b1"
+  },
+  {
+    "file": "knife.png",
+    "source": "dungeons/PNG/Double (128px)/Items/weapon_dagger.png",
+    "sha256": "4e607e184949a24449012898aa54465d3f9b8218cbc046b4d804463036ab290c",
+    "crop": [45, 24, 82, 106]
+  },
+  {
+    "file": "spear.png",
+    "source": "dungeons/PNG/Double (128px)/Items/weapon_spear.png",
+    "sha256": "45936d5aa9f299a9925045d28d622ac6ede138468dc927b3b525250231a41fc5",
+    "crop": [49, 2, 80, 125]
+  },
+  {
+    "file": "wand.png",
+    "source": "dungeons/PNG/Double (128px)/Items/weapon_staff.png",
+    "sha256": "534d933b0ddd61a1c3b2f7b472c841905dfdea761c05445184b8437ce2160803",
+    "crop": [41, 6, 87, 122]
+  },
+  {
+    "file": "armor.png",
+    "source": "dungeons/PNG/Double (128px)/Items/shield_curved.png",
+    "sha256": "964b53f4284a05c5aac305e7f062841e8ca1612d849c1655063f6af23fb77f17",
+    "crop": [11, 44, 117, 84]
+  },
+  {
+    "file": "tree.png",
+    "source": "dungeons/PNG/Double (128px)/tree.png",
+    "sha256": "36d97bf0ce57609e12d8c4961ecd7d9107a19cb32d0f34fdf620c91f17e20b62",
+    "crop": [2, 3, 127, 127]
+  },
+  {
+    "file": "crate.png",
+    "source": "dungeons/PNG/Double (128px)/crate.png",
+    "sha256": "10370df195b241343a1c9cfb85f8f769d6b4c0233ebf52b7c9000a47aa1dc4b0",
+    "crop": [0, 1, 127, 128]
+  },
+  {
+    "file": "floor.png",
+    "source": "guns/PNG/Tiles/tile_05.png",
+    "sha256": "82379440b31314746bec20a454b5add881d9595a65d0ea4ec97d9eaddf96808d"
+  },
+  {
+    "file": "pistol.png",
+    "source": "guns/PNG/weapon_gun.png",
+    "sha256": "4757770ce31ae01d8ed8577098248b2c822caadf3ec6b37b2b0adeb267cafa42",
+    "crop": [0, 0, 19, 10]
+  },
+  {
+    "file": "smg.png",
+    "source": "guns/PNG/weapon_machine.png",
+    "sha256": "e0cc97e8d98858ac8bf232430b66219db9497f9d020594e5bb89eb889bcf22a4",
+    "crop": [0, 0, 33, 10]
+  },
+  {
+    "file": "shotgun.png",
+    "source": "guns/PNG/weapon_silencer.png",
+    "sha256": "d5a472970c8c2360224cc1d32d9fddc9d87c07ce4f28d553e8b31025b050f175",
+    "crop": [0, 0, 25, 10]
+  },
+  {
+    "file": "material.png",
+    "source": "src/games/gold-miner/assets/diamond.png",
+    "sha256": "0b4508806558e1c9cf81073cefa949edbc574b2fe99ae90aef801e462cafddd4",
+    "crop": [0, 0, 59, 45]
+  },
+  {
+    "file": "coffee.png",
+    "source": "src/games/gold-miner/assets/strength.png",
+    "sha256": "645f2bddc262270aebaf37fca93dad806cb0d9c0838399eb9cc33ee14b928486",
+    "crop": [0, 0, 36, 55]
+  },
+  {
+    "file": "harvest.png",
+    "source": "src/games/gold-miner/assets/bag.png",
+    "sha256": "6c8cab5fd1b8ca4dcedc674d6531aa93296cd3da24c6ea27abe72a691127983e",
+    "crop": [0, 0, 55, 54]
+  },
+  {
+    "file": "crit.png",
+    "source": "src/games/gold-miner/assets/polish.png",
+    "sha256": "f0c2ddc4063bbf70706bf75b525de2769ec05f6107d15f3d7a7a14222ddf6ebd",
+    "crop": [0, 0, 146, 126]
+  },
+  {
+    "file": "food.png",
+    "source": "src/games/cut-the-rope/assets/candy.png",
+    "sha256": "709a23b6e9b47cb8f437232650635266122b936a94083587a30f17e41d91bc47",
+    "crop": [0, 0, 70, 70]
+  },
+  {
+    "file": "LICENSE-candy.txt",
+    "source": "src/games/cut-the-rope/assets/LICENSE-candy.txt",
+    "sha256": "04d3c15b7800b18eea34fb470b1dafa492163d801550c60ab9f804774bae5b47"
+  },
+  {
+    "file": "boots.png",
+    "source": "monsters/PNG/Double/leg_yellowA.png",
+    "sha256": "0bea32efd4836abaa8ce1ce5f72e42577ccb9b4eb243a7a96bce0600befa9f81",
+    "crop": [0, 0, 144, 334]
+  },
+  {
+    "file": "audio/shoot.ogg",
+    "source": "audio/Audio/laser1.ogg",
+    "sha256": "0bf468769b48a834dc1c6e38e457f2c71159b010225a9aedf84316795e8cc3e5"
+  },
+  {
+    "file": "audio/hit.ogg",
+    "source": "audio/Audio/lowDown.ogg",
+    "sha256": "e0215fcfd8b9d7877f74d5c46b239a13d7db0d25998da97b80404931ef9eef5d"
+  },
+  {
+    "file": "audio/collect.ogg",
+    "source": "audio/Audio/pepSound1.ogg",
+    "sha256": "f2f44effce087e47683f0fea05a71002bd8dca78fb10bf93d9f0b38d49f9590e"
+  },
+  {
+    "file": "audio/upgrade.ogg",
+    "source": "audio/Audio/powerUp1.ogg",
+    "sha256": "8c361b624b560c0bc30ea3063b71212bc30caebf425c9df2481c13b25561485c"
+  },
+  {
+    "file": "LICENSE-monsters.txt",
+    "source": "monsters/License.txt",
+    "sha256": "b8c772c6ae1ae3d13fa3e9be9569b35c6b7671845e1d33ff9e2845d3e3ef3080"
+  },
+  {
+    "file": "LICENSE-dungeons.txt",
+    "source": "dungeons/License.txt",
+    "sha256": "55b8024d2d21d66460d00eebffaa7f6235b70c92be00a42f0de0e61ca675b5c2"
+  },
+  {
+    "file": "LICENSE-shooter.txt",
+    "source": "guns/License.txt",
+    "sha256": "523b1cf39ad1d569cc5d6abc9e8785668208b9c37f1e29383e2a5f8dda8444bc"
+  },
+  {
+    "file": "LICENSE-audio.txt",
+    "source": "audio/License.txt",
+    "sha256": "654d24e000d1c3b2a1d2264151f49e273e8a26d24e26e9bffc2aeb48cea93815"
+  },
+  {
+    "file": "NOTICE-mining.txt",
+    "source": "src/games/gold-miner/assets/NOTICE.txt",
+    "sha256": "4e25fff0a4dd7608753638df7b3fec2fcbc097c98843269afb21cb08129d4c35"
+  }
+]

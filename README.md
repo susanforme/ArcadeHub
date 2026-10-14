@@ -16,7 +16,9 @@ bun run preview
 
 `check` 沿用项目的 Biome 自动修复命令。生产构建结束后生成 `dist/sw.js`，部署整个 `dist` 到静态服务器根路径。正式站点需要 HTTPS（localhost 可直接测试）。
 
-生产构建通过 jsDelivr 加载 Howler 2.2.4、Phaser 4.2.1、React / React DOM 19.3.0（包括 JSX runtime 和 client 子路径），不再将这些包打入本地 JS。开发模式仍使用本地依赖。CDN 地址集中在 `scripts/cdn.ts`，import map 将 React DOM 引用的 React 范围地址统一到固定版本；Service Worker 同时缓存 CDN 模块及 Scheduler，首次加载和缓存需要能访问 jsDelivr。
+生产构建通过 jsDelivr 加载 Howler 2.2.4、Phaser 4.2.1、React / React DOM 19.3.0（包括 JSX runtime 和 client 子路径），不再将这些包打入本地 JS。开发模式仍使用本地依赖。CDN 地址集中在 `scripts/cdn.ts`，import map 将 React DOM 引用的 React 范围地址统一到固定版本；手动离线缓存包含 CDN 模块及 Scheduler，首次加载和缓存需要能访问 jsDelivr。
+
+默认在线游玩，不自动下载离线包。在设置页点击“缓存离线游戏”后才下载全部构建资源，页面提示缓存状态、流量和存储占用。Service Worker 安装时不下载游戏资源；联网导航优先读取最新页面，断网时仅使用已手动缓存的版本。网站更新后清理旧离线包，需重新手动缓存；升级不会清理 IndexedDB 存档。
 
 ## 结构与边界
 
@@ -79,7 +81,7 @@ IndexedDB `arcadehub` / `games` 以游戏 ID 保存本局分数、最高分、�
 
 ## 公用虚拟手柄
 
-`VirtualGamepad` 在 React 中绘制十字方向键与 A/B 操作键，直接接入当前会话的 `InputManager`。按钮身份与游戏动作分开：例如俄罗斯方块 A 映射 `UP`（旋转），B 映射 `DROP`（落底）；坦克 A 映射 `DROP`（开火/菜单确认）。未声明的按钮不显示，方向键可以只配置需要的方向。旧 `touchControls` 字段保留兼容类型，新的手柄界面使用 `virtualGamepad`。
+`VirtualGamepad` 在 React 中绘制十字方向键与 A/B 操作键，直接接入当前会话的 `InputManager`。按钮身份与游戏动作分开：例如俄罗斯方块 A 映射 `UP`（旋转），B 映射 `DROP`（落底）；坦克 A 映射 `DROP`（开火/菜单确认）。未声明的按钮不显示，方向键可以只配置需要的方向。旧 `touchControls` 字段保留兼容类型，新的手柄界面使用 `virtualGamepad`。仅为需要额外触屏按键的游戏声明 `virtualGamepad`；2048、手势版吃豆人（`pacman`）、Flappy Bird 通过滑动或点按即可操作，因此不声明手柄，也不显示工具栏中的手柄开关。
 
 ```ts
 virtualGamepad: {
@@ -105,7 +107,7 @@ virtualGamepad: {
 }
 ```
 
-所有现有游戏都将手柄绝对定位覆盖在游戏区域两侧，不占用布局空间，Canvas 继续使用完整游戏区域。
+声明手柄的游戏将手柄绝对定位覆盖在游戏区域两侧，不占用布局空间，Canvas 继续使用完整游戏区域。
 
 横竖屏位置按视口方向切换，位置相对于游戏区域。方向键整体、A、B 可以分别锚定四个角，`x/y/size` 为 CSS 像素，自动叠加对应边缘安全区；缺省位置使用公用默认值。按钮建议至少 44px；方向区建议至少 132px。`opacity` 范围为 0～1，仅影响正常状态的按钮背景，按下时高亮。游戏配置属于源码，不接受外部运行时数据。
 
@@ -202,3 +204,7 @@ J/X 射击，Space/K 跳跃，L/C 手雷，↑/W 向上瞄准，↓/S 下蹲。�
 `cut-the-rope`：12 个递进物理谜题，鼠标或手指划绳，点击气泡戳破、点击风箱吹气。R 重试，L 选关，Enter 进入下一关，P / Esc 暂停。
 使用 Phaser 内置 Matter，以 120 Hz 固定步长模拟分段绳索、惯性与浮力；进度和每关最佳星数保存在本地，继续游戏从当前关起点恢复。
 美术采用 Kenney 的 Candy、Monster Builder 和 Physics Assets（CC0），风箱图标来自 Delapouite / Game-icons.net（CC BY 3.0）；详细来源和署名见 `src/games/cut-the-rope/assets/NOTICE.txt`。关卡为参考经典机制设计的原创布局。
+
+## 土豆兄弟 / Brotato
+
+新增 `brotato` 插件：20 波自动战斗、三种角色、六种武器与六槽构筑、十种属性取舍道具、每级四选一强化、随机商店（锁定 / 刷新 / 合成 / 回收），以及最终 Boss。支持 WASD / 方向键、拖动与八向虚拟手柄，复用暂停和存档。玩法依据和社区素材授权见 [游戏说明](src/games/brotato/README.md)。

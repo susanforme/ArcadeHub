@@ -12,11 +12,6 @@ export default {
     { key: 'controls.clickTapTheScreen', description: 'controls.startFlap' },
     { key: 'P / Esc', description: 'controls.pauseGame' },
   ],
-  virtualGamepad: {
-    buttons: [{ id: 'A', action: 'UP', label: 'controls.flap' }],
-  },
-  touchControls: [
-    { action: 'UP', label: 'controls.flap', symbol: 'controls.flap' },
-  ],
+  touchControls: [],
   load: () => import('./index'),
 } satisfies GameManifest;

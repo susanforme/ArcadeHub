@@ -1,0 +1,147 @@
+{
+  "Bottle": [
+    {
+      "cost": 100,
+      "upgrade": 180,
+      "sell": 80,
+      "range": 130.0,
+      "interval": 0.5,
+      "damage": 20,
+      "speed": 250
+    },
+    {
+      "cost": 0,
+      "upgrade": 260,
+      "sell": 224,
+      "range": 150.0,
+      "interval": 0.3,
+      "damage": 40,
+      "speed": 270
+    },
+    {
+      "cost": 0,
+      "upgrade": 0,
+      "sell": 432,
+      "range": 180.0,
+      "interval": 0.1,
+      "damage": 80,
+      "speed": 290
+    }
+  ],
+  "Shit": [
+    {
+      "cost": 120,
+      "upgrade": 220,
+      "sell": 96,
+      "range": 130.0,
+      "interval": 2.0,
+      "damage": 10,
+      "speed": 220
+    },
+    {
+      "cost": 0,
+      "upgrade": 260,
+      "sell": 272,
+      "range": 150.0,
+      "interval": 1.5,
+      "damage": 20,
+      "speed": 230
+    },
+    {
+      "cost": 0,
+      "upgrade": 0,
+      "sell": 480,
+      "range": 180.0,
+      "interval": 1.0,
+      "damage": 40,
+      "speed": 240
+    }
+  ],
+  "Fan": [
+    {
+      "cost": 160,
+      "upgrade": 220,
+      "sell": 128,
+      "range": 150.0,
+      "interval": 1.8,
+      "damage": 15,
+      "speed": 200
+    },
+    {
+      "cost": 0,
+      "upgrade": 260,
+      "sell": 304,
+      "range": 180.0,
+      "interval": 1.5,
+      "damage": 25,
+      "speed": 220
+    },
+    {
+      "cost": 0,
+      "upgrade": 0,
+      "sell": 512,
+      "range": 200.0,
+      "interval": 1.2,
+      "damage": 35,
+      "speed": 250
+    }
+  ],
+  "Star": [
+    {
+      "cost": 160,
+      "upgrade": 220,
+      "sell": 128,
+      "range": 150.0,
+      "interval": 1.5,
+      "damage": 20,
+      "speed": 200
+    },
+    {
+      "cost": 0,
+      "upgrade": 260,
+      "sell": 304,
+      "range": 180.0,
+      "interval": 1.2,
+      "damage": 40,
+      "speed": 220
+    },
+    {
+      "cost": 0,
+      "upgrade": 0,
+      "sell": 512,
+      "range": 200.0,
+      "interval": 1.0,
+      "damage": 70,
+      "speed": 250
+    }
+  ],
+  "Ball": [
+    {
+      "cost": 160,
+      "upgrade": 320,
+      "sell": 128,
+      "range": 150.0,
+      "interval": 0.2,
+      "damage": 10,
+      "speed": 500
+    },
+    {
+      "cost": 0,
+      "upgrade": 480,
+      "sell": 384,
+      "range": 180.0,
+      "interval": 0.15,
+      "damage": 20,
+      "speed": 500
+    },
+    {
+      "cost": 0,
+      "upgrade": 0,
+      "sell": 768,
+      "range": 200.0,
+      "interval": 0.1,
+      "damage": 40,
+      "speed": 500
+    }
+  ]
+}

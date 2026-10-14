@@ -1,0 +1,10 @@
+Carrot Fantasy / 保卫萝卜 artwork and map layouts belong to their original rights holders.
+Assets are reused at the user's request from public educational recreations:
+- https://github.com/JezaChen/CarrotGuardGame (Resources/Themes, Resources/csv, Resources/level, Resources/Music)
+- https://github.com/cocos-creator-demo/cocos-carrot-fantasy (assets/GamePlay/Carrot/Carrot1/hlb1_10.png)
+Neither repository supplies a license granting commercial redistribution of this artwork.
+This notice records provenance and is not a license or a claim of ownership.
+
+Maps: Sky theme levels 1-12, original BGPath.tmx layouts and LevelConfig.xml values.
+Sprites: losslessly unpacked from TexturePacker plist atlases, retaining source canvas alignment.
+The Phaser game implementation is new; original Cocos source code is not bundled or executed.

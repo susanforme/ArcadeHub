@@ -1,0 +1,5 @@
+{
+  "beginner": { "cols": 9, "rows": 9, "mines": 10 },
+  "intermediate": { "cols": 16, "rows": 16, "mines": 40 },
+  "expert": { "cols": 30, "rows": 16, "mines": 99 }
+}

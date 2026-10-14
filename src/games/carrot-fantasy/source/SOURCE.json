@@ -1,0 +1,290 @@
+{
+  "repository": "https://github.com/JezaChen/CarrotGuardGame",
+  "tree": "478f66092f994b95408fa130e8b0418af4f9828f",
+  "resources": [
+    {
+      "path": "Resources/Music/Items/BGMusic01.mp3",
+      "blob": "b1c58bf65fd1abfa354ceb018e4b68fdbcc77b3a"
+    },
+    {
+      "path": "Resources/Music/Items/TowerBulid.mp3",
+      "blob": "99b863efce8007779ec1712f1da5e8cf5c1f85a5"
+    },
+    {
+      "path": "Resources/Music/Items/TowerSell.mp3",
+      "blob": "1f20c41853543c0783861c438c7bc36c7f9813c7"
+    },
+    {
+      "path": "Resources/Music/Items/TowerUpdata.mp3",
+      "blob": "78708f848a2476ab8f9a9ca880216f55de4a780e"
+    },
+    {
+      "path": "Resources/Themes/Items/Items00-hd.plist",
+      "blob": "d974800e9bd25187dc7e137635b13563e05c3ff5"
+    },
+    {
+      "path": "Resources/Themes/Items/Items00-hd.png",
+      "blob": "8355ea68632c6ad581818f12661bb00175944547"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG0/BG1-hd.plist",
+      "blob": "217f29757809cff5c08f0db5864caf73163993b0"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG0/BG1-hd.png",
+      "blob": "cf1075c30ea702018daa9e20d836204968a23d7a"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG0/BG2-hd.plist",
+      "blob": "086e567718f88a152602ad6857cde015344562ad"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG0/BG2-hd.png",
+      "blob": "3161b748fcc2c6476924208f483b957916108dbd"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG1/BG-hd.plist",
+      "blob": "a3d2ad669cfaac6a5c51426e9c3428c598b58b6d"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG1/BG-hd.png",
+      "blob": "ce0c4d60b6d5ee120d1f238049ada77e19f55a8d"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG1/BGPath.tmx",
+      "blob": "9308c3672b4b61b5b504013c9ea58d2f690de751"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG10/BG-hd.plist",
+      "blob": "f3340ed2e4efd7985978ca1df6483cfbda74ad87"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG10/BG-hd.png",
+      "blob": "122b07e4adcfc73d2d7be1e328639b06069cc3c4"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG10/BGPath.tmx",
+      "blob": "05981d2b043411ae0ad9666a06eaf36c14903cd4"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG11/BG-hd.plist",
+      "blob": "8dfb2d03db9adc3640ef5142774fa0f404cb232a"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG11/BG-hd.png",
+      "blob": "fd6c9b0ef767bba96735e8642f6f215e4f6e7152"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG11/BGPath.tmx",
+      "blob": "cb88aa23ceef5d0c0ea3dcf6918ca34385804a8a"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG12/BG-hd.plist",
+      "blob": "252ea6229a6edc1309507919bd8e7088e3ffe9b7"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG12/BG-hd.png",
+      "blob": "015080080609f550fa6a57cd1c1d693c2b9bf448"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG12/BGPath.tmx",
+      "blob": "1a37b06291f48e2d53c3208014ef7918141c523b"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG2/BG-hd.plist",
+      "blob": "9e9d25117ad32ab26a1446d43d230f23d7bc8bd6"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG2/BG-hd.png",
+      "blob": "9256284508313a104d499f21fa11c30babf587eb"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG2/BGPath.tmx",
+      "blob": "cbf96b69c8cc5a507058953a197a87f6a18263c6"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG3/BG-hd.plist",
+      "blob": "458c9c23326c72dec004de7d368c7e487348c018"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG3/BG-hd.png",
+      "blob": "fc27e7c716c8d2a29528003fef720f3553ffc31f"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG3/BGPath.tmx",
+      "blob": "09ce2a87a8cd2590c298a03f87b688a520b1fe9e"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG4/BG-hd.plist",
+      "blob": "584f7de8d88d44198a8b45ce31624a6e5bbbc972"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG4/BG-hd.png",
+      "blob": "07b6cd45f0dc57bf912dac26e8764554fd599d2a"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG4/BGPath.tmx",
+      "blob": "1aaf4c56b86e15d7491efc7112cb14694d88bbf7"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG5/BG-hd.plist",
+      "blob": "1aba71ddd94500ba133d26825f56a47f2438cf01"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG5/BG-hd.png",
+      "blob": "efbe97b6bafee0690be60f39fb103375870fb130"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG5/BGPath.tmx",
+      "blob": "127269798c094f5df6b779075ec62558ab8a5d1b"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG6/BG-hd.plist",
+      "blob": "c9819febd1ce89936823a90e6e9a49fb6a9ab2e2"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG6/BG-hd.png",
+      "blob": "2352bfcd9b7ed4f1b82922af8d744818877869db"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG6/BGPath.tmx",
+      "blob": "8e35ea598c01c9546a4a28fd2a56482cd804da6d"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG7/BG-hd.plist",
+      "blob": "9bfc0457790b35c47762c72543e9af406444a247"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG7/BG-hd.png",
+      "blob": "010cbcca4dc34c43543b9c08b64342e3ab4e0371"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG7/BGPath.tmx",
+      "blob": "ba0ed60199daa87a3ca83ed2d560303b3d744f9b"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG8/BG-hd.plist",
+      "blob": "a59a8d9f4b70dd9d5e25f4eddf2ca8ecc089b03f"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG8/BG-hd.png",
+      "blob": "2886b9415255bc48c5b7ea53dcd2afa3701b5bea"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG8/BGPath.tmx",
+      "blob": "5a90f548a4ce85c3132761cd07330481e07dd5e9"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG9/BG-hd.plist",
+      "blob": "646f5303d3f6e0e6393df92e514d1d8994210a86"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG9/BG-hd.png",
+      "blob": "f08cc024739be7b8fd4b4e007940817d0c370408"
+    },
+    {
+      "path": "Resources/Themes/Theme1/BG9/BGPath.tmx",
+      "blob": "3b69da9eebe129939a2774db70c6efd2a63ce242"
+    },
+    {
+      "path": "Resources/Themes/Theme1/Items/Monsters01-hd.plist",
+      "blob": "fc90666c3a8595f9e0e9fde600e61e1aa768d4fe"
+    },
+    {
+      "path": "Resources/Themes/Theme1/Items/Monsters01-hd.png",
+      "blob": "f6ba0730ca44db7640e81224b679f077420999c1"
+    },
+    {
+      "path": "Resources/Themes/Theme1/Items/Monsters02-hd.plist",
+      "blob": "067c2d638ff30bee6feca7dea5ee03bf94357bbc"
+    },
+    {
+      "path": "Resources/Themes/Theme1/Items/Monsters02-hd.png",
+      "blob": "7d41ee7a35d90c217b651273a8bcc5895c9e5ad7"
+    },
+    {
+      "path": "Resources/Themes/Theme1/Items/Object01-hd.plist",
+      "blob": "979404809e800c6e6c2619477d5065fee349f8a0"
+    },
+    {
+      "path": "Resources/Themes/Theme1/Items/Object01-hd.png",
+      "blob": "cee3b935666045831279a24f943f5b30ab369c95"
+    },
+    {
+      "path": "Resources/Themes/Theme1/Items/Object02-hd.plist",
+      "blob": "08f8f0c51a3742f9a88e7d85203ebf81896d9fde"
+    },
+    {
+      "path": "Resources/Themes/Theme1/Items/Object02-hd.png",
+      "blob": "405d5d2061a232e242f564296e15db3772f5f1aa"
+    },
+    {
+      "path": "Resources/Themes/Towers/TBall-hd.plist",
+      "blob": "5e1691e10ce99390f9e81136f16acd80b3037849"
+    },
+    {
+      "path": "Resources/Themes/Towers/TBall-hd.png",
+      "blob": "305d3e606320667db5880400e4d3e11a17c1acde"
+    },
+    {
+      "path": "Resources/Themes/Towers/TBottle-hd.plist",
+      "blob": "0e6e6b1cd0f133987998f1c40f6149ef6ac228ee"
+    },
+    {
+      "path": "Resources/Themes/Towers/TBottle-hd.png",
+      "blob": "567f022a2b563ae0ee2a1013d3dc72bf010c53e9"
+    },
+    {
+      "path": "Resources/Themes/Towers/TFan-hd.plist",
+      "blob": "502fd24371d1858fa40f04eae8e3c413d1eea0c6"
+    },
+    {
+      "path": "Resources/Themes/Towers/TFan-hd.png",
+      "blob": "13ce5fc1823a32adfa32bbd1ba5a86dd77a6a7bd"
+    },
+    {
+      "path": "Resources/Themes/Towers/TShit-hd.plist",
+      "blob": "74cd2f50a3a20a02d111a2299d5fb746fa1048e4"
+    },
+    {
+      "path": "Resources/Themes/Towers/TShit-hd.png",
+      "blob": "886ac147839f2fd3a585f67a93e93dac1cd94dbf"
+    },
+    {
+      "path": "Resources/Themes/Towers/TStar-hd.plist",
+      "blob": "887b1ab6539bcb98d9025c1e54d5bb81e3cd4e8d"
+    },
+    {
+      "path": "Resources/Themes/Towers/TStar-hd.png",
+      "blob": "6d6be9e57b336eec767729d4f7b74cdbe580e130"
+    },
+    {
+      "path": "Resources/Themes/scene/gamemenu-hd.plist",
+      "blob": "bc2494488e2a24a1f8de82040967ff9cfa0b915c"
+    },
+    {
+      "path": "Resources/Themes/scene/gamemenu-hd.png",
+      "blob": "819592397fc90794a40d214d1cf5324cb7d64a7c"
+    },
+    {
+      "path": "Resources/csv/Barrier.csv",
+      "blob": "986c9435151c5047f3419c3b754f00905d120ba6"
+    },
+    {
+      "path": "Resources/csv/Bullet.csv",
+      "blob": "a66327b3d01a1da541263680dcac7d798cf422ae"
+    },
+    {
+      "path": "Resources/csv/Monster.csv",
+      "blob": "77fa7fe5c283e8daa495d46d458af55988f9bb20"
+    },
+    {
+      "path": "Resources/csv/Tower.csv",
+      "blob": "b525bb67bb9a3a2856816442d1a72cff9ef1660e"
+    },
+    {
+      "path": "Resources/level/LevelConfig.xml",
+      "blob": "847614685eb1bfa851c35e91a5d56419aa72adbd"
+    }
+  ]
+}

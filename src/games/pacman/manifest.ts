@@ -12,14 +12,6 @@ export default {
     { key: 'controls.swipeTheScreen', description: 'controls.swipeToTurn' },
     { key: 'P / Esc', description: 'controls.pauseGame' },
   ],
-  virtualGamepad: {
-    directions: ['UP', 'DOWN', 'LEFT', 'RIGHT'],
-  },
-  touchControls: [
-    { action: 'LEFT', label: 'controls.left', symbol: '←' },
-    { action: 'UP', label: 'controls.up', symbol: '↑' },
-    { action: 'DOWN', label: 'controls.down', symbol: '↓' },
-    { action: 'RIGHT', label: 'controls.right', symbol: '→' },
-  ],
+  touchControls: [],
   load: () => import('./index'),
 } satisfies GameManifest;

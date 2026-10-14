@@ -1,0 +1,93 @@
+[
+  {
+    "kind": "land_star",
+    "hp": 20,
+    "speed": 80,
+    "reward": 14,
+    "attack": 1
+  },
+  {
+    "kind": "land_pink",
+    "hp": 20,
+    "speed": 80,
+    "reward": 14,
+    "attack": 1
+  },
+  {
+    "kind": "land_nima",
+    "hp": 20,
+    "speed": 80,
+    "reward": 14,
+    "attack": 1
+  },
+  {
+    "kind": "land_boss_star",
+    "hp": 200,
+    "speed": 80,
+    "reward": 14,
+    "attack": 2
+  },
+  {
+    "kind": "land_boss_pink",
+    "hp": 200,
+    "speed": 80,
+    "reward": 14,
+    "attack": 2
+  },
+  {
+    "kind": "land_boss_nima",
+    "hp": 250,
+    "speed": 80,
+    "reward": 14,
+    "attack": 2
+  },
+  {
+    "kind": "fly_yellow",
+    "hp": 60,
+    "speed": 110,
+    "reward": 14,
+    "attack": 1
+  },
+  {
+    "kind": "fly_blue",
+    "hp": 80,
+    "speed": 100,
+    "reward": 14,
+    "attack": 1
+  },
+  {
+    "kind": "fly_boss_yellow",
+    "hp": 180,
+    "speed": 110,
+    "reward": 14,
+    "attack": 2
+  },
+  {
+    "kind": "fly_boss_blue",
+    "hp": 180,
+    "speed": 110,
+    "reward": 14,
+    "attack": 2
+  },
+  {
+    "kind": "fat_green",
+    "hp": 200,
+    "speed": 60,
+    "reward": 14,
+    "attack": 1
+  },
+  {
+    "kind": "fat_boss_green",
+    "hp": 400,
+    "speed": 60,
+    "reward": 168,
+    "attack": 2
+  },
+  {
+    "kind": "boss_big",
+    "hp": 1000,
+    "speed": 30,
+    "reward": 999,
+    "attack": 3
+  }
+]

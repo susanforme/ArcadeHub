@@ -9,6 +9,7 @@ import type { GameManifest, SessionState } from '../core/types';
 import { useI18n } from '../i18n';
 import { translate } from '../i18n/translate';
 import { Audio } from '../shared/audio';
+import { registerOfflineWorker, requestOffline } from '../shared/offline';
 import { type GameSave, listSaves } from '../shared/storage';
 import styles from './App.module.css';
 import { useRoute } from './router';
@@ -132,6 +133,12 @@ export default function App() {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('categories.all');
   const [offlineReady, setOfflineReady] = useState(false);
+  const [offlineWorker, setOfflineWorker] = useState<ServiceWorker | null>(
+    null,
+  );
+  const [offlineState, setOfflineState] = useState<
+    'loading' | 'idle' | 'caching' | 'error' | 'unavailable'
+  >('loading');
   useEffect(() => {
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
     document.title = `ArcadeHub · ${t('library.readyBadge').replace('✦ ', '')}`;
@@ -157,16 +164,48 @@ export default function App() {
     if (
       process.env.NODE_ENV !== 'production' ||
       !('serviceWorker' in navigator)
-    )
+    ) {
+      setOfflineState('unavailable');
       return;
-    void navigator.serviceWorker
-      .register('/sw.js')
-      .then(async () => {
-        const registration = await navigator.serviceWorker.ready;
-        if (registration.active) setOfflineReady(true);
-      })
-      .catch(() => setOfflineReady(false));
+    }
+    let disposed = false;
+    const refreshOffline = async () => {
+      try {
+        const worker = await registerOfflineWorker();
+        const ready = await requestOffline(worker, 'OFFLINE_STATUS');
+        if (!disposed) {
+          setOfflineWorker(worker);
+          setOfflineReady(ready);
+          setOfflineState('idle');
+        }
+      } catch {
+        if (!disposed) setOfflineState('unavailable');
+      }
+    };
+    void refreshOffline();
+    navigator.serviceWorker.addEventListener(
+      'controllerchange',
+      refreshOffline,
+    );
+    return () => {
+      disposed = true;
+      navigator.serviceWorker.removeEventListener(
+        'controllerchange',
+        refreshOffline,
+      );
+    };
   }, []);
+  const cacheOffline = async () => {
+    if (!offlineWorker || offlineState === 'caching') return;
+    setOfflineState('caching');
+    try {
+      const ready = await requestOffline(offlineWorker, 'CACHE_OFFLINE');
+      setOfflineReady(ready);
+      setOfflineState(ready ? 'idle' : 'error');
+    } catch {
+      setOfflineState('error');
+    }
+  };
   const currentGame = route.startsWith('/game/')
     ? games.find((game) => game.id === route.slice(6))
     : undefined;
@@ -428,10 +467,41 @@ export default function App() {
                   <span>{Math.round(volume * 100)}%</span>
                 </div>
                 <p>{t('saves.storageHint')} </p>
-                <p>
-                  {offlineReady
-                    ? t('offline.cached')
-                    : t('offline.instructions')}
+                <div className={styles.offlineControls}>
+                  <div>
+                    <h3>{t('offline.title')}</h3>
+                    <p>{t('offline.instructions')}</p>
+                    <p>{t('offline.updateHint')}</p>
+                  </div>
+                  <button
+                    type="button"
+                    className={styles.secondary}
+                    disabled={
+                      offlineState === 'loading' ||
+                      offlineState === 'caching' ||
+                      offlineState === 'unavailable'
+                    }
+                    onClick={() => void cacheOffline()}
+                  >
+                    {offlineState === 'caching'
+                      ? t('offline.caching')
+                      : offlineReady
+                        ? t('offline.recache')
+                        : t('offline.cacheAction')}
+                  </button>
+                </div>
+                <p role="status" aria-live="polite">
+                  {offlineState === 'error'
+                    ? t('offline.failed')
+                    : offlineState === 'unavailable'
+                      ? t('offline.unavailable')
+                      : offlineState === 'caching'
+                        ? t('offline.cachingHint')
+                        : offlineState === 'loading'
+                          ? t('offline.checking')
+                          : offlineReady
+                            ? t('offline.cached')
+                            : t('offline.notCached')}
                 </p>
               </section>
             </>
