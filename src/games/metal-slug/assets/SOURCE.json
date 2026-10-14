@@ -1,0 +1,76 @@
+{
+  "repository": "https://github.com/giacoballoccu/MetalSlugClone",
+  "commit": "541c189ec7db03bbc588144926904a8ba3b81bae",
+  "license": "No root license file provided by upstream. Original game artwork/audio retain their respective owners rights.",
+  "conversion": "Unity sprite rectangles cropped and packed, GIF transparency preserved; C# gameplay rewritten in TypeScript.",
+  "files": [
+    {
+      "path": "Assets/Sprites/Characters/Marco/marco.gif",
+      "sha256": "6f0ed872f1c577255bc55f90aa6c66ab69de1fa4b6660b585af728d55ea69d4a"
+    },
+    {
+      "path": "Assets/Sprites/Characters/Enemies/SimpleSoldier/simpleSoldier.png",
+      "sha256": "6e570e2fbd37cd8c6e7e0b5e668df2f741470c7ac4859848eb8060139455bad8"
+    },
+    {
+      "path": "Assets/Sprites/Characters/Enemies/Crab/greencrab.gif",
+      "sha256": "a660bd031c65c003bd6bd2655d5e358addd7074b3be1e5d9bffbeb373ee92c10"
+    },
+    {
+      "path": "Assets/Sprites/Characters/Enemies/Heli/Neo Geo NGCD - Metal Slug 3 - MH-6J Masknell.png",
+      "sha256": "2d9ec2ebab0f6c0192ddf98c8fdbf6aa91dbcc00fd48832a0ef7ce75b870caea"
+    },
+    {
+      "path": "Assets/Sprites/Characters/Enemies/Boss/HugeErmit/hugeermit.png",
+      "sha256": "f8805a25f14429c8667c8ae42e40dcf665f219d3eaf0d22563ba7b27a7f30b59"
+    },
+    {
+      "path": "Assets/Sprites/Characters/Enemies/Boss/Monoeyes/ufo.png",
+      "sha256": "b3cb004a203df6e22400335d16e02a6fb75c4bf601dca33e482ca28f8dc6ee2c"
+    },
+    {
+      "path": "Assets/Sprites/Characters/Enemies/Boss/SolDae/Neo Geo NGCD - Metal Slug 3 - Sol Dae Rokker.png",
+      "sha256": "a4b63b329af23857e035452b3d77ec9c9abecabfe0a47c45f672f064a61c5bea"
+    },
+    {
+      "path": "Assets/Sprites/Explosions/EXPLOSIONSANDGRANATE.png",
+      "sha256": "ee0e5a82014ecbaab6ab9b2cd23e0be37d007302384f0d16e9d16b7e01b93b4d"
+    },
+    {
+      "path": "Assets/Sprites/Missions/Mission1/foreground.png",
+      "sha256": "daa3f16150aa59f21954a85d6350bbdbc38e9ffe4e141e3cfa1ad3cc8b716dc0"
+    },
+    {
+      "path": "Assets/Sprites/Missions/Mission2/foreground.png",
+      "sha256": "fca7c81c960837890069c2a85a3dc54078c9bb40730a9cb9f697e72f05921b20"
+    },
+    {
+      "path": "Assets/Sprites/Missions/Mission3/Neo Geo NGCD - Metal Slug 3 - Mission 4-4B.png",
+      "sha256": "1d62704a4b978331cb5be13b3220269b8ce2ba20d2143838b32a30719c5842de"
+    },
+    {
+      "path": "Assets/Sprites/gemslug-logo.png",
+      "sha256": "a138974ab2d56237748c14b97d9819bf3c1f618908915c127952e0684671559f"
+    },
+    {
+      "path": "Assets/Audio/Effects/mslug3-84-normal-shot.mp3",
+      "sha256": "1a1d962082044ba75ec98fbf466d2235aac712732e0937fca6ff770da9ab3b7e"
+    },
+    {
+      "path": "Assets/Audio/Effects/metal-slug-77-heavy-shot.mp3",
+      "sha256": "1b03906ce02aa9522a7a00f4e6df03e3359a304d4f6be58d519cff7ef602b6b3"
+    },
+    {
+      "path": "Assets/Audio/Effects/mslu3-grenade-hit.mp3",
+      "sha256": "870174ce6cf070789bf7853984d51430af33d4b5656b880c523fcb2540dd3a50"
+    },
+    {
+      "path": "Assets/Audio/Effects/mslug3-93-collectible-grab.mp3",
+      "sha256": "360f07b973e34d9af8edd1535f49cd12fc60374649777533c949a41f288bb3ab"
+    },
+    {
+      "path": "Assets/Audio/Effects/marco-death.mp3",
+      "sha256": "05f5d918a7804a3f3f3797bfc75311b2a72b1d4a434f6e4ee850346c10f5b19c"
+    }
+  ]
+}

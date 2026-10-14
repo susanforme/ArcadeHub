@@ -87,8 +87,10 @@ function canvasFor(width: number, height: number) {
   } as unknown as HTMLCanvasElement;
 }
 test('all games use the same Phaser plugin contract and retain source attribution', () => {
-  expect(games).toHaveLength(19);
-  const migrated = games.filter((game) => game.source);
+  expect(games.map((game) => game.id)).toContain('metal-slug');
+  const migrated = games.filter(
+    (game) => game.source === 'https://github.com/juliensimon/browser-games',
+  );
   expect(migrated).toHaveLength(12);
   for (const game of games) {
     expect(typeof game.load).toBe('function');

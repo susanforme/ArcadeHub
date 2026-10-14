@@ -17,6 +17,10 @@ export default defineConfig(({ envMode }) => ({
         : undefined,
     copy: [
       {
+        from: './src/games/metal-slug/assets/NOTICE.txt',
+        to: 'licenses/metal-slug-notice.txt',
+      },
+      {
         from: './src/games/battle-city/assets/LICENSE',
         to: 'licenses/battle-city.txt',
       },

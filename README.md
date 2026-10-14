@@ -165,7 +165,7 @@ Pointer Events 统一处理触屏、鼠标和触笔，指针捕获处理按钮�
 
 ## 中英文国际化
 
-大厅顶部与设置页面均提供中文 / English 选择，默认中文，与音量一起保存到 `arcadehub-settings`。刷新后恢复选择，切换语言不会重建游戏或清空存档。大厅、搜索、详情、存档、设置、工具栏、虚拟手柄、辅助技术标签，以及全部 19 款游戏的文字均通过同一套 `src/i18n/locales/zh.json`、`en.json` 资源翻译。游戏标题、商标图形与版权署名保留原有品牌素材。
+大厅顶部与设置页面均提供中文 / English 选择，默认中文，与音量一起保存到 `arcadehub-settings`。刷新后恢复选择，切换语言不会重建游戏或清空存档。大厅、搜索、详情、存档、设置、工具栏、虚拟手柄、辅助技术标签，以及全部 20 款游戏的文字均通过同一套 `src/i18n/locales/zh.json`、`en.json` 资源翻译。游戏标题、商标图形与版权署名保留原有品牌素材。
 
 React 使用 `useI18n()`，Phaser 使用 `t()`，静态文字随语言变化更新。分数、关卡、波次、生命等动态值通过命名占位符（如 `{score}`、`{level}`）保留。Flappy Bird 与小恐龙的提示文字从固定英语图片改为可翻译文本。
 
@@ -178,3 +178,9 @@ React 使用 `useI18n()`，Phaser 使用 `t()`，静态文字随语言变化更�
 原版 Canvas 及已渲染的 Phaser 文字需要读取原来的文字输入；其兼容转换集中在 `rendered-text.ts`，普通页面和 Phaser 文案通过语义 key 直接查询资源。不要在业务 `t()` 调用里使用中文句子或将运行时拼接的句子当作 key。
 
 约定参考 [i18next namespaces](https://www.i18next.com/principles/namespaces)、[i18next TypeScript](https://www.i18next.com/overview/typescript) 和 [社区命名指南](https://gist.github.com/Lemmings19/38225ba78c8cce4f68318a1e2410d325)。自然语言 key 是受支持的替代方案，本项目选择语义 key 以分离文案与标识、明确使用场景。
+
+## 合金弹头 Metal Slug
+
+将 [giacoballoccu/MetalSlugClone](https://github.com/giacoballoccu/MetalSlugClone) 的 Unity 2018 工程改写为原生 Phaser 插件，复用原角色动画、背景与音效，提供海滩、夜间残骸、神庙三关，以及手枪/重机枪/近战/手雷和三种 Boss。支持平台键盘、实体及虚拟手柄、暂停、全屏、中英切换和完整战斗状态存档。
+
+J/X 射击，Space/K 跳跃，L/C 手雷，↑/W 向上瞄准，↓/S 下蹲。关卡布局和 Boss 攻击重新编排；原版事件演出、乘船/水下/载具等差异见 `src/games/metal-slug/README.md`。上游版本和资源校验值见 `assets/SOURCE.json`；原仓库没有根级许可证，保留来源和权利声明并生成 `licenses/metal-slug-notice.txt`。

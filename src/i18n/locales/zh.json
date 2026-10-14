@@ -423,5 +423,18 @@
   "controls.aimDown": "瞄准下方",
   "controls.switchPlayers": "切换人数",
   "controls.leftBattery": "左炮台",
-  "controls.rightBattery": "右炮台"
+  "controls.rightBattery": "右炮台",
+  "games.metal-slug.name": "合金弹头 · Metal Slug",
+  "games.metal-slug.subtitle": "三关横版动作射击 · Phaser 移植",
+  "games.metal-slug.description": "基于 MetalSlugClone 原素材重写的 Phaser 横版射击游戏。穿越海滩、夜间残骸和神庙，使用手枪、重机枪、近身攻击与手雷击败士兵、巨蟹、直升机以及三关 Boss。支持键盘、实体/虚拟手柄、暂停与进度存档。关卡布局和 Boss 攻击为重新编排。",
+  "games.metal-slug.aim": "向上瞄准 / 下蹲",
+  "games.metal-slug.fire": "射击 / 近身攻击（可长按）",
+  "games.metal-slug.jump": "跳跃",
+  "games.metal-slug.grenade": "投掷手雷",
+  "games.metal-slug.hud": "关卡 {level}/3   HP {hp}   手雷 {bombs}   弹药 {ammo}\n得分 {score}",
+  "games.metal-slug.hint": "J 射击 · 空格跳跃 · L 手雷 · ↑ 向上瞄准 · ↓ 下蹲",
+  "games.metal-slug.ready": "任务开始\n移动、射击或跳跃出发",
+  "games.metal-slug.clear": "第 {level} 关完成！",
+  "games.metal-slug.victory": "三关完成 · 任务成功！",
+  "games.metal-slug.shoot": "射击"
 }

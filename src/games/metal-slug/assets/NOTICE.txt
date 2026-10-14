@@ -1,0 +1,21 @@
+Metal Slug Phaser adaptation for ArcadeHub
+
+Source: https://github.com/giacoballoccu/MetalSlugClone
+Upstream revision: 541c189ec7db03bbc588144926904a8ba3b81bae
+Upstream authors: giacoballoccu and the repository contributors.
+The upstream Unity project is titled MetalSlugClone / Gem Slug.
+
+No root LICENSE file was included in the upstream revision. Do not interpret
+this adaptation or this notice as granting rights to the upstream code,
+Metal Slug trademarks, artwork, sprites or audio. These retain their
+respective owners' rights. Check the necessary permissions before distribution.
+
+The Phaser/TypeScript gameplay is a new implementation. Selected Unity sprite
+rectangles were extracted into a PNG atlas without redrawing, preserving GIF
+transparency. Background fragments were extracted from Unity sprite metadata.
+Original audio clips are included unchanged. SOURCE.json records source paths,
+revision and SHA-256 of the original files; import-metal-slug.py reproduces the
+asset conversion. Original README is preserved in UPSTREAM-README.md.
+
+The port rearranges stage layouts and encounters. It does not run the Unity
+scenes, Animator controllers, Cinemachine tracks, physics or C# event scripts.

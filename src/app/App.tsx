@@ -113,7 +113,7 @@ function GameDetail({ game, save }: { game: GameManifest; save?: GameSave }) {
             <p className={styles.helper}>
               {t('game.sourceLabel')}{' '}
               <a href={game.source} target="_blank" rel="noreferrer">
-                juliensimon/browser-games ↗
+                {game.source.replace('https://github.com/', '')} ↗
               </a>
             </p>
           )}

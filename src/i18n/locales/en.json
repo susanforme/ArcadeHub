@@ -423,5 +423,18 @@
   "controls.aimDown": "Aim down",
   "controls.switchPlayers": "Players",
   "controls.leftBattery": "Left silo",
-  "controls.rightBattery": "Right silo"
+  "controls.rightBattery": "Right silo",
+  "games.metal-slug.name": "Metal Slug",
+  "games.metal-slug.subtitle": "Three-mission run and gun · Phaser port",
+  "games.metal-slug.description": "A Phaser run and gun rebuilt with MetalSlugClone artwork and sound. Cross the beach, night wreckage and temple; use a pistol, heavy machine gun, melee and grenades against soldiers, crabs, helicopters and three bosses. Supports keyboard, gamepads, touch controls, pause and saved progress. Level layouts and boss attacks are rearranged.",
+  "games.metal-slug.aim": "Aim up / crouch",
+  "games.metal-slug.fire": "Fire / melee (hold)",
+  "games.metal-slug.jump": "Jump",
+  "games.metal-slug.grenade": "Throw grenade",
+  "games.metal-slug.hud": "MISSION {level}/3   HP {hp}   BOMBS {bombs}   AMMO {ammo}\nSCORE {score}",
+  "games.metal-slug.hint": "J Fire · Space Jump · L Grenade · ↑ Aim up · ↓ Crouch",
+  "games.metal-slug.ready": "MISSION START\nMove, fire or jump to begin",
+  "games.metal-slug.clear": "MISSION {level} COMPLETE!",
+  "games.metal-slug.victory": "ALL MISSIONS COMPLETE!",
+  "games.metal-slug.shoot": "Fire"
 }
