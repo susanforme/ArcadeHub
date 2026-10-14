@@ -1,7 +1,10 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import type { Language } from '../i18n/translate';
 
 interface Settings {
+  language: Language;
+  setLanguage: (language: Language) => void;
   muted: boolean;
   volume: number;
   setMuted: (muted: boolean) => void;
@@ -10,6 +13,8 @@ interface Settings {
 export const useSettings = create<Settings>()(
   persist(
     (set) => ({
+      language: 'zh',
+      setLanguage: (language) => set({ language }),
       muted: false,
       volume: 0.5,
       setMuted: (muted) => set({ muted }),
@@ -17,7 +22,19 @@ export const useSettings = create<Settings>()(
     }),
     {
       name: 'arcadehub-settings',
-      partialize: ({ muted, volume }) => ({ muted, volume }),
+      partialize: ({ muted, volume, language }) => ({
+        muted,
+        volume,
+        language,
+      }),
+      merge: (persisted, current) => {
+        const saved = persisted as Partial<Settings> | undefined;
+        return {
+          ...current,
+          ...saved,
+          language: saved?.language === 'en' ? 'en' : 'zh',
+        };
+      },
     },
   ),
 );

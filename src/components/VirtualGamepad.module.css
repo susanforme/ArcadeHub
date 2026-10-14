@@ -76,6 +76,12 @@
 .B {
   --button-color: #387af1;
 }
+.X,
+.Y,
+.L,
+.R {
+  --button-color: #637c98;
+}
 .action {
   display: flex;
   flex-direction: column;
@@ -110,6 +116,12 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .direction,
+  .X,
+  .Y,
+  .L,
+  .R {
+    --button-color: #637c98;
+  }
   .action {
     transition: none;
   }

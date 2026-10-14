@@ -1,5 +1,6 @@
 import type Phaser from 'phaser';
 import { SessionScene } from '../../../core/session-scene';
+import { t } from '../../../i18n';
 import { Audio } from '../../../shared/audio';
 import {
   COLS,
@@ -95,7 +96,7 @@ export class MainScene extends SessionScene {
     this.elapsed = 0;
     if (result.cleared) Audio.play('clear');
     this.publish();
-    if (result.over) this.finish('方块堆满了，再挑战一次？');
+    if (result.over) this.finish(t('games.tetris.gameOver'));
   }
   protected snapshot() {
     return this.state;
@@ -130,7 +131,7 @@ export class MainScene extends SessionScene {
       });
     });
     this.label.setText(
-      `NEXT\n\n\n\n\nLEVEL\n${Math.floor(this.state.lines / 10) + 1}\n\nLINES\n${this.state.lines}`,
+      `${t('games.tetris.next')}\n\n\n\n\n${t('games.tetris.level')}\n${Math.floor(this.state.lines / 10) + 1}\n\n${t('games.tetris.lines')}\n${this.state.lines}`,
     );
     this.state.next.forEach((row, y) => {
       row.forEach((n, x) => {

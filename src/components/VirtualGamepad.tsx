@@ -13,6 +13,7 @@ import type {
   GamepadPosition,
   VirtualGamepadConfig,
 } from '../core/types';
+import { useI18n } from '../i18n';
 import { Input } from '../shared/input';
 import { padDirections, VirtualInput } from '../shared/input/virtual';
 import styles from './VirtualGamepad.module.css';
@@ -24,19 +25,26 @@ const symbols: Record<Direction, string> = {
   RIGHT: '▶',
 };
 const labels: Record<Direction, string> = {
-  UP: '向上',
-  DOWN: '向下',
-  LEFT: '向左',
-  RIGHT: '向右',
+  UP: 'controls.up',
+  DOWN: 'controls.down',
+  LEFT: 'controls.left',
+  RIGHT: 'controls.right',
 };
-const defaults: Record<'dpad' | 'A' | 'B', GamepadPosition> = {
+const defaults: Record<
+  'dpad' | 'A' | 'B' | 'X' | 'Y' | 'L' | 'R',
+  GamepadPosition
+> = {
   dpad: { anchor: 'bottom-left', x: 16, y: 16, size: 132 },
   A: { anchor: 'bottom-right', x: 92, y: 64, size: 60 },
   B: { anchor: 'bottom-right', x: 16, y: 16, size: 60 },
+  X: { anchor: 'bottom-right', x: 92, y: 140, size: 54 },
+  Y: { anchor: 'bottom-right', x: 16, y: 100, size: 54 },
+  L: { anchor: 'top-left', x: 16, y: 16, size: 54 },
+  R: { anchor: 'top-right', x: 16, y: 16, size: 54 },
 };
 function positionStyle(
   config: VirtualGamepadConfig,
-  id: 'dpad' | 'A' | 'B',
+  id: 'dpad' | 'A' | 'B' | 'X' | 'Y' | 'L' | 'R',
 ): CSSProperties {
   const style: Record<string, string | number> = {};
   for (const orientation of ['portrait', 'landscape'] as const) {
@@ -58,6 +66,7 @@ export function VirtualGamepad({
   config: VirtualGamepadConfig;
   disabled: boolean;
 }) {
+  const { t, text } = useI18n();
   const controller = useRef<VirtualInput | null>(null);
   const pointers = useRef(new Set<number>());
   const [active, setActive] = useState(new Set<Action>());
@@ -152,14 +161,14 @@ export function VirtualGamepad({
   return (
     <section
       className={styles.pad}
-      aria-label="虚拟手柄"
+      aria-label={t('controls.gamepad')}
       style={{ '--pad-opacity': config.opacity ?? 0.65 } as CSSProperties}
     >
       {!!config.directions?.length && (
         <fieldset
           className={`${styles.position} ${styles.dpad}`}
           style={positionStyle(config, 'dpad')}
-          aria-label="方向键"
+          aria-label={t('controls.arrowKeys')}
           onPointerMove={(event) => {
             if (!pointers.current.has(event.pointerId)) return;
             const rect = event.currentTarget.getBoundingClientRect();
@@ -179,7 +188,7 @@ export function VirtualGamepad({
               type="button"
               key={action}
               className={`${styles.direction} ${styles[action]}`}
-              aria-label={labels[action]}
+              aria-label={text(labels[action])}
               {...buttonProps(action, true)}
               onPointerDown={(event) =>
                 press(
@@ -206,12 +215,15 @@ export function VirtualGamepad({
               ...(color ? { '--button-color': color } : {}),
             } as CSSProperties
           }
-          aria-label={`${id}：${label}`}
+          aria-label={t('controls.buttonLabel', {
+            button: id,
+            action: text(label),
+          })}
           {...buttonProps(action)}
           onPointerDown={(event) => press(event, action)}
         >
           <span>{id}</span>
-          <small>{label}</small>
+          <small>{text(label)}</small>
         </button>
       ))}
     </section>

@@ -1,11 +1,15 @@
 import Phaser from 'phaser';
+import { useSettings } from '../app/store';
+import { localizeText } from '../i18n';
 import { Audio } from '../shared/audio';
 import { Input, InputManager } from '../shared/input';
 import { writeSave } from '../shared/storage';
 import { events } from './event-bus';
-import type { SessionState } from './types';
+import type { Action, SessionState } from './types';
 
 export abstract class SessionScene extends Phaser.Scene {
+  protected inputBindings?: Record<string, Action>;
+  protected gamepadButtons?: Record<number, Action>;
   protected controls!: InputManager;
   protected score = 0;
   protected status: SessionState['status'] = 'playing';
@@ -25,9 +29,21 @@ export abstract class SessionScene extends Phaser.Scene {
     this.saveElapsed = 0;
   }
   protected begin() {
-    this.controls = new InputManager();
+    this.controls = new InputManager(this.inputBindings, this.gamepadButtons);
     Input.current = this.controls;
     this.unSubscribers = [
+      useSettings.subscribe((state, previous) => {
+        if (state.language === previous.language) return;
+        for (const object of this.children.list) {
+          if (object instanceof Phaser.GameObjects.Text)
+            object.setText(
+              object.text
+                .split('\n')
+                .map((line) => localizeText(line))
+                .join('\n'),
+            );
+        }
+      }),
       events.on('pause', () => this.togglePause()),
       events.on('restart', () => this.scene.restart({ snapshot: null })),
     ];
@@ -58,7 +74,7 @@ export abstract class SessionScene extends Phaser.Scene {
   protected publish(message?: string) {
     events.emit('state', { score: this.score, status: this.status, message });
   }
-  protected finish(message = '游戏结束', playSound = true) {
+  protected finish(message = 'game.gameOver', playSound = true) {
     this.status = 'over';
     if (playSound) Audio.play('over');
     this.publish(message);
@@ -79,12 +95,7 @@ export abstract class SessionScene extends Phaser.Scene {
       this.status === 'over' ? null : this.snapshot(),
     )
       .then(() => events.emit('saved', undefined))
-      .catch(() =>
-        events.emit(
-          'storageError',
-          '无法写入本地存档，请检查浏览器的存储权限。',
-        ),
-      );
+      .catch(() => events.emit('storageError', 'errors.saveWrite'));
   }
   protected abstract snapshot(): unknown;
 }

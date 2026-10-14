@@ -2,17 +2,16 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: 't-rex-runner',
-  name: '小恐龙跑酷',
-  subtitle: 'T-REX RUNNER',
-  category: '街机',
+  name: 'games.t-rex-runner.name',
+  subtitle: 'games.t-rex-runner.subtitle',
+  category: 'categories.arcade',
   cover,
-  description:
-    '熟悉的小恐龙，无尽的奔跑。跳过仙人掌，俯身躲开翼龙，在越来越快的节奏中刷新距离纪录。',
+  description: 'games.t-rex-runner.description',
   controls: [
-    { key: 'Space / ↑ / W', description: '开始 / 跳跃（按住更高）' },
-    { key: '↓ / S', description: '俯身 / 快速落地' },
-    { key: '点击 / 轻触画面', description: '开始 / 跳跃' },
-    { key: 'P / Esc', description: '暂停游戏' },
+    { key: 'Space / ↑ / W', description: 'controls.startJumpHoldForHigher' },
+    { key: '↓ / S', description: 'controls.duckFastFall' },
+    { key: 'controls.clickTapTheScreen', description: 'controls.startJump' },
+    { key: 'P / Esc', description: 'controls.pauseGame' },
   ],
   virtualGamepad: {
     layout: {
@@ -26,13 +25,13 @@ export default {
       },
     },
     buttons: [
-      { id: 'A', action: 'UP', label: '跳跃' },
-      { id: 'B', action: 'DOWN', label: '俯身' },
+      { id: 'A', action: 'UP', label: 'controls.jump' },
+      { id: 'B', action: 'DOWN', label: 'controls.duck' },
     ],
   },
   touchControls: [
-    { action: 'UP', label: '跳跃', symbol: '跳跃' },
-    { action: 'DOWN', label: '俯身', symbol: '俯身' },
+    { action: 'UP', label: 'controls.jump', symbol: 'controls.jump' },
+    { action: 'DOWN', label: 'controls.duck', symbol: 'controls.duck' },
   ],
   load: () => import('./index'),
 } satisfies GameManifest;

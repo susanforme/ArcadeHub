@@ -1,5 +1,6 @@
 import type Phaser from 'phaser';
 import { SessionScene } from '../../../core/session-scene';
+import { t } from '../../../i18n';
 import { Audio } from '../../../shared/audio';
 import {
   continueGrid,
@@ -49,7 +50,7 @@ export class MainScene extends SessionScene {
       fontStyle: 'bold',
       color: '#776e65',
     });
-    this.add.text(24, 97, '合并相同数字，挑战 2048。', {
+    this.add.text(24, 97, t('games.2048.instructions'), {
       fontFamily: 'Arial',
       fontSize: '16px',
       color: '#776e65',
@@ -59,7 +60,7 @@ export class MainScene extends SessionScene {
       .fillStyle(0xbbada0)
       .fillRoundedRect(345, 26, 155, 62, 6);
     this.add
-      .text(422, 39, '本局得分', {
+      .text(422, 39, t('game.currentScore'), {
         fontFamily: 'Arial',
         fontSize: '13px',
         color: '#eee4da',
@@ -89,7 +90,7 @@ export class MainScene extends SessionScene {
       .fillRoundedRect(BOARD_X, BOARD_Y, SIZE, SIZE, 10)
       .setDepth(20);
     const title = this.add
-      .text(260, 310, '合成 2048！', {
+      .text(260, 310, t('games.2048.victoryTitle'), {
         fontFamily: 'Arial',
         fontSize: '43px',
         fontStyle: 'bold',
@@ -98,7 +99,7 @@ export class MainScene extends SessionScene {
       .setOrigin(0.5)
       .setDepth(21);
     const hint = this.add
-      .text(260, 362, '目标达成，继续挑战更大的数字？', {
+      .text(260, 362, t('games.2048.victoryDescription'), {
         fontFamily: 'Arial',
         fontSize: '17px',
         color: '#ffffff',
@@ -106,7 +107,7 @@ export class MainScene extends SessionScene {
       .setOrigin(0.5)
       .setDepth(21);
     const keepPlaying = this.add
-      .text(260, 424, '继续挑战 →', {
+      .text(260, 424, t('games.2048.keepPlaying'), {
         fontFamily: 'Arial',
         fontSize: '22px',
         fontStyle: 'bold',
@@ -126,7 +127,7 @@ export class MainScene extends SessionScene {
       }
     });
     const restart = this.add
-      .text(260, 485, '重新开始', {
+      .text(260, 485, t('game.restart'), {
         fontFamily: 'Arial',
         fontSize: '16px',
         color: '#ffffff',
@@ -240,7 +241,7 @@ export class MainScene extends SessionScene {
         }
         this.animating = false;
         this.showVictory();
-        if (this.state.over) this.finish('棋盘已满，已经没有可移动的方向了。');
+        if (this.state.over) this.finish(t('games.2048.gameOver'));
       },
     });
   }

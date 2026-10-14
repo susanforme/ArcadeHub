@@ -2,9 +2,12 @@ import { useCallback, useEffect, useState } from 'react';
 import { GameCanvas } from '../components/GameCanvas';
 import { GameList } from '../components/GameList';
 import { Icon } from '../components/Icon';
+import { LanguageSelect } from '../components/LanguageSelect';
 import { events } from '../core/event-bus';
 import { games } from '../core/game-registry';
 import type { GameManifest, SessionState } from '../core/types';
+import { useI18n } from '../i18n';
+import { translate } from '../i18n/translate';
 import { Audio } from '../shared/audio';
 import { type GameSave, listSaves } from '../shared/storage';
 import styles from './App.module.css';
@@ -12,6 +15,7 @@ import { useRoute } from './router';
 import { useSettings } from './store';
 
 function GameDetail({ game, save }: { game: GameManifest; save?: GameSave }) {
+  const { t, text } = useI18n();
   const [run, setRun] = useState<{ resume: boolean } | null>(null);
   const [state, setState] = useState<SessionState>({
     score: 0,
@@ -25,20 +29,23 @@ function GameDetail({ game, save }: { game: GameManifest; save?: GameSave }) {
   return (
     <>
       <a className={styles.back} href="#/">
-        ← 返回游戏大厅
+        {t('navigation.backToLibrary')}{' '}
       </a>
       <div className={styles.detailHeading}>
         <div>
           <span className={styles.eyebrow}>
-            {game.subtitle} / {game.category}
+            {t(game.subtitle)} / {t(game.category)}
           </span>
           <h1>
-            {game.name}
+            {t(game.name)}
             <span className={styles.headingDot}>.</span>
           </h1>
         </div>
         <span className={styles.pill}>
-          {game.localPlayers === 2 ? '单人 / 双人' : '单人'} · 离线可玩
+          {game.localPlayers === 2
+            ? t('game.oneOrTwoPlayers')
+            : t('game.singlePlayer')}{' '}
+          {t('game.offline')}{' '}
         </span>
       </div>
       <div className={styles.detailGrid}>
@@ -52,7 +59,10 @@ function GameDetail({ game, save }: { game: GameManifest; save?: GameSave }) {
             />
           ) : (
             <div className={styles.startStage}>
-              <img src={game.cover} alt={`${game.name}插画`} />
+              <img
+                src={game.cover}
+                alt={t('game.imageAlt', { name: t(game.name) })}
+              />
               <div className={styles.startActions}>
                 {save?.snapshot != null && (
                   <button
@@ -60,7 +70,7 @@ function GameDetail({ game, save }: { game: GameManifest; save?: GameSave }) {
                     className={styles.primary}
                     onClick={() => start(true)}
                   >
-                    继续上次游戏 →
+                    {t('game.resumeLast')}{' '}
                   </button>
                 )}
                 <button
@@ -70,7 +80,7 @@ function GameDetail({ game, save }: { game: GameManifest; save?: GameSave }) {
                   }
                   onClick={() => start(false)}
                 >
-                  开始新游戏 →
+                  {t('game.startNew')}{' '}
                 </button>
               </div>
             </div>
@@ -78,30 +88,35 @@ function GameDetail({ game, save }: { game: GameManifest; save?: GameSave }) {
         </div>
         <aside className={styles.gameInfo}>
           <div className={styles.scoreCard}>
-            <span>本局得分</span>
+            <span>{t('game.currentScore')}</span>
             <strong>{state.score.toLocaleString()}</strong>
             <div>
-              <span>最高纪录</span>
+              <span>{t('game.highScore')}</span>
               <b>
                 {Math.max(save?.bestScore ?? 0, state.score).toLocaleString()}
               </b>
             </div>
           </div>
-          <h3>怎么玩</h3>
+          <h3>{t('game.howToPlay')}</h3>
           <div className={styles.controlList}>
             {game.controls.map((control) => (
               <div key={control.key}>
-                <span>{control.description}</span>
-                <kbd>{control.key}</kbd>
+                <span>{t(control.description)}</span>
+                <kbd>{text(control.key)}</kbd>
               </div>
             ))}
           </div>
-          <p className={styles.helper}>
-            也支持屏幕按钮及手柄方向键。切换窗口时自动暂停，游戏进度每 5
-            秒及暂停、退出时保存。
-          </p>
-          <h3>关于游戏</h3>
-          <p>{game.description}</p>
+          <p className={styles.helper}>{t('game.controlsHint')}</p>
+          <h3>{t('game.about')}</h3>
+          <p>{t(game.description)}</p>
+          {game.source && (
+            <p className={styles.helper}>
+              {t('game.sourceLabel')}{' '}
+              <a href={game.source} target="_blank" rel="noreferrer">
+                juliensimon/browser-games ↗
+              </a>
+            </p>
+          )}
         </aside>
       </div>
     </>
@@ -109,19 +124,22 @@ function GameDetail({ game, save }: { game: GameManifest; save?: GameSave }) {
 }
 
 export default function App() {
+  const { t, text, language } = useI18n();
   const route = useRoute();
   const { muted, volume, setMuted, setVolume } = useSettings();
   const [saves, setSaves] = useState<GameSave[]>([]);
   const [storageError, setStorageError] = useState('');
   const [search, setSearch] = useState('');
-  const [category, setCategory] = useState('全部游戏');
+  const [category, setCategory] = useState('categories.all');
   const [offlineReady, setOfflineReady] = useState(false);
+  useEffect(() => {
+    document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+    document.title = `ArcadeHub · ${t('library.readyBadge').replace('✦ ', '')}`;
+  }, [language, t]);
   const refresh = useCallback(() => {
     void listSaves()
       .then(setSaves)
-      .catch(() =>
-        setStorageError('无法读取本地存档，请检查浏览器的存储权限。'),
-      );
+      .catch(() => setStorageError('errors.saveRead'));
   }, []);
   useEffect(() => {
     refresh();
@@ -154,15 +172,15 @@ export default function App() {
     : undefined;
   const filtered = games.filter(
     (game) =>
-      (category === '全部游戏' || game.category === category) &&
-      `${game.name} ${game.subtitle}`
+      (category === 'categories.all' || game.category === category) &&
+      `${translate(game.name, 'zh')} ${translate(game.name, 'en')} ${translate(game.subtitle, 'en')}`
         .toLowerCase()
         .includes(search.toLowerCase()),
   );
   const nav = [
-    { href: '/', name: '游戏大厅', icon: 'games' },
-    { href: '/saves', name: '我的存档', icon: 'save' },
-    { href: '/settings', name: '设置', icon: 'settings' },
+    { href: '/', name: 'navigation.library', icon: 'games' },
+    { href: '/saves', name: 'navigation.saves', icon: 'save' },
+    { href: '/settings', name: 'navigation.settings', icon: 'settings' },
   ] as const;
   const lastSave = [...saves]
     .filter(
@@ -181,7 +199,7 @@ export default function App() {
           arcade<span>hub</span>
           <sup>®</sup>
         </a>
-        <span className={styles.navLabel}>你的快乐补给站</span>
+        <span className={styles.navLabel}>{t('sidebar.tagline')}</span>
         <nav>
           {nav.map((item) => (
             <a
@@ -190,7 +208,7 @@ export default function App() {
               href={`#${item.href}`}
             >
               <Icon name={item.icon} />
-              {item.name}
+              {t(item.name)}
               {item.href === '/' && (
                 <span className={styles.count}>
                   {games.length.toString().padStart(2, '0')}
@@ -202,18 +220,17 @@ export default function App() {
         <div className={styles.sidebarBottom}>
           <div className={styles.localBadge}>
             <span className={styles.liveDot} />
-            {offlineReady ? '已准备好离线游玩' : '你的私人游戏角落'}
+            {offlineReady ? t('offline.ready') : t('sidebar.localBadge')}
           </div>
           <p>
-            无需账号，无需等待。
-            <br />
-            快乐和纪录，都留在这里。
+            {t('sidebar.noAccount')} <br />
+            {t('sidebar.keepRecords')}{' '}
           </p>
           <div className={styles.profile}>
-            <span>玩家</span>
+            <span>{t('sidebar.player')}</span>
             <div>
-              <b>本地玩家</b>
-              <small>准备好刷新纪录了吗？</small>
+              <b>{t('sidebar.localPlayer')}</b>
+              <small>{t('sidebar.playerHint')}</small>
             </div>
             <span className={styles.profileDot} />
           </div>
@@ -221,27 +238,28 @@ export default function App() {
       </aside>
       <div className={styles.workspace}>
         <header className={styles.topbar}>
-          <span>PLAY A LITTLE. FEEL A LOT.</span>
+          <span>{t('library.tagline')}</span>
           <div>
+            <LanguageSelect />
             <span className={styles.localLabel}>
-              <span className={styles.liveDot} /> 本地模式
+              <span className={styles.liveDot} /> {t('offline.localMode')}{' '}
             </span>
             <button
               type="button"
               className={styles.soundButton}
-              aria-label={muted ? '开启音效' : '关闭音效'}
+              aria-label={muted ? t('audio.enable') : t('audio.disable')}
               aria-pressed={!muted}
               onClick={() => setMuted(!muted)}
             >
               <Icon name="sound" />
-              {muted ? '音效关' : '音效开'}
+              {muted ? t('audio.off') : t('audio.on')}
             </button>
           </div>
         </header>
         <main className={styles.main}>
           {storageError && (
             <p className={styles.error} role="alert">
-              {storageError}
+              {text(storageError)}
             </p>
           )}
           {route === '/' ? (
@@ -249,46 +267,52 @@ export default function App() {
               <div className={styles.pageHeading}>
                 <div>
                   <span className={styles.eyebrow}>
-                    YOUR DAILY DOSE OF PLAY
+                    {t('library.eyebrow')}{' '}
                   </span>
                   <h1>
-                    今天，玩点什么<span className={styles.headingDot}>？</span>
+                    {t('library.title')}
+                    <span className={styles.headingDot}>
+                      {t('common.questionMark')}
+                    </span>
                   </h1>
-                  <p>把日常暂停，把快乐打开。</p>
+                  <p>{t('library.subtitle')}</p>
                 </div>
-                <span className={styles.pill}>✦ 随时开玩</span>
+                <span className={styles.pill}>{t('library.readyBadge')}</span>
               </div>
               <section className={styles.hero}>
                 <div className={styles.heroCopy}>
-                  <span className={styles.heroTag}>经典，永不过时</span>
+                  <span className={styles.heroTag}>
+                    {t('library.hero.badge')}
+                  </span>
                   <h2>
-                    小小一局。
-                    <br />
-                    大大快乐<span>。</span>
+                    {t('library.hero.titleFirst')} <br />
+                    {t('library.hero.titleSecond')}
+                    <span>{t('common.fullStop')}</span>
                   </h2>
                   <p>
-                    从熟悉的贪吃蛇开始，
-                    <br />
-                    找回那个「再玩一次」的自己。
+                    {t('library.hero.descriptionFirst')} <br />
+                    {t('library.hero.descriptionSecond')}{' '}
                   </p>
                   <a className={styles.primary} href="#/game/snake">
-                    来一局贪吃蛇 <Icon name="arrow" size={18} />
+                    {t('library.hero.playSnake')}{' '}
+                    <Icon name="arrow" size={18} />
                   </a>
                   <span className={styles.heroFootnote}>
-                    随开随玩 · 自动存档 · 没有压力
+                    {t('library.hero.features')}{' '}
                   </span>
                 </div>
                 <div className={styles.heroArt}>
                   <img
                     src={games.find((game) => game.id === 'snake')?.cover}
-                    alt="贪吃蛇游戏插画"
+                    alt={t('library.hero.imageAlt')}
                   />
                   <span className={styles.artSticker}>
-                    JUST
-                    <br />
-                    ONE MORE!
+                    {t('library.hero.stickerFirst')} <br />
+                    {t('library.hero.stickerSecond')}{' '}
                   </span>
-                  <span className={styles.artCaption}>01 — THE CLASSICS</span>
+                  <span className={styles.artCaption}>
+                    {t('library.hero.caption')}
+                  </span>
                 </div>
               </section>
               {lastGame && (
@@ -298,32 +322,39 @@ export default function App() {
                 >
                   <span className={styles.continueIcon}>↩</span>
                   <div>
-                    <b>接着上次的快乐</b>
+                    <b>{t('library.resume.title')}</b>
                     <span>
-                      {lastGame.name} · 上次得分 {lastSave.score}
+                      {t(lastGame.name)} {t('library.resume.lastScore')}{' '}
+                      {lastSave.score}
                     </span>
                   </div>
-                  <span>继续游戏 →</span>
+                  <span>{t('game.resumeAction')}</span>
                 </a>
               )}
               <section className={styles.library}>
                 <div className={styles.libraryHeading}>
                   <h2>
-                    游戏精选{' '}
+                    {t('library.collection')}{' '}
                     <span>{games.length.toString().padStart(2, '0')}</span>
                   </h2>
                   <label className={styles.search}>
                     <Icon name="search" size={17} />
                     <input
-                      aria-label="搜索游戏"
-                      placeholder="寻找你的下一场快乐"
+                      aria-label={t('library.searchLabel')}
+                      placeholder={t('library.searchPlaceholder')}
                       value={search}
                       onChange={(event) => setSearch(event.target.value)}
                     />
                   </label>
                 </div>
                 <div className={styles.filters}>
-                  {['全部游戏', '街机', '益智'].map((item) => (
+                  {(
+                    [
+                      'categories.all',
+                      'categories.arcade',
+                      'categories.puzzle',
+                    ] as const
+                  ).map((item) => (
                     <button
                       type="button"
                       key={item}
@@ -331,25 +362,22 @@ export default function App() {
                       className={category === item ? styles.selected : ''}
                       onClick={() => setCategory(item)}
                     >
-                      {item}
+                      {t(item)}
                     </button>
                   ))}
-                  <span>简单上手，认真好玩。</span>
+                  <span>{t('library.collectionHint')}</span>
                 </div>
                 <GameList games={filtered} saves={saves} />
               </section>
               <div className={styles.bottomNote}>
                 <span>✧</span>
                 <div>
-                  <b>好游戏，慢慢来。</b>
-                  <p>
-                    这里没有倒计时，也没有每日任务。按你的节奏，享受每一局。
-                  </p>
+                  <b>{t('library.note.title')}</b>
+                  <p>{t('library.note.description')} </p>
                 </div>
                 <span className={styles.noteStamp}>
-                  MADE FOR
-                  <br />
-                  GOOD TIMES
+                  {t('library.note.stampFirst')} <br />
+                  {t('library.note.stampSecond')}{' '}
                 </span>
               </div>
             </>
@@ -361,14 +389,21 @@ export default function App() {
             />
           ) : route === '/settings' ? (
             <>
-              <span className={styles.eyebrow}>MAKE IT YOURS</span>
-              <h1>你的游戏，你的节奏。</h1>
-              <p>设置自动保存在当前浏览器。</p>
+              <span className={styles.eyebrow}>{t('settings.eyebrow')}</span>
+              <h1>{t('settings.title')}</h1>
+              <p>{t('settings.savedLocally')}</p>
               <section className={styles.settingsPanel}>
                 <div>
                   <div>
-                    <h3>游戏音效</h3>
-                    <p>一点声音，让快乐更有感觉。</p>
+                    <h3>{t('settings.languageLabel')}</h3>
+                    <p>{t('settings.languageHint')}</p>
+                  </div>
+                  <LanguageSelect />
+                </div>
+                <div>
+                  <div>
+                    <h3>{t('settings.audio')}</h3>
+                    <p>{t('settings.audioHint')}</p>
                   </div>
                   <button
                     type="button"
@@ -376,11 +411,11 @@ export default function App() {
                     aria-pressed={!muted}
                     onClick={() => setMuted(!muted)}
                   >
-                    {muted ? '已关闭' : '已开启'}
+                    {muted ? t('common.disabled') : t('common.enabled')}
                   </button>
                 </div>
                 <div>
-                  <label htmlFor="volume">音量</label>
+                  <label htmlFor="volume">{t('settings.volume')}</label>
                   <input
                     id="volume"
                     type="range"
@@ -392,21 +427,19 @@ export default function App() {
                   />
                   <span>{Math.round(volume * 100)}%</span>
                 </div>
-                <p>
-                  存档保存在 IndexedDB 中。清除浏览器站点数据会同时清除存档。
-                </p>
+                <p>{t('saves.storageHint')} </p>
                 <p>
                   {offlineReady
-                    ? '全部游戏资源已缓存，可以离线游玩。'
-                    : '生产版本首次联网打开并完成缓存后，即可离线游玩。'}
+                    ? t('offline.cached')
+                    : t('offline.instructions')}
                 </p>
               </section>
             </>
           ) : route === '/saves' ? (
             <>
-              <span className={styles.eyebrow}>YOUR LITTLE MILESTONES</span>
-              <h1>每一局，都有迹可循。</h1>
-              <p>你的进度与最高纪录，只保存在这台设备。</p>
+              <span className={styles.eyebrow}>{t('saves.eyebrow')}</span>
+              <h1>{t('saves.title')}</h1>
+              <p>{t('saves.description')}</p>
               <div className={styles.saveList}>
                 {saves.length ? (
                   saves.map((save) => (
@@ -414,14 +447,19 @@ export default function App() {
                       <Icon name="save" size={28} />
                       <div>
                         <h3>
-                          {games.find((game) => game.id === save.id)?.name ??
-                            save.id}
+                          {text(
+                            games.find((game) => game.id === save.id)?.name ??
+                              save.id,
+                          )}
                         </h3>
                         <p>
-                          最高纪录 {save.bestScore} · 最近得分 {save.score}
+                          {t('game.highScore')} {save.bestScore}{' '}
+                          {t('saves.recentScore')} {save.score}
                         </p>
                         <small>
-                          {new Date(save.updatedAt).toLocaleString('zh-CN')}
+                          {new Date(save.updatedAt).toLocaleString(
+                            language === 'zh' ? 'zh-CN' : 'en-US',
+                          )}
                         </small>
                       </div>
                       {games.some((game) => game.id === save.id) && (
@@ -429,7 +467,10 @@ export default function App() {
                           className={styles.secondary}
                           href={`#/game/${save.id}`}
                         >
-                          {save.snapshot != null ? '继续游戏' : '再玩一次'} →
+                          {save.snapshot != null
+                            ? t('game.resume')
+                            : t('game.playAgain')}{' '}
+                          →
                         </a>
                       )}
                     </article>
@@ -437,10 +478,10 @@ export default function App() {
                 ) : (
                   <div className={styles.empty}>
                     <Icon name="save" size={40} />
-                    <h3>第一份纪录，等你来写。</h3>
-                    <p>开始一场游戏，进度会自动保存在这里。</p>
+                    <h3>{t('saves.empty.title')}</h3>
+                    <p>{t('saves.empty.description')}</p>
                     <a className={styles.primary} href="#/">
-                      去游戏大厅 →
+                      {t('navigation.openLibrary')}{' '}
                     </a>
                   </div>
                 )}
@@ -448,16 +489,16 @@ export default function App() {
             </>
           ) : (
             <div className={styles.empty}>
-              <h1>游戏不在这里。</h1>
+              <h1>{t('game.notFound')}</h1>
               <a href="#/" className={styles.primary}>
-                返回大厅 →
+                {t('navigation.backAction')}{' '}
               </a>
             </div>
           )}
           <footer className={styles.footer}>
             <span>© {new Date().getFullYear()} ArcadeHub</span>
             <span>
-              少一点忙碌，多一点好玩。 <span>↗</span>
+              {t('footer.tagline')} <span>↗</span>
             </span>
           </footer>
         </main>

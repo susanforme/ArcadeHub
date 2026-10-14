@@ -1,4 +1,5 @@
 import type Phaser from 'phaser';
+import { t } from '../i18n';
 import { listSaves } from '../shared/storage';
 import { events } from './event-bus';
 import { bindGameDisplay } from './game-display';
@@ -16,7 +17,7 @@ class GameRuntime {
       import('phaser'),
       loadGame(manifest),
       listSaves().catch(() => {
-        events.emit('storageError', '本地存档不可用，本次仍可游玩。');
+        events.emit('storageError', 'errors.saveUnavailable');
         return [];
       }),
     ]);
@@ -53,7 +54,9 @@ class GameRuntime {
         snapshot: save?.snapshot,
         score: save?.score,
       });
-      parent.querySelector('canvas')?.setAttribute('aria-label', manifest.name);
+      parent
+        .querySelector('canvas')
+        ?.setAttribute('aria-label', t(manifest.name));
     });
   }
   stop() {
@@ -61,6 +64,10 @@ class GameRuntime {
     const game = this.game;
     this.game = undefined;
     if (game) {
+      // Game.destroy emits Scene destroy, not shutdown. Stop first to persist
+      // the session and release its input/audio services while they are live.
+      for (const scene of game.scene.getScenes(false))
+        game.scene.stop(scene.sys.settings.key);
       // Phaser destroys on the next frame; serialize launches to keep one live instance.
       this.destruction = new Promise((resolve) => {
         game.events.once('destroy', resolve);

@@ -1,5 +1,6 @@
 import type Phaser from 'phaser';
 import { SessionScene } from '../../../core/session-scene';
+import { t } from '../../../i18n';
 import { Audio } from '../../../shared/audio';
 import {
   isSnakeState,
@@ -55,8 +56,8 @@ export class MainScene extends SessionScene {
     if (result.over)
       this.finish(
         this.state.food === null
-          ? '你填满了整张地图！'
-          : '游戏结束，再挑战一次？',
+          ? t('games.snake.boardCompleted')
+          : t('games.snake.gameOver'),
       );
   }
   protected snapshot() {

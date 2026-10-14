@@ -25,20 +25,27 @@ export class InputManager {
       event.target.closest('input, textarea, select, button, a')
     )
       return;
-    const action = keys[event.code];
+    const action = this.bindings[event.code];
     if (!action) return;
     event.preventDefault();
     if (!event.repeat) this.press(action, `key:${event.code}`);
   };
   private keyup = (event: KeyboardEvent) => {
-    const action = keys[event.code];
+    const action = this.bindings[event.code];
     if (action) this.release(action, `key:${event.code}`);
   };
   private blur = () => this.reset();
   private visibility = () => {
     if (document.hidden) this.reset();
   };
-  constructor() {
+  constructor(
+    private bindings: Record<string, Action> = keys,
+    private buttons: Record<number, Action> = {
+      0: 'UP',
+      1: 'DROP',
+      9: 'PAUSE',
+    },
+  ) {
     window.addEventListener('keydown', this.keydown);
     window.addEventListener('keyup', this.keyup);
     window.addEventListener('blur', this.blur);
@@ -80,15 +87,10 @@ export class InputManager {
       if (!pad) continue;
       if (pad.buttons[14]?.pressed || pad.axes[0] < -0.5) next.add('LEFT');
       if (pad.buttons[15]?.pressed || pad.axes[0] > 0.5) next.add('RIGHT');
-      if (
-        pad.buttons[12]?.pressed ||
-        pad.buttons[0]?.pressed ||
-        pad.axes[1] < -0.5
-      )
-        next.add('UP');
+      if (pad.buttons[12]?.pressed || pad.axes[1] < -0.5) next.add('UP');
       if (pad.buttons[13]?.pressed || pad.axes[1] > 0.5) next.add('DOWN');
-      if (pad.buttons[1]?.pressed) next.add('DROP');
-      if (pad.buttons[9]?.pressed) next.add('PAUSE');
+      for (const [index, action] of Object.entries(this.buttons))
+        if (pad.buttons[Number(index)]?.pressed) next.add(action);
     }
     for (const action of this.suppressedPads)
       if (!next.has(action)) this.suppressedPads.delete(action);

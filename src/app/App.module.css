@@ -865,6 +865,17 @@
   }
 }
 @media (max-width: 600px) {
+  .topbar {
+    justify-content: flex-end;
+  }
+  .topbar > span {
+    display: none;
+  }
+  .localLabel,
+  .soundButton {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
   .main {
     padding: 28px 20px 0;
   }

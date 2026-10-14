@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { SessionScene } from '../../../core/session-scene';
+import { t } from '../../../i18n';
 import { Audio } from '../../../shared/audio';
 import { digits, images, sounds } from '../assets';
 import {
@@ -20,8 +21,8 @@ export class MainScene extends SessionScene {
   private state!: FlappyState;
   private bird!: Phaser.GameObjects.Image;
   private ground!: Phaser.GameObjects.TileSprite;
-  private ready!: Phaser.GameObjects.Image;
-  private gameover!: Phaser.GameObjects.Image;
+  private ready!: Phaser.GameObjects.Text;
+  private gameover!: Phaser.GameObjects.Text;
   private pipeImages = new Map<
     number,
     { top: Phaser.GameObjects.Image; bottom: Phaser.GameObjects.Image }
@@ -60,9 +61,33 @@ export class MainScene extends SessionScene {
       .setOrigin(0)
       .setDepth(3);
     this.bird = this.add.image(BIRD_X, this.state.y, key('mid')).setDepth(4);
-    this.ready = this.add.image(WIDTH / 2, 210, key('ready')).setDepth(5);
+    this.ready = this.add
+      .text(
+        WIDTH / 2,
+        210,
+        `${t('games.flappy-bird.ready')}\n${t('games.flappy-bird.flapHint')}`,
+        {
+          fontFamily: 'Arial, "PingFang SC", sans-serif',
+          fontSize: '22px',
+          fontStyle: 'bold',
+          color: '#ffffff',
+          stroke: '#543847',
+          strokeThickness: 3,
+          align: 'center',
+        },
+      )
+      .setOrigin(0.5)
+      .setDepth(5);
     this.gameover = this.add
-      .image(WIDTH / 2, 135, key('gameover'))
+      .text(WIDTH / 2, 135, t('native.gameOver'), {
+        fontFamily: 'Arial, "PingFang SC", sans-serif',
+        fontSize: '28px',
+        fontStyle: 'bold',
+        color: '#e98b3d',
+        stroke: '#543847',
+        strokeThickness: 3,
+      })
+      .setOrigin(0.5)
       .setDepth(5)
       .setVisible(false);
     this.input.on('pointerdown', () => {
@@ -92,7 +117,7 @@ export class MainScene extends SessionScene {
     if (this.state.phase === 'over') {
       Audio.playAsset(sounds.hit);
       this.time.delayedCall(150, () => Audio.playAsset(sounds.die));
-      this.finish('撞到障碍了，再飞一次？', false);
+      this.finish(t('games.flappy-bird.gameOver'), false);
     }
   }
   protected snapshot() {

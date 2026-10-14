@@ -20,15 +20,17 @@ test('offline navigation uses the canonical page, never the redirected index.htm
       cwd: directory,
     });
     const handlers: Record<string, (event: unknown) => void> = {};
-    const cached = new Map<string, { redirected: boolean }>();
+    const cached = new Map<string, { redirected: boolean; path: string }>();
     const cache = {
       async addAll(urls: string[]) {
         for (const url of urls) {
-          cached.set(url, { redirected: url === '/index.html' });
+          cached.set(url, { redirected: url === '/index.html', path: url });
         }
       },
-      async match(url: string) {
-        return cached.get(url);
+      async match(request: string | { url: string }) {
+        return cached.get(
+          typeof request === 'string' ? request : new URL(request.url).pathname,
+        );
       },
     };
     runInNewContext(readFileSync(join(directory, 'dist/sw.js'), 'utf8'), {
@@ -52,7 +54,7 @@ test('offline navigation uses the canonical page, never the redirected index.htm
     });
     await installed;
     expect(cached.has('/index.html')).toBe(false);
-    for (const path of ['/', '/game/snake']) {
+    for (const path of ['/', '/game/snake', '/game/pong']) {
       let response: Promise<{ redirected: boolean }> | undefined;
       handlers.fetch({
         request: {
@@ -64,7 +66,10 @@ test('offline navigation uses the canonical page, never the redirected index.htm
           response = promise;
         },
       });
-      await expect(response).resolves.toEqual({ redirected: false });
+      await expect(response).resolves.toEqual({
+        redirected: false,
+        path: '/',
+      });
     }
   } finally {
     rmSync(directory, { recursive: true, force: true });

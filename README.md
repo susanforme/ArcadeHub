@@ -40,19 +40,19 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'new-game',
-  name: '新游戏',
-  subtitle: 'NEW GAME',
-  category: '街机',
+  name: 'games.new-game.name',
+  subtitle: 'games.new-game.subtitle',
+  category: 'categories.arcade',
   cover,
-  description: '游戏介绍',
-  controls: [{ key: '← →', description: '移动' }],
+  description: 'games.new-game.description',
+  controls: [{ key: '← →', description: 'controls.move' }],
   virtualGamepad: {
     directions: ['LEFT', 'RIGHT'],
-    buttons: [{ id: 'A', action: 'UP', label: '跳跃' }],
+    buttons: [{ id: 'A', action: 'UP', label: 'controls.jump' }],
   },
   touchControls: [
-    { action: 'LEFT', label: '向左', symbol: '←' },
-    { action: 'RIGHT', label: '向右', symbol: '→' },
+    { action: 'LEFT', label: 'controls.left', symbol: '←' },
+    { action: 'RIGHT', label: 'controls.right', symbol: '→' },
   ],
   load: () => import('./index'),
 } satisfies GameManifest;
@@ -152,3 +152,29 @@ Pointer Events 统一处理触屏、鼠标和触笔，指针捕获处理按钮�
 基于 [feichao93/battle-city](https://github.com/feichao93/battle-city) 的 MIT 引擎、35 个原版关卡、像素素材和音效，适配现有 Phaser 插件。支持单人和同屏双人、选关、六种道具及关卡结算。玩家 1 使用 WASD + J / Space，玩家 2 使用方向键 + /；单人也可使用方向键、触屏按钮和手柄。P / Esc 暂停。
 
 存档保留当前关卡开局时的生命、分数与升级，继续时重新开始该关。此次未移植局域网联机、关卡编辑器、画廊和 AI 托管界面。来源版本与许可见 `src/games/battle-city/assets/README.md`；构建包含 `licenses/battle-city.txt`。
+
+## Browser Games 原版合集
+
+完整接入 [juliensimon/browser-games](https://github.com/juliensimon/browser-games) 的 12 款游戏：Computer Space、Pong、Gun Fight、Breakout、Space Invaders、Galaxian、Asteroids、Lunar Lander、Pac-Man、Centipede、Missile Command 和 Defender。固定上游版本 `8fd600823f42b081aa3d3b43ead48fb33d86c631`。
+
+12 款游戏全部使用 Phaser 插件：`src/games/{id}/index.ts` 提供 Scene 和显示配置，`vendor/engine.js` 保留上游规则、实体、AI、碰撞和像素/矢量绘制。共享 `src/games/browser-arcade` 运行层将绘制结果交给 Phaser CanvasTexture；固定 60 Hz 更新由 Scene 驱动，没有 iframe、独立 HTML、DOM 输入监听或原版 requestAnimationFrame 循环。
+
+所有游戏统一接入平台键盘、实体手柄和虚拟手柄、暂停/失焦暂停、重开、全局音量、中英文实时切换、显示模式和 IndexedDB 存档。Defender 的特殊操作、Gun Fight 的双人键位及 Missile Command 的鼠标/触屏瞄准和三炮台均保留。实体存档保存类原型、数组、集合和对象引用关系，继续游戏恢复当前状态；暂停期间逻辑时钟与音频计时器停止。最高分使用平台存档。
+
+原版吃豆人使用 ID `pac-man`，与原有 Phaser 版 `pacman` 并存。封面位于各游戏 `cover.png`。来源 commit、上游原始文件 SHA-256（用于来源记录，并非适配后文件校验）及原作者声明保存在 `src/games/browser-arcade/SOURCE.json` 和 `UPSTREAM-README.md`，各游戏原有 README 保存在 `vendor`。源码、游戏资源和动态插件包均纳入源码包与离线缓存。上游没有提供独立的开源许可证。
+
+## 中英文国际化
+
+大厅顶部与设置页面均提供中文 / English 选择，默认中文，与音量一起保存到 `arcadehub-settings`。刷新后恢复选择，切换语言不会重建游戏或清空存档。大厅、搜索、详情、存档、设置、工具栏、虚拟手柄、辅助技术标签，以及全部 19 款游戏的文字均通过同一套 `src/i18n/locales/zh.json`、`en.json` 资源翻译。游戏标题、商标图形与版权署名保留原有品牌素材。
+
+React 使用 `useI18n()`，Phaser 使用 `t()`，静态文字随语言变化更新。分数、关卡、波次、生命等动态值通过命名占位符（如 `{score}`、`{level}`）保留。Flappy Bird 与小恐龙的提示文字从固定英语图片改为可翻译文本。
+
+12 款移植游戏的文字绘制入口调用共享 `drawLocalizedText`；英语沿用原来的像素/矢量字库，中文使用系统中文字体，按原版坐标、字号和分配宽度绘制。每次 Phaser 绘制直接读取平台当前语言，不需要生成独立语言包或重开游戏。
+
+### key 约定
+
+使用稳定英文语义 key，按功能分组：`navigation.library`、`settings.language`、`games.snake.description`。中文和英语只作为资源值，修改文案时保留 key。`t()` 的参数由中文资源推导出的 `TranslationKey` 类型约束，两种语言必须具有相同的 key；测试同时检查命名插值参数一致。manifest 的 name、subtitle、description 与控制说明保存资源 key，新增游戏时在两个 locale 文件中加入对应条目。键盘键位与自定义手柄标签仍可使用普通文本。
+
+原版 Canvas 及已渲染的 Phaser 文字需要读取原来的文字输入；其兼容转换集中在 `rendered-text.ts`，普通页面和 Phaser 文案通过语义 key 直接查询资源。不要在业务 `t()` 调用里使用中文句子或将运行时拼接的句子当作 key。
+
+约定参考 [i18next namespaces](https://www.i18next.com/principles/namespaces)、[i18next TypeScript](https://www.i18next.com/overview/typescript) 和 [社区命名指南](https://gist.github.com/Lemmings19/38225ba78c8cce4f68318a1e2410d325)。自然语言 key 是受支持的替代方案，本项目选择语义 key 以分离文案与标识、明确使用场景。

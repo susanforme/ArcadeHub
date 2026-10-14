@@ -38,7 +38,9 @@ function setup(twoPlayers = false, stage = 0) {
 
 describe('battle city integration', () => {
   test('discovers the game and loads all 35 valid classic stages', () => {
-    expect(games.find((g) => g.id === 'battle-city')?.name).toBe('坦克大战');
+    expect(games.find((g) => g.id === 'battle-city')?.name).toBe(
+      'games.battle-city.name',
+    );
     expect(stages).toHaveLength(35);
     stages.forEach((stage, i) => {
       expect(Number(stage.name)).toBe(i + 1);

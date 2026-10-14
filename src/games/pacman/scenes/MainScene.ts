@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import type Phaser from 'phaser';
 import { SessionScene } from '../../../core/session-scene';
+import { t } from '../../../i18n';
 import { Audio } from '../../../shared/audio';
 import fruitSound from '../assets/eating-fruit.mp3';
 import ghostSound from '../assets/eating-ghost.mp3';
@@ -47,7 +48,7 @@ export class MainScene extends SessionScene {
     this.maze = this.add.graphics();
     this.dots = this.add.graphics();
     this.actors = this.add.graphics();
-    this.add.text(14, 9, 'PAC-MAN', {
+    this.add.text(14, 9, t('games.pacman.subtitle'), {
       fontFamily: 'monospace',
       fontSize: '23px',
       fontStyle: 'bold',
@@ -85,7 +86,7 @@ export class MainScene extends SessionScene {
       color: '#ffb8ae',
     });
     this.add
-      .text(14, 597, '© 2012 Shaun Williams · GPL-3.0 · 无担保 · 许可', {
+      .text(14, 597, t('games.pacman.license'), {
         fontFamily: 'Arial',
         fontSize: '10px',
         color: '#858595',
@@ -97,12 +98,17 @@ export class MainScene extends SessionScene {
         window.open('/licenses/pacman.txt', '_blank', 'noopener');
       });
     this.add
-      .text(WIDTH - 14, 597, import.meta.env.DEV ? '参考源码 ↗' : '源码 ↗', {
-        fontFamily: 'Arial',
-        fontSize: '10px',
-        color: '#858595',
-        padding: { y: 4 },
-      })
+      .text(
+        WIDTH - 14,
+        597,
+        import.meta.env.DEV ? t('game.referenceSource') : t('game.source'),
+        {
+          fontFamily: 'Arial',
+          fontSize: '10px',
+          color: '#858595',
+          padding: { y: 4 },
+        },
+      )
       .setOrigin(1, 0.5)
       .setInteractive({ useHandCursor: true })
       .on('pointerdown', () => {
@@ -193,7 +199,10 @@ export class MainScene extends SessionScene {
     if (this.state.phase === 'ready') this.drawDots();
     this.draw();
     if (this.state.phase === 'over')
-      this.finish(`游戏结束 · 已挑战到第 ${this.state.level} 关`, false);
+      this.finish(
+        t('games.pacman.gameOver', { level: this.state.level }),
+        false,
+      );
   }
   protected snapshot() {
     return this.state.phase === 'over' ? null : this.state;
@@ -262,14 +271,19 @@ export class MainScene extends SessionScene {
       g = this.actors.clear();
     const eaten = TOTAL_DOTS - s.pellets.filter(Boolean).length;
     this.info.setText(
-      `SCORE ${s.score}     LEVEL ${s.level}     DOTS ${eaten}/${TOTAL_DOTS}`,
+      t('games.pacman.hud', {
+        score: s.score,
+        level: s.level,
+        eaten: eaten,
+        total: TOTAL_DOTS,
+      }),
     );
     this.footer.setText(
-      `生命 ${s.lives}     ${s.power > 0 ? `能量 ${s.power.toFixed(1)}s` : '吃光豆子，进入下一关'}`,
+      `${t('games.pacman.lives', { lives: s.lives })}     ${s.power > 0 ? t('games.pacman.power', { seconds: s.power.toFixed(1) }) : t('games.pacman.nextLevelHint')}`,
     );
     this.prompt
       .setVisible(s.phase === 'ready' || s.phase === 'clear')
-      .setText(s.phase === 'clear' ? 'LEVEL CLEAR!' : 'READY!');
+      .setText(s.phase === 'clear' ? t('game.levelCleared') : t('game.ready'));
     this.notice.setVisible(s.noticeTime > 0).setText(s.notice);
     this.maze.setAlpha(
       s.phase === 'clear' && Math.floor(this.animation * 6) % 2 ? 0.35 : 1,

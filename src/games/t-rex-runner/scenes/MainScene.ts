@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { SessionScene } from '../../../core/session-scene';
+import { t } from '../../../i18n';
 import { Audio } from '../../../shared/audio';
 import { frames } from '../assets/frames';
 import hitSound from '../assets/hit.ogg';
@@ -28,7 +29,7 @@ export class MainScene extends SessionScene {
   private stars: Phaser.GameObjects.Image[] = [];
   private digits: Phaser.GameObjects.Image[] = [];
   private ready!: Phaser.GameObjects.Text;
-  private gameover!: Phaser.GameObjects.Image;
+  private gameover!: Phaser.GameObjects.Text;
   private elapsed = 0;
   preload() {
     this.load.image(ATLAS, sheet);
@@ -81,7 +82,7 @@ export class MainScene extends SessionScene {
         .setDepth(4),
     );
     this.ready = this.add
-      .text(WIDTH / 2, 92, '按空格 / ↑ / 轻触画面开始', {
+      .text(WIDTH / 2, 92, t('games.t-rex-runner.startHint'), {
         fontFamily: 'monospace',
         fontSize: '13px',
         color: '#777777',
@@ -89,8 +90,12 @@ export class MainScene extends SessionScene {
       .setOrigin(0.5)
       .setDepth(4);
     this.gameover = this.add
-      .image(WIDTH / 2, 75, ATLAS, 'gameover')
-      .setScale(0.5)
+      .text(WIDTH / 2, 75, t('native.gameOver'), {
+        fontFamily: 'monospace',
+        fontSize: '18px',
+        color: '#535353',
+      })
+      .setOrigin(0.5)
       .setDepth(4)
       .setVisible(false);
     this.input.on('pointerdown', () => {
@@ -125,7 +130,7 @@ export class MainScene extends SessionScene {
     this.draw();
     if (this.state.phase === 'over') {
       Audio.playAsset(hitSound);
-      this.finish('撞到障碍了，再跑一次？', false);
+      this.finish(t('games.t-rex-runner.gameOver'), false);
     }
   }
   protected snapshot() {

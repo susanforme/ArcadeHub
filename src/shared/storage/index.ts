@@ -21,7 +21,7 @@ function database() {
         resolve(db);
       };
       request.onerror = () => reject(request.error);
-      request.onblocked = () => reject(new Error('存档数据库被其他页面占用'));
+      request.onblocked = () => reject(new Error('errors.saveDatabaseBusy'));
     }).catch((error) => {
       connection = undefined;
       throw error;

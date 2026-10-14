@@ -12,12 +12,14 @@ body {
   margin: 0;
 }
 button,
-input {
+input,
+select {
   font: inherit;
 }
 button,
 a,
-input {
+input,
+select {
   -webkit-tap-highlight-color: transparent;
 }
 button {
@@ -33,7 +35,8 @@ a {
 }
 button,
 a,
-input {
+input,
+select {
   outline-offset: 5px;
 }
 :focus-visible {

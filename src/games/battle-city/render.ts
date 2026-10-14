@@ -1,3 +1,4 @@
+import { localizeText } from '../../i18n';
 import type GameSession from './vendor/engine/GameSession';
 import SpriteAtlas, { brickShapeKey } from './vendor/render/SpriteAtlas';
 import { tankColor } from './vendor/render/tankColor';
@@ -35,7 +36,7 @@ export class BattleRenderer {
     c.font = `bold ${size}px monospace`;
     c.textAlign = centered ? 'center' : 'left';
     c.textBaseline = 'top';
-    c.fillText(text, x, y);
+    c.fillText(localizeText(text), x, y);
   }
   draw(s: GameSession) {
     const c = this.ctx;
@@ -150,7 +151,7 @@ export class BattleRenderer {
       c.fillStyle = '#000';
       c.fillRect(0, 0, 256, 240);
       this.text(`STAGE ${s.stageIndex + 1}`, 128, 24, '#fff', 12, true);
-      this.text('BATTLE RESULTS', 128, 47, '#e79c21', 10, true);
+      this.text('native.battleResults', 128, 47, '#e79c21', 10, true);
       s.players.forEach((p, i) => {
         this.text(`${i + 1}P  ${p.score}`, 30 + i * 128, 70, '#b53121');
       });
@@ -180,14 +181,14 @@ export class BattleRenderer {
       const y = 224 - s.gameoverProgress * 116;
       c.fillStyle = '#000';
       c.fillRect(91, y - 3, 58, 27);
-      this.text('GAME', 120, y, '#b53121', 12, true);
-      this.text('OVER', 120, y + 12, '#b53121', 12, true);
+      this.text('native.game', 120, y, '#b53121', 12, true);
+      this.text('native.over', 120, y + 12, '#b53121', 12, true);
     }
     if (s.phase === 'ended') {
       c.fillStyle = '#000';
       c.fillRect(0, 0, 256, 240);
       this.text(
-        s.cleared ? 'CONGRATULATIONS!' : 'GAME OVER',
+        s.cleared ? 'native.congratulations' : 'native.gameOver',
         128,
         72,
         '#b53121',
@@ -205,17 +206,17 @@ export class BattleRenderer {
           true,
         );
       });
-      this.text('RESTART TO PLAY AGAIN', 128, 203, '#adadad', 9, true);
+      this.text('native.restartToPlayAgain', 128, 203, '#adadad', 9, true);
     }
   }
   menu(twoPlayers: boolean, stage: number) {
     const c = this.ctx;
     c.fillStyle = '#000';
     c.fillRect(0, 0, 256, 240);
-    this.text('BATTLE', 128, 35, '#b53121', 32, true);
-    this.text('CITY', 128, 67, '#b53121', 32, true);
-    this.text('1 PLAYER', 99, 120, twoPlayers ? '#adadad' : '#fff', 10);
-    this.text('2 PLAYERS', 99, 143, twoPlayers ? '#fff' : '#adadad', 10);
+    this.text('native.battle', 128, 35, '#b53121', 32, true);
+    this.text('native.city', 128, 67, '#b53121', 32, true);
+    this.text('native.1Player', 99, 120, twoPlayers ? '#adadad' : '#fff', 10);
+    this.text('native.2Players', 99, 143, twoPlayers ? '#fff' : '#adadad', 10);
     this.sprite('tank/player/basic/yellow/0', 76, twoPlayers ? 139 : 116);
     this.text(
       `‹  STAGE ${String(stage + 1).padStart(2, '0')}  ›`,
@@ -225,7 +226,7 @@ export class BattleRenderer {
       10,
       true,
     );
-    this.text('PRESS SPACE / ENTER', 128, 198, '#fff', 9, true);
+    this.text('native.pressSpaceEnter', 128, 198, '#fff', 9, true);
     this.text('© feichao93 · MIT', 128, 222, '#757575', 7, true);
   }
 }

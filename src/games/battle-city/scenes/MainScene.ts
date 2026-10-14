@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { SessionScene } from '../../../core/session-scene';
 import type { Action } from '../../../core/types';
+import { t } from '../../../i18n';
 import { Audio } from '../../../shared/audio';
 import {
   type Checkpoint,
@@ -45,6 +46,7 @@ export class MainScene extends SessionScene {
   private battle: GameSession | null = null;
   private engineInput = new EngineInput();
   private texture!: Phaser.Textures.CanvasTexture;
+  private screen!: Phaser.GameObjects.Image;
   private battleRenderer!: BattleRenderer;
   private twoPlayers = false;
   private selectedStage = 0;
@@ -68,8 +70,12 @@ export class MainScene extends SessionScene {
     if (!texture) throw new Error('Cannot create Battle City canvas');
     this.texture = texture;
     texture.setFilter(Phaser.Textures.FilterMode.NEAREST);
-    this.add.image(0, 0, texture.key).setOrigin(0).setScale(2);
+    this.screen = this.add
+      .image(0, 0, texture.key)
+      .setOrigin(0)
+      .setDisplaySize(512, 480);
     this.battleRenderer = new BattleRenderer(texture.getContext());
+    this.scale.on('resize', this.draw, this);
     this.begin();
     const keyboard = (e: KeyboardEvent) => {
       if (
@@ -112,6 +118,7 @@ export class MainScene extends SessionScene {
     window.addEventListener('keydown', keyboard, true);
     window.addEventListener('keyup', keyboard, true);
     this.events.once('shutdown', () => {
+      this.scale.off('resize', this.draw, this);
       window.removeEventListener('keydown', keyboard, true);
       window.removeEventListener('keyup', keyboard, true);
       this.textures.remove(texture.key);
@@ -146,7 +153,7 @@ export class MainScene extends SessionScene {
     this.score = this.battle.scores.reduce((a, b) => a + b, 0);
     this.controls.reset();
     this.engineInput.releaseAll();
-    this.publish('保护老鹰基地，消灭全部敌军');
+    this.publish(t('games.battle-city.instructions'));
     this.persist();
     this.draw();
   }
@@ -199,11 +206,22 @@ export class MainScene extends SessionScene {
     this.draw();
     if (this.battle.phase === 'ended')
       this.finish(
-        this.battle.cleared ? '恭喜通关全部 35 关！' : '基地失守或生命耗尽',
+        this.battle.cleared
+          ? t('games.battle-city.completed')
+          : t('games.battle-city.gameOver'),
         false,
       );
   }
   private draw() {
+    const { width, height } = this.scale.gameSize;
+    const density = Math.max(1, Math.ceil(Math.max(width / 256, height / 240)));
+    if (this.texture.width !== 256 * density) {
+      this.texture.setSize(256 * density, 240 * density);
+      this.screen.setTexture(this.texture.key).setDisplaySize(512, 480);
+      const context = this.texture.getContext();
+      context.setTransform(density, 0, 0, density, 0, 0);
+      context.imageSmoothingEnabled = false;
+    }
     if (this.battle) this.battleRenderer.draw(this.battle);
     else this.battleRenderer.menu(this.twoPlayers, this.selectedStage);
     this.texture.refresh();

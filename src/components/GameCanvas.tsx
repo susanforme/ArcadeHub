@@ -3,6 +3,7 @@ import styles from '../app/App.module.css';
 import { events } from '../core/event-bus';
 import { runtime } from '../core/game-runtime';
 import type { GameManifest, SessionState } from '../core/types';
+import { useI18n } from '../i18n';
 import { VirtualGamepad } from './VirtualGamepad';
 
 export function GameCanvas({
@@ -16,6 +17,7 @@ export function GameCanvas({
   bestScore: number;
   onState: (state: SessionState) => void;
 }) {
+  const { t, text } = useI18n();
   const [expanded, setExpanded] = useState(true);
   const [showGamepad, setShowGamepad] = useState(
     () =>
@@ -46,7 +48,7 @@ export function GameCanvas({
       void runtime
         .start(parent.current, game, resume)
         .catch((error) =>
-          setError(error instanceof Error ? error.message : '游戏加载失败'),
+          setError(error instanceof Error ? error.message : 'errors.gameLoad'),
         );
     container.current?.focus();
     return () => {
@@ -85,7 +87,7 @@ export function GameCanvas({
       }
       container.current?.focus();
     } catch {
-      setFullscreenError('无法进入浏览器全屏，请检查浏览器权限或使用 F11。');
+      setFullscreenError('errors.enterFullscreen');
     }
   };
   const toggleExpanded = async () => {
@@ -93,7 +95,7 @@ export function GameCanvas({
       try {
         await document.exitFullscreen();
       } catch {
-        setFullscreenError('无法退出浏览器全屏，请按 Esc 后重试。');
+        setFullscreenError('errors.exitFullscreen');
         return;
       }
     }
@@ -106,11 +108,13 @@ export function GameCanvas({
     >
       <header className={styles.playerToolbar}>
         <div className={styles.playerSummary}>
-          <b>{game.name}</b>
+          <b>{t(game.name)}</b>
           <span>
-            得分 <strong>{state.score}</strong>
+            {t('game.score')} <strong>{state.score}</strong>
           </span>
-          <span>最高 {Math.max(bestScore, state.score)}</span>
+          <span>
+            {t('game.best')} {Math.max(bestScore, state.score)}
+          </span>
         </div>
         <div className={styles.playerActions}>
           {gamepad && (
@@ -122,7 +126,7 @@ export function GameCanvas({
                 container.current?.focus();
               }}
             >
-              {showGamepad ? '隐藏手柄' : '显示手柄'}
+              {showGamepad ? t('player.hideGamepad') : t('player.showGamepad')}
             </button>
           )}
           <button
@@ -133,36 +137,40 @@ export function GameCanvas({
               container.current?.focus();
             }}
           >
-            {state.status === 'paused' ? '继续' : '暂停'}
+            {state.status === 'paused' ? t('player.resume') : t('player.pause')}
           </button>
           <button
             type="button"
             aria-pressed={expanded}
             onClick={() => void toggleExpanded()}
           >
-            {expanded ? '切回小屏' : '网页全屏'}
+            {expanded ? t('player.smallScreen') : t('player.expand')}
           </button>
           <button
             type="button"
             disabled={!fullscreenSupported}
-            title={fullscreenSupported ? undefined : '当前浏览器不支持全屏 API'}
+            title={
+              fullscreenSupported
+                ? undefined
+                : t('errors.fullscreenUnsupported')
+            }
             onClick={() => void toggleFullscreen()}
           >
-            {fullscreen ? '退出浏览器全屏' : '浏览器全屏'}
+            {fullscreen ? t('player.exitFullscreen') : t('player.fullscreen')}
           </button>
-          <a href="#/">返回大厅</a>
+          <a href="#/">{t('navigation.back')}</a>
         </div>
       </header>
       {fullscreenError && (
         <p className={styles.error} role="alert">
-          {fullscreenError}
+          {text(fullscreenError)}
         </p>
       )}
       <section
         className={styles.gameStage}
         ref={container}
         tabIndex={-1}
-        aria-label={`${game.name}游戏区域`}
+        aria-label={t('game.areaLabel', { name: t(game.name) })}
       >
         <div className={styles.canvas} ref={parent} />
         {gamepadEnabled && (
@@ -173,23 +181,23 @@ export function GameCanvas({
         )}
         {(state.status !== 'playing' || error) && (
           <div className={styles.overlay}>
-            <span className={styles.eyebrow}>{game.subtitle}</span>
+            <span className={styles.eyebrow}>{t(game.subtitle)}</span>
             <h2>
               {error
-                ? '加载失败'
+                ? t('player.loadFailed')
                 : state.status === 'loading'
-                  ? '正在准备游戏…'
+                  ? t('player.loadingTitle')
                   : state.status === 'paused'
-                    ? '休息一下'
-                    : '下次一定更高分'}
+                    ? t('player.pausedTitle')
+                    : t('player.gameOverTitle')}
             </h2>
             <p>
-              {error ||
+              {text(error) ||
                 (state.status === 'paused'
-                  ? '暂停时自动保存进度，准备好就继续。'
+                  ? t('player.pausedDescription')
                   : state.status === 'over'
-                    ? `${state.message} · 得分 ${state.score}`
-                    : '马上就好，精彩即将开始。')}
+                    ? `${text(state.message ?? 'game.gameOver')} · ${t('game.score')} ${state.score}`
+                    : t('player.loadingDescription'))}
             </p>
             {state.status === 'paused' && (
               <button
@@ -200,7 +208,7 @@ export function GameCanvas({
                   container.current?.focus();
                 }}
               >
-                继续游戏 →
+                {t('game.resumeAction')}{' '}
               </button>
             )}
             {state.status === 'over' && (
@@ -212,12 +220,12 @@ export function GameCanvas({
                   container.current?.focus();
                 }}
               >
-                再玩一次 →
+                {t('game.playAgainAction')}{' '}
               </button>
             )}
             {error && (
               <button type="button" onClick={() => window.location.reload()}>
-                重新加载
+                {t('player.reload')}{' '}
               </button>
             )}
           </div>

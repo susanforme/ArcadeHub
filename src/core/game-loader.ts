@@ -7,7 +7,7 @@ export async function loadGame(manifest: GameManifest) {
     plugin.config.width <= 0 ||
     plugin.config.height <= 0
   ) {
-    throw new Error('游戏插件配置无效');
+    throw new Error('errors.gameConfig');
   }
   return plugin;
 }

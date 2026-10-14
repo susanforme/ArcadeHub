@@ -43,7 +43,7 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET' || (new URL(event.request.url).origin !== self.location.origin && !ASSETS.includes(event.request.url))) return;
   event.respondWith(caches.open(CACHE).then(async cache => {
-    if (event.request.mode === 'navigate') return (await cache.match('/')) || fetch(event.request);
+    if (event.request.mode === 'navigate') return (await cache.match(event.request)) || (await cache.match('/')) || fetch(event.request);
     return (await cache.match(event.request)) || fetch(event.request);
   }));
 });
