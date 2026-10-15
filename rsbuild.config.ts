@@ -17,6 +17,18 @@ export default defineConfig(({ envMode }) => ({
         : undefined,
     copy: [
       {
+        from: './src/games/puzzle-bobble/assets/SOURCES.md',
+        to: 'licenses/puzzle-bobble-sources.md',
+      },
+      {
+        from: './src/games/fruit-ninja/assets/NOTICE.txt',
+        to: 'licenses/fruit-ninja-notice.txt',
+      },
+      {
+        from: './src/games/whack-a-mole/assets/LICENSE.txt',
+        to: 'licenses/whack-a-mole.txt',
+      },
+      {
         from: './src/app/assets/OFL-NotoSansSC.txt',
         to: 'licenses/noto-sans-sc.txt',
       },

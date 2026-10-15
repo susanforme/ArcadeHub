@@ -1,0 +1,22 @@
+Fruit Ninja community artwork and audio
+
+Source: https://github.com/ChineseDron/fruit-ninja
+Revision: 7d1960f4bac60022a8590944a27247df4547ac40
+Retrieved: 2026-10-15
+Community project: Baidu JS team / ChineseDron.
+Original Fruit Ninja game, branding and associated artwork: Halfbrick Studios.
+
+Copied unchanged from source/images:
+background.jpg, logo.png, ninja.png, new-game.png, score.png,
+x.png, xf.png, flash.png, fruit/*.png (whole fruit, halves and bomb).
+Copied unchanged from source/sound:
+splatter.mp3, throw.mp3, boom.mp3, start.mp3, over.mp3.
+cover.svg arranges embedded copies of these images for the ArcadeHub card.
+
+The upstream repository has no explicit LICENSE file. Public availability
+does not establish an open license for the artwork, branding or audio.
+No claim of CC0, MIT, or commercial reuse permission is made here.
+Confirm rights with the relevant owners before public/commercial redistribution.
+
+The Phaser implementation and gameplay logic in ArcadeHub were written
+independently; upstream JavaScript is not bundled or executed.

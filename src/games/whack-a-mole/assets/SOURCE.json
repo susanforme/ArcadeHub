@@ -1,0 +1,27 @@
+{
+  "repository": "https://github.com/AugsEU/whack-a-key",
+  "revision": "56d42ee5344d41fb0589475668be0687ce84e95f",
+  "license": "CC0-1.0",
+  "files": {
+    "mole.png": {
+      "upstream": "assets/textures/mole.png",
+      "sha256": "469dd5f95aa3a906edd0f8b7ea72f5da0933c6484a8d82ca7287250ed191465d"
+    },
+    "game_bg.png": {
+      "upstream": "assets/textures/game_bg.png",
+      "sha256": "a3b0c569661338fa7bb9aaf3eabd00689d7689f4318cb9d0c361826ac6f7e19c"
+    },
+    "hearts.png": {
+      "upstream": "assets/textures/hearts.png",
+      "sha256": "838e388ad2353acb7c9a5ae75d3ed113313feefff33c8c4d8cc572b1ad5b1a8f"
+    },
+    "bonk.wav": {
+      "upstream": "assets/audio/bonk.wav",
+      "sha256": "62ea1ef7d99ed933457b0ef7da25f0a357f7c4426111bfa20e0d473060cfe875"
+    },
+    "nope.wav": {
+      "upstream": "assets/audio/nope.wav",
+      "sha256": "76cccc2f97d1b4f43e3f0565d42f86d3c184df26b9191201c35e7c5cd177cf89"
+    }
+  }
+}
