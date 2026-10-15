@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: '2048',
+  addedAt: 1791877141000,
   name: 'games.2048.name',
   subtitle: 'games.2048.name',
   category: 'categories.puzzle',

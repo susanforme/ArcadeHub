@@ -3,6 +3,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'doodle-jump',
+  addedAt: 1792036714000,
   name: 'games.doodleJump.name',
   subtitle: 'games.doodleJump.subtitle',
   description: 'games.doodleJump.description',

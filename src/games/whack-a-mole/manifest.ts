@@ -3,6 +3,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'whack-a-mole',
+  addedAt: 1792034021000,
   name: 'games.whackAMole.name',
   subtitle: 'games.whackAMole.subtitle',
   description: 'games.whackAMole.description',

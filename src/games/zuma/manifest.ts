@@ -3,6 +3,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'zuma',
+  addedAt: 1792036336000,
   name: 'games.zuma.name',
   subtitle: 'games.zuma.subtitle',
   description: 'games.zuma.description',

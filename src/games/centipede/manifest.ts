@@ -4,6 +4,7 @@ import cover from './cover.png';
 
 export default {
   id: 'centipede',
+  addedAt: 1791947706000,
   name: 'games.centipede.name',
   subtitle: 'games.centipede.subtitle',
   description: 'games.centipede.description',

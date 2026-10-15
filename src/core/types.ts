@@ -54,6 +54,8 @@ export interface VirtualGamepadConfig {
 }
 interface GameManifestBase {
   id: string;
+  /** Timestamp in milliseconds when the game was added to the library. */
+  addedAt: number;
   name: TranslationKey;
   subtitle: TranslationKey;
   description: TranslationKey;

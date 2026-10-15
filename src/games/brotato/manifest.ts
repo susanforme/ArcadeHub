@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.png';
 export default {
   id: 'brotato',
+  addedAt: 1791963212000,
   name: 'games.brotato.name',
   subtitle: 'games.brotato.subtitle',
   description: 'games.brotato.description',

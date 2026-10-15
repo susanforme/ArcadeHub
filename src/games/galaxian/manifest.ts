@@ -4,6 +4,7 @@ import cover from './cover.png';
 
 export default {
   id: 'galaxian',
+  addedAt: 1791947706000,
   name: 'games.galaxian.name',
   subtitle: 'games.galaxian.subtitle',
   description: 'games.galaxian.description',

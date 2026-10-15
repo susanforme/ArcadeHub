@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: 'battle-city',
+  addedAt: 1791879409000,
   name: 'games.battle-city.name',
   subtitle: 'games.battle-city.subtitle',
   category: 'categories.arcade',

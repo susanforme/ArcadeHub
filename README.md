@@ -33,7 +33,7 @@ React 不管理角色、动画、碰撞或游戏循环。大厅启动只载入 m
 
 ## 新增游戏
 
-新增 `src/games/new-game/manifest.ts`、`index.ts`、`scenes/`、`assets/` 即可。Rsbuild 2 原生 `import.meta.glob('../games/*/manifest.ts', { eager: true })` 自动发现 manifest，不需要修改注册表、路由或菜单。ID 必须唯一，仅支持小写字母、数字、连字符。manifest 不应直接导入 Scene 或 Phaser。
+新增 `src/games/new-game/manifest.ts`、`index.ts`、`scenes/`、`assets/` 即可。Rsbuild 2 原生 `import.meta.glob('../games/*/manifest.ts', { eager: true })` 自动发现 manifest，不需要修改注册表、路由或菜单。ID 必须唯一，仅支持小写字母、数字、连字符。manifest 不应直接导入 Scene 或 Phaser。`addedAt` 记录首次上架的毫秒时间戳（新增时取一次 `Date.now()` 的结果写入，勿在运行时动态计算），大厅按该字段倒序展示，同批游戏按 ID 排序。
 
 ```ts
 // manifest.ts
@@ -42,6 +42,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'new-game',
+  addedAt: 1792049629000, // 首次上架时间，新增时替换为当时的毫秒时间戳
   name: 'games.new-game.name',
   subtitle: 'games.new-game.subtitle',
   category: 'categories.arcade',

@@ -4,6 +4,7 @@ import cover from './cover.png';
 
 export default {
   id: 'missile-command',
+  addedAt: 1791947706000,
   name: 'games.missile-command.name',
   subtitle: 'games.missile-command.subtitle',
   description: 'games.missile-command.description',

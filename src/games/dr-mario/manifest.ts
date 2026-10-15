@@ -3,6 +3,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'dr-mario',
+  addedAt: 1792047445000,
   name: 'games.drMario.name',
   subtitle: 'games.drMario.subtitle',
   description: 'games.drMario.description',

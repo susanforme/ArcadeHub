@@ -416,7 +416,31 @@
   row-gap: 24px;
 }
 .card {
+  position: relative;
   min-width: 0;
+}
+.cardLink {
+  display: block;
+}
+.favoriteButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  background: var(--paper, #f5f0e5);
+}
+.favoriteButton:hover,
+.favoriteButton[aria-pressed="true"] {
+  color: var(--accent);
+}
+:where(.favoriteButton[aria-pressed="true"]) svg {
+  fill: currentColor;
 }
 .cover {
   overflow: hidden;
@@ -928,7 +952,7 @@
     display: none;
   }
   .categoryNav {
-    display: flex;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
   .categoryNav button {

@@ -4,6 +4,7 @@ import cover from './cover.png';
 
 export default {
   id: 'pac-man',
+  addedAt: 1791947706000,
   name: 'games.pac-man.name',
   subtitle: 'games.pac-man.subtitle',
   description: 'games.pac-man.description',

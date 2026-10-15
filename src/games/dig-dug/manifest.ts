@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.png';
 export default {
   id: 'dig-dug',
+  addedAt: 1792049629000,
   name: 'games.digDug.name',
   subtitle: 'games.digDug.subtitle',
   description: 'games.digDug.description',

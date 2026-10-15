@@ -4,6 +4,7 @@ import cover from './cover.png';
 
 export default {
   id: 'lunar-lander',
+  addedAt: 1791947706000,
   name: 'games.lunar-lander.name',
   subtitle: 'games.lunar-lander.subtitle',
   description: 'games.lunar-lander.description',

@@ -3,6 +3,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'color-lines',
+  addedAt: 1792047445000,
   name: 'games.colorLines.name',
   subtitle: 'games.colorLines.subtitle',
   description: 'games.colorLines.description',

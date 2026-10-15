@@ -3,6 +3,7 @@ import cover from './assets/cover.png';
 
 export default {
   id: 'hextris',
+  addedAt: 1792047445000,
   name: 'games.hextris.name',
   subtitle: 'games.hextris.subtitle',
   description: 'games.hextris.description',

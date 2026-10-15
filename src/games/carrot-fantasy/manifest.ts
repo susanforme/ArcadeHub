@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.png';
 export default {
   id: 'carrot-fantasy',
+  addedAt: 1791963212000,
   name: 'games.carrot-fantasy.name',
   subtitle: 'games.carrot-fantasy.subtitle',
   description: 'games.carrot-fantasy.description',

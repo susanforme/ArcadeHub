@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.png';
 export default {
   id: 'metal-slug',
+  addedAt: 1791949677000,
   name: 'games.metal-slug.name',
   subtitle: 'games.metal-slug.subtitle',
   description: 'games.metal-slug.description',

@@ -4,6 +4,7 @@ import cover from './cover.png';
 
 export default {
   id: 'breakout',
+  addedAt: 1791947706000,
   name: 'games.breakout.name',
   subtitle: 'games.breakout.subtitle',
   description: 'games.breakout.description',

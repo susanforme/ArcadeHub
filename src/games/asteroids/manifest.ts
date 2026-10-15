@@ -4,6 +4,7 @@ import cover from './cover.png';
 
 export default {
   id: 'asteroids',
+  addedAt: 1791947706000,
   name: 'games.asteroids.name',
   subtitle: 'games.asteroids.subtitle',
   description: 'games.asteroids.description',

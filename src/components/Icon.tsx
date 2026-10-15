@@ -2,7 +2,7 @@ export function Icon({
   name,
   size = 20,
 }: {
-  name: 'games' | 'save' | 'settings' | 'arrow' | 'sound' | 'search';
+  name: 'games' | 'save' | 'settings' | 'arrow' | 'sound' | 'search' | 'heart';
   size?: number;
 }) {
   const paths = {
@@ -22,6 +22,9 @@ export function Icon({
         <path d="m9 3-1 3-3 1-2 4 2 2v4l4 2 3-1 3 1 4-2v-4l2-2-2-4-3-1-1-3z" />
         <circle cx="12" cy="11" r="3" />
       </>
+    ),
+    heart: (
+      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" />
     ),
     arrow: <path d="M5 12h14m-6-6 6 6-6 6" />,
     sound: (

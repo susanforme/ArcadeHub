@@ -1,4 +1,7 @@
 {
+  "favorites.title": "收藏",
+  "favorites.add": "收藏{name}",
+  "favorites.remove": "取消收藏{name}",
   "library.categories": "游戏分类",
   "navigation.main": "主导航",
   "audio.disable": "关闭音效",

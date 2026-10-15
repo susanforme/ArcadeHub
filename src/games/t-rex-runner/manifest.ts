@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: 't-rex-runner',
+  addedAt: 1791877141000,
   name: 'games.t-rex-runner.name',
   subtitle: 'games.t-rex-runner.subtitle',
   category: 'categories.arcade',

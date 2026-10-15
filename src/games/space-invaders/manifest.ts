@@ -4,6 +4,7 @@ import cover from './cover.png';
 
 export default {
   id: 'space-invaders',
+  addedAt: 1791947706000,
   name: 'games.space-invaders.name',
   subtitle: 'games.space-invaders.subtitle',
   description: 'games.space-invaders.description',

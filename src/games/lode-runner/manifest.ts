@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.png';
 export default {
   id: 'lode-runner',
+  addedAt: 1792047445000,
   name: 'games.lodeRunner.name',
   subtitle: 'games.lodeRunner.subtitle',
   description: 'games.lodeRunner.description',

@@ -1,4 +1,7 @@
 {
+  "favorites.title": "Favorites",
+  "favorites.add": "Add {name} to favorites",
+  "favorites.remove": "Remove {name} from favorites",
   "library.categories": "Game categories",
   "navigation.main": "Main navigation",
   "audio.disable": "Mute sound",

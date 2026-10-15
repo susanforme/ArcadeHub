@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: 'pinball',
+  addedAt: 1792049629000,
   name: 'games.pinball.name',
   subtitle: 'games.pinball.subtitle',
   description: 'games.pinball.description',

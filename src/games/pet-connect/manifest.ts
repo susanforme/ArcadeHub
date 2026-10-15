@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: 'pet-connect',
+  addedAt: 1791963212000,
   name: 'games.petConnect.name',
   subtitle: 'games.petConnect.subtitle',
   category: 'categories.puzzle',

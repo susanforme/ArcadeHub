@@ -3,6 +3,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'puyo-puyo',
+  addedAt: 1792046782000,
   name: 'games.puyoPuyo.name',
   subtitle: 'games.puyoPuyo.subtitle',
   category: 'categories.puzzle',

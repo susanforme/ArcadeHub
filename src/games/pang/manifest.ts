@@ -3,6 +3,7 @@ import cover from './assets/cover.png';
 
 export default {
   id: 'pang',
+  addedAt: 1792047445000,
   name: 'games.pang.name',
   subtitle: 'games.pang.subtitle',
   description: 'games.pang.description',

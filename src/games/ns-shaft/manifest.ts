@@ -3,6 +3,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'ns-shaft',
+  addedAt: 1792047445000,
   name: 'games.nsShaft.name',
   subtitle: 'games.nsShaft.subtitle',
   description: 'games.nsShaft.description',

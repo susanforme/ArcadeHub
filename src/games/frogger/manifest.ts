@@ -3,6 +3,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'frogger',
+  addedAt: 1792044566000,
   name: 'games.frogger.name',
   subtitle: 'games.frogger.subtitle',
   description: 'games.frogger.description',

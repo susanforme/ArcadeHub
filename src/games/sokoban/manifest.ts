@@ -3,6 +3,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'sokoban',
+  addedAt: 1791960518000,
   name: 'games.sokoban.name',
   subtitle: 'games.sokoban.subtitle',
   description: 'games.sokoban.description',

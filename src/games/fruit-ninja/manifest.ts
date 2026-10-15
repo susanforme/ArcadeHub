@@ -3,6 +3,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'fruit-ninja',
+  addedAt: 1792034021000,
   name: 'games.fruitNinja.name',
   subtitle: 'games.fruitNinja.subtitle',
   description: 'games.fruitNinja.description',

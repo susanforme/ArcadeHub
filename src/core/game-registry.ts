@@ -8,7 +8,9 @@ export function createRegistry(manifests: GameManifest[]) {
     }
     ids.add(game.id);
   }
-  return manifests.sort((a, b) => a.id.localeCompare(b.id));
+  return manifests.sort(
+    (a, b) => b.addedAt - a.addedAt || a.id.localeCompare(b.id),
+  );
 }
 const modules = import.meta.glob<{ default: GameManifest }>(
   '../games/*/manifest.ts',

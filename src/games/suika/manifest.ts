@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: 'suika',
+  addedAt: 1792049629000,
   name: 'games.suika.name',
   subtitle: 'games.suika.subtitle',
   description: 'games.suika.description',

@@ -3,6 +3,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'fireboy-watergirl',
+  addedAt: 1791960518000,
   name: 'games.fireboy-watergirl.name',
   subtitle: 'games.fireboy-watergirl.subtitle',
   description: 'games.fireboy-watergirl.description',

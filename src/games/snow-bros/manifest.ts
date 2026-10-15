@@ -3,6 +3,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'snow-bros',
+  addedAt: 1792046782000,
   name: 'games.snowBros.name',
   subtitle: 'games.snowBros.subtitle',
   description: 'games.snowBros.description',

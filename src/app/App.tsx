@@ -16,22 +16,6 @@ import snakeCartridge from './assets/snake-cartridge.webp';
 import { useRoute } from './router';
 import { useSettings } from './store';
 
-const featuredIds = [
-  '2048',
-  'battle-city',
-  'bomberman',
-  'pacman',
-  'tetris',
-  't-rex-runner',
-];
-const libraryGames = [...games].sort((a, b) => {
-  const rank = (id: string) => {
-    const index = featuredIds.indexOf(id);
-    return index < 0 ? featuredIds.length : index;
-  };
-  return rank(a.id) - rank(b.id);
-});
-
 function GameDetail({ game, save }: { game: GameManifest; save?: GameSave }) {
   const { t, text } = useI18n();
   const [run, setRun] = useState<{ resume: boolean } | null>(null);
@@ -144,7 +128,7 @@ function GameDetail({ game, save }: { game: GameManifest; save?: GameSave }) {
 export default function App() {
   const { t, text, language } = useI18n();
   const route = useRoute();
-  const { muted, volume, setMuted, setVolume } = useSettings();
+  const { muted, volume, setMuted, setVolume, favoriteIds } = useSettings();
   const [saves, setSaves] = useState<GameSave[]>([]);
   const [storageError, setStorageError] = useState('');
   const [search, setSearch] = useState('');
@@ -226,9 +210,12 @@ export default function App() {
   const currentGame = route.startsWith('/game/')
     ? games.find((game) => game.id === route.slice(6))
     : undefined;
-  const filtered = libraryGames.filter(
+  const filtered = games.filter(
     (game) =>
-      (category === 'categories.all' || game.category === category) &&
+      (category === 'categories.all' ||
+        (category === 'favorites.title'
+          ? favoriteIds.includes(game.id)
+          : game.category === category)) &&
       `${translate(game.name, 'zh')} ${translate(game.name, 'en')} ${translate(game.subtitle, 'en')}`
         .toLowerCase()
         .includes(search.toLowerCase()),
@@ -307,6 +294,7 @@ export default function App() {
               {(
                 [
                   'categories.all',
+                  'favorites.title',
                   'categories.arcade',
                   'categories.puzzle',
                 ] as const
@@ -319,7 +307,13 @@ export default function App() {
                   onClick={() => setCategory(item)}
                 >
                   <Icon
-                    name={item === 'categories.puzzle' ? 'settings' : 'games'}
+                    name={
+                      item === 'favorites.title'
+                        ? 'heart'
+                        : item === 'categories.puzzle'
+                          ? 'settings'
+                          : 'games'
+                    }
                     size={24}
                   />
                   {t(item)}
@@ -408,7 +402,11 @@ export default function App() {
               <section className={styles.library}>
                 <div className={styles.libraryHeading}>
                   <h2>
-                    {t('library.collection')}{' '}
+                    {t(
+                      category === 'favorites.title'
+                        ? 'favorites.title'
+                        : 'library.collection',
+                    )}{' '}
                     <span>{filtered.length.toString().padStart(2, '0')}</span>
                   </h2>
                   <label className={styles.search}>

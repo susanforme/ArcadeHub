@@ -3,6 +3,8 @@ import { persist } from 'zustand/middleware';
 import type { Language } from '../i18n/translate';
 
 interface Settings {
+  favoriteIds: string[];
+  toggleFavorite: (id: string) => void;
   language: Language;
   setLanguage: (language: Language) => void;
   muted: boolean;
@@ -13,6 +15,13 @@ interface Settings {
 export const useSettings = create<Settings>()(
   persist(
     (set) => ({
+      favoriteIds: [],
+      toggleFavorite: (id) =>
+        set((state) => ({
+          favoriteIds: state.favoriteIds.includes(id)
+            ? state.favoriteIds.filter((favoriteId) => favoriteId !== id)
+            : [...state.favoriteIds, id],
+        })),
       language: 'zh',
       setLanguage: (language) => set({ language }),
       muted: false,
@@ -22,7 +31,8 @@ export const useSettings = create<Settings>()(
     }),
     {
       name: 'arcadehub-settings',
-      partialize: ({ muted, volume, language }) => ({
+      partialize: ({ muted, volume, language, favoriteIds }) => ({
+        favoriteIds,
         muted,
         volume,
         language,
@@ -32,6 +42,13 @@ export const useSettings = create<Settings>()(
         return {
           ...current,
           ...saved,
+          favoriteIds: Array.isArray(saved?.favoriteIds)
+            ? [
+                ...new Set(
+                  saved.favoriteIds.filter((id) => typeof id === 'string'),
+                ),
+              ]
+            : [],
           language: saved?.language === 'en' ? 'en' : 'zh',
         };
       },

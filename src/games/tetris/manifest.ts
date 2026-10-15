@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: 'tetris',
+  addedAt: 1791863095000,
   name: 'games.tetris.name',
   subtitle: 'games.tetris.subtitle',
   category: 'categories.puzzle',

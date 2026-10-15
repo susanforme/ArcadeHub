@@ -4,6 +4,7 @@ import cover from './cover.png';
 
 export default {
   id: 'gun-fight',
+  addedAt: 1791947706000,
   name: 'games.gun-fight.name',
   subtitle: 'games.gun-fight.subtitle',
   description: 'games.gun-fight.description',

@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.png';
 export default {
   id: 'gold-miner',
+  addedAt: 1791960518000,
   name: 'games.gold-miner.name',
   subtitle: 'games.gold-miner.subtitle',
   description: 'games.gold-miner.description',

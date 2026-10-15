@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: 'minesweeper',
+  addedAt: 1791963212000,
   name: 'games.minesweeper.name',
   subtitle: 'games.minesweeper.subtitle',
   description: 'games.minesweeper.description',

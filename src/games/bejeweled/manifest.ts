@@ -3,6 +3,7 @@ import cover from './assets/cover.svg';
 
 export default {
   id: 'bejeweled',
+  addedAt: 1792043931000,
   name: 'games.bejeweled.name',
   subtitle: 'games.bejeweled.subtitle',
   description: 'games.bejeweled.description',

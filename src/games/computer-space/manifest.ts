@@ -4,6 +4,7 @@ import cover from './cover.png';
 
 export default {
   id: 'computer-space',
+  addedAt: 1791947706000,
   name: 'games.computer-space.name',
   subtitle: 'games.computer-space.subtitle',
   description: 'games.computer-space.description',

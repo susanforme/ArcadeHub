@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: 'magic-tower',
+  addedAt: 1792049629000,
   name: 'games.magicTower.name',
   subtitle: 'games.magicTower.subtitle',
   description: 'games.magicTower.description',

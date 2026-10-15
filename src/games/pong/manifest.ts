@@ -4,6 +4,7 @@ import cover from './cover.png';
 
 export default {
   id: 'pong',
+  addedAt: 1791947706000,
   name: 'games.pong.name',
   subtitle: 'games.pong.subtitle',
   description: 'games.pong.description',

@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: 'cut-the-rope',
+  addedAt: 1791960518000,
   name: 'games.cut-the-rope.name',
   subtitle: 'games.cut-the-rope.subtitle',
   description: 'games.cut-the-rope.description',

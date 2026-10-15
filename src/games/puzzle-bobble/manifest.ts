@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.png';
 export default {
   id: 'puzzle-bobble',
+  addedAt: 1792034021000,
   name: 'games.puzzleBobble.name',
   subtitle: 'games.puzzleBobble.subtitle',
   category: 'categories.puzzle',

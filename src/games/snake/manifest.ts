@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: 'snake',
+  addedAt: 1791863095000,
   name: 'games.snake.name',
   subtitle: 'games.snake.subtitle',
   category: 'categories.arcade',

@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: 'flappy-bird',
+  addedAt: 1791863095000,
   name: 'games.flappy-bird.name',
   subtitle: 'games.flappy-bird.subtitle',
   category: 'categories.arcade',

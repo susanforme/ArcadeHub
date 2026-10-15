@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.png';
 export default {
   id: 'ice-climber',
+  addedAt: 1792049629000,
   name: 'games.iceClimber.name',
   subtitle: 'games.iceClimber.subtitle',
   description: 'games.iceClimber.description',

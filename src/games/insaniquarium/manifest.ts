@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.svg';
 export default {
   id: 'insaniquarium',
+  addedAt: 1792049629000,
   name: 'games.insaniquarium.name',
   subtitle: 'games.insaniquarium.subtitle',
   description: 'games.insaniquarium.description',

@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cards.png';
 export default {
   id: 'klondike',
+  addedAt: 1792047445000,
   name: 'games.klondike.name',
   subtitle: 'games.klondike.subtitle',
   description: 'games.klondike.description',

@@ -2,6 +2,7 @@ import type { GameManifest } from '../../core/types';
 import cover from './assets/cover.png';
 export default {
   id: 'bomberman',
+  addedAt: 1791960518000,
   name: 'games.bomberman.name',
   subtitle: 'games.bomberman.subtitle',
   description: 'games.bomberman.description',
