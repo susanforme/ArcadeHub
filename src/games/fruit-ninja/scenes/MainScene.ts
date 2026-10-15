@@ -14,8 +14,12 @@ import {
   HEIGHT,
   intersects,
   isNinjaState,
+  LIFE_SCORE,
+  MAX_LIVES,
   type NinjaState,
+  type NinjaSwipe,
   newNinja,
+  newNinjaSwipe,
   type Point,
   sliceNinja,
   startNinja,
@@ -61,11 +65,12 @@ export class MainScene extends SessionScene {
   private state!: NinjaState;
   private sprites = new Map<number, Phaser.GameObjects.Image>();
   private effects: Effect[] = [];
-  private contacts = new Map<number, Point>();
+  private contacts = new Map<number, { point: Point; swipe: NinjaSwipe }>();
   private trails: Trail[] = [];
   private blade!: Phaser.GameObjects.Graphics;
   private scoreText!: Phaser.GameObjects.Text;
-  private waveText!: Phaser.GameObjects.Text;
+  private recoveryText!: Phaser.GameObjects.Text;
+  private livesText!: Phaser.GameObjects.Text;
   private hint!: Phaser.GameObjects.Text;
   private misses: Phaser.GameObjects.Image[] = [];
   private panel!: Phaser.GameObjects.Container;
@@ -102,8 +107,11 @@ export class MainScene extends SessionScene {
     this.add.rectangle(WIDTH / 2, 45, WIDTH, 90, 0x1c0d08, 0.3);
     this.add.image(38, 36, key('score')).setScale(1.25).setDepth(6);
     this.scoreText = this.text(68, 12, '', 45).setDepth(6);
-    this.waveText = this.text(30, 69, '', 14, '#e7bf7e').setDepth(6);
-    for (let i = 0; i < 3; i++) {
+    this.recoveryText = this.text(30, 66, '', 20, '#e7bf7e').setDepth(6);
+    this.livesText = this.text(650, 25, '', 22, '#f4d68f')
+      .setOrigin(1, 0)
+      .setDepth(6);
+    for (let i = 0; i < MAX_LIVES; i++) {
       this.misses.push(
         this.add
           .image(684 + i * 38, 35, key('x'))
@@ -154,7 +162,6 @@ export class MainScene extends SessionScene {
       const missed = stepNinja(this.state, dt);
       if (this.state.wave > wave) Audio.playAsset(throwSound);
       if (missed.length) {
-        Audio.playAsset(overSound);
         for (const fruit of missed) {
           this.effect(
             this.add
@@ -213,7 +220,7 @@ export class MainScene extends SessionScene {
   private down(pointer: Phaser.Input.Pointer) {
     if (this.status !== 'playing') return;
     const point = this.cameras.main.getWorldPoint(pointer.x, pointer.y);
-    this.contacts.set(pointer.id, point);
+    this.contacts.set(pointer.id, { point, swipe: newNinjaSwipe() });
     this.trails.push({
       x: point.x,
       y: point.y,
@@ -227,8 +234,9 @@ export class MainScene extends SessionScene {
     if (!this.contacts.size) this.state.combo = 0;
   }
   private move(pointer: Phaser.Input.Pointer) {
-    const from = this.contacts.get(pointer.id);
-    if (!from || this.status !== 'playing') return;
+    const contact = this.contacts.get(pointer.id);
+    if (!contact || this.status !== 'playing') return;
+    const from = contact.point;
     const to = this.cameras.main.getWorldPoint(pointer.x, pointer.y);
     if (
       !pointer.isDown &&
@@ -239,14 +247,14 @@ export class MainScene extends SessionScene {
       this.contacts.delete(pointer.id);
       return;
     }
-    this.contacts.set(pointer.id, to);
+    contact.point = to;
     this.trails.push({ ...to, life: 0.16, pointer: pointer.id });
     if (this.trails.length > 120) this.trails.shift();
     if (this.state.phase === 'ready') {
       if (intersects(from, to, { x: 400, y: 333 }, 70)) this.start();
       return;
     }
-    const result = sliceNinja(this.state, from, to);
+    const result = sliceNinja(this.state, from, to, Math.random, contact.swipe);
     if (result.bomb) {
       Audio.playAsset(boomSound);
       this.flash = 1;
@@ -260,18 +268,35 @@ export class MainScene extends SessionScene {
     for (const fruit of result.cut) this.burst(fruit, angle);
     if (result.bonus) {
       const last = result.cut[result.cut.length - 1];
+      this.floatText(
+        last.x,
+        last.y - 55,
+        t('games.fruitNinja.combo', {
+          count: result.combo,
+          bonus: result.combo,
+        }),
+        '#ffdb57',
+      );
+    }
+    for (const fruit of result.critical)
+      this.floatText(
+        fruit.x,
+        fruit.y - 90,
+        t('games.fruitNinja.critical'),
+        '#ffac55',
+      );
+    if (result.recovered) {
+      this.floatText(
+        400,
+        135,
+        t('games.fruitNinja.recovered', { count: result.recovered }),
+        '#b8ef80',
+      );
       this.effect(
-        this.text(
-          last.x,
-          last.y - 55,
-          t('games.fruitNinja.combo', {
-            count: this.state.combo,
-            bonus: result.bonus,
-          }),
-          27,
-          '#ffdb57',
-        )
-          .setOrigin(0.5)
+        this.add
+          .image(400, 95, key('x'))
+          .setTint(0xb8ef80)
+          .setScale(2)
           .setDepth(11),
         0,
         -45,
@@ -286,6 +311,7 @@ export class MainScene extends SessionScene {
   private settle() {
     if (this.state.phase !== 'over' || this.status === 'over') return;
     this.resetBlade();
+    if (this.state.reason === 'miss') Audio.playAsset(overSound);
     this.finish(
       t(
         this.state.reason === 'bomb'
@@ -293,6 +319,18 @@ export class MainScene extends SessionScene {
           : 'games.fruitNinja.missOver',
       ),
       false,
+    );
+  }
+  private floatText(x: number, y: number, message: string, color: string) {
+    this.effect(
+      this.text(Math.max(130, Math.min(WIDTH - 130, x)), y, message, 27, color)
+        .setOrigin(0.5)
+        .setDepth(11),
+      0,
+      -45,
+      0,
+      0,
+      0.9,
     );
   }
   private effect(
@@ -376,8 +414,18 @@ export class MainScene extends SessionScene {
       sprite.setPosition(fruit.x, fruit.y).setAngle(fruit.angle);
     }
     this.scoreText.setText(`${this.state.score}`);
-    this.waveText.setText(
-      t('games.fruitNinja.wave', { wave: this.state.wave }),
+    this.recoveryText.setText(
+      this.state.misses > 0 && this.state.phase !== 'over'
+        ? t('games.fruitNinja.recoveryProgress', {
+            points: LIFE_SCORE - (this.state.score % LIFE_SCORE),
+          })
+        : t('games.fruitNinja.recoveryRule'),
+    );
+    this.livesText.setText(
+      t('games.fruitNinja.lives', {
+        count: this.state.reason === 'bomb' ? 0 : MAX_LIVES - this.state.misses,
+        max: MAX_LIVES,
+      }),
     );
     this.hint.setText(t('games.fruitNinja.playHint'));
     this.hint.setAlpha(this.state.elapsed < 8 ? 0.85 : 0.35);

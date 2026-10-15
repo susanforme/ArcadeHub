@@ -6,6 +6,7 @@ import {
   intersects,
   isNinjaState,
   newNinja,
+  newNinjaSwipe,
   sliceNinja,
   startNinja,
   stepNinja,
@@ -33,7 +34,7 @@ describe('fruit ninja', () => {
     const state = newNinja();
     stepNinja(state, 20);
     expect(state).toEqual(newNinja());
-    expect(sliceNinja(state, from, to).cut).toEqual([]);
+    expect(sliceNinja(state, from, to, () => 1).cut).toEqual([]);
     expect(startNinja(state)).toBe(true);
     expect(startNinja(state)).toBe(false);
   });
@@ -43,43 +44,138 @@ describe('fruit ninja', () => {
     expect(intersects(from, to, { x: 400, y: 331 }, 30)).toBe(false);
     expect(intersects(from, from, from, 30)).toBe(false);
     expect(intersects(from, to, { x: 40, y: 300 }, 30)).toBe(false);
+    expect(
+      intersects(
+        { x: 164.75, y: 300 },
+        { x: 165.25, y: 300 },
+        { x: 200, y: 300 },
+        35,
+      ),
+    ).toBe(true);
   });
   test('fruit scores only once; three in one swipe earn the combo bonus', () => {
     const state = playing();
     state.fruits = [fruit(1), fruit(2, 'sandia', 350), fruit(3, 'banana', 500)];
     state.nextId = 4;
-    const result = sliceNinja(state, from, to);
+    const result = sliceNinja(state, from, to, () => 1);
     expect(result.cut).toHaveLength(3);
     expect(result.bonus).toBe(3);
     expect(state.score).toBe(6);
     expect(state.fruits).toEqual([]);
-    sliceNinja(state, from, to);
+    sliceNinja(state, from, to, () => 1);
     expect(state.score).toBe(6);
   });
-  test('combo spans adjacent movement events but expires after a pause in slicing', () => {
+  test('one continuous swipe earns double fruit points, including slow movement', () => {
     const state = playing();
+    const swipe = newNinjaSwipe();
     state.nextId = 6;
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 4; i++) {
       state.fruits = [fruit(i)];
-      state.elapsed += 0.05;
-      sliceNinja(state, from, to);
+      state.elapsed += 0.2;
+      sliceNinja(state, from, to, () => 1, swipe);
     }
-    expect(state.score).toBe(6);
-    state.elapsed += 0.2;
+    expect(state.score).toBe(8);
+    expect(swipe.combo).toBe(4);
+    state.elapsed += 0.31;
+    state.fruits = [fruit(5)];
+    expect(sliceNinja(state, from, to, () => 1, swipe).bonus).toBe(0);
+    expect(swipe.combo).toBe(1);
+  });
+  test('separate fingers, a new contact, and a reversal cannot share a combo', () => {
+    const state = playing();
+    const swipe = newNinjaSwipe();
+    state.nextId = 6;
+    state.fruits = [fruit(1), fruit(2)];
+    sliceNinja(state, from, to, () => 1, swipe);
+    state.fruits = [fruit(3)];
+    expect(sliceNinja(state, from, to, () => 1, newNinjaSwipe()).bonus).toBe(0);
     state.fruits = [fruit(4)];
-    expect(sliceNinja(state, from, to).bonus).toBe(0);
-    expect(state.combo).toBe(1);
+    expect(sliceNinja(state, to, from, () => 1, swipe).bonus).toBe(0);
+    state.fruits = [fruit(5)];
+    expect(sliceNinja(state, from, to, () => 1).bonus).toBe(0);
+    expect(state.score).toBe(5);
+  });
+  test('movement through empty space keeps the same swipe alive; hovering does not', () => {
+    const state = playing();
+    const swipe = newNinjaSwipe();
+    state.nextId = 4;
+    state.fruits = [fruit(1), fruit(2)];
+    sliceNinja(state, from, to, () => 1, swipe);
+    state.elapsed += 0.2;
+    sliceNinja(state, from, to, () => 1, swipe);
+    state.elapsed += 0.2;
+    state.fruits = [fruit(3)];
+    expect(sliceNinja(state, from, to, () => 1, swipe).bonus).toBe(3);
+    const before = structuredClone(state);
+    expect(sliceNinja(state, from, from, () => 0, swipe).critical).toEqual([]);
+    expect(state).toEqual(before);
+  });
+  test('critical hits are random, award ten extra points, and combine with a combo', () => {
+    const state = playing();
+    state.nextId = 4;
+    state.fruits = [fruit(1), fruit(2), fruit(3)];
+    const rolls = [0.049, 0.05, 0.9];
+    const result = sliceNinja(state, from, to, () => rolls.shift() ?? 1);
+    expect(result.critical.map((f) => f.id)).toEqual([1]);
+    expect(result.bonus).toBe(3);
+    expect(state.score).toBe(16);
+    expect(sliceNinja(state, from, to, () => 0).critical).toEqual([]);
+    expect(state.score).toBe(16);
+  });
+  test('each hundred-point boundary restores one missing life, once', () => {
+    const state = playing();
+    state.score = 99;
+    state.misses = 2;
+    state.nextId = 4;
+    state.fruits = [fruit(1)];
+    expect(sliceNinja(state, from, to, () => 1).recovered).toBe(1);
+    expect(state.score).toBe(100);
+    expect(state.misses).toBe(1);
+    state.fruits = [fruit(2)];
+    expect(sliceNinja(state, from, to, () => 1).recovered).toBe(0);
+    expect(state.misses).toBe(1);
+    state.score = 199;
+    const resumed = JSON.parse(JSON.stringify(state));
+    expect(isNinjaState(resumed)).toBe(true);
+    resumed.fruits = [fruit(3)];
+    expect(sliceNinja(resumed, from, to, () => 1).recovered).toBe(1);
+    expect(resumed.misses).toBe(0);
+    expect(newNinja().misses).toBe(0);
+  });
+  test('full health cannot bank spare lives or restore a later miss retroactively', () => {
+    const state = playing();
+    state.score = 99;
+    state.nextId = 3;
+    state.fruits = [fruit(1)];
+    expect(sliceNinja(state, from, to, () => 1).recovered).toBe(0);
+    expect(state.misses).toBe(0);
+    state.misses = 1;
+    state.fruits = [fruit(2)];
+    expect(sliceNinja(state, from, to, () => 1).recovered).toBe(0);
+    expect(state.misses).toBe(1);
+  });
+  test('a combo with criticals can cross two recovery boundaries in one event', () => {
+    const state = playing();
+    state.score = 98;
+    state.misses = 2;
+    state.nextId = 11;
+    state.fruits = Array.from({ length: 10 }, (_, i) => fruit(i + 1));
+    const result = sliceNinja(state, from, to, () => 0);
+    expect(state.score).toBe(218);
+    expect(result.recovered).toBe(2);
+    expect(state.misses).toBe(0);
+    expect(isNinjaState(state)).toBe(true);
   });
   test('a bomb ends the run immediately and the same segment awards no fruit points', () => {
     const state = playing();
     state.fruits = [fruit(1), fruit(2, 'boom', 400)];
-    const result = sliceNinja(state, from, to);
+    const result = sliceNinja(state, from, to, () => 1);
     expect(result.bomb?.kind).toBe('boom');
     expect(result.cut).toEqual([]);
     expect(state.score).toBe(0);
     expect(state.phase).toBe('over');
     expect(state.reason).toBe('bomb');
-    expect(sliceNinja(state, from, to).cut).toEqual([]);
+    expect(sliceNinja(state, from, to, () => 1).cut).toEqual([]);
     const before = structuredClone(state);
     stepNinja(state, 1);
     expect(state).toEqual(before);
@@ -128,6 +224,30 @@ describe('fruit ninja', () => {
       expect(state.fruits.length).toBeLessThanOrEqual(16);
     }
     expect(state.wave).toBeGreaterThan(100);
+  });
+  test('late waves vary in size and spacing without stacking fruit at screen edges', () => {
+    for (const roll of [0, 0.5, 0.999]) {
+      const state = playing();
+      state.wave = 40;
+      state.spawnIn = 0;
+      stepNinja(state, 0.01, () => roll);
+      expect(state.fruits).toHaveLength(2 + Math.floor(roll * 5));
+      const positions = state.fruits.map((f) => f.x);
+      expect(new Set(positions).size).toBe(positions.length);
+      expect(Math.min(...positions)).toBeGreaterThanOrEqual(70);
+      expect(Math.max(...positions)).toBeLessThanOrEqual(730);
+      expect(isNinjaState(state)).toBe(true);
+    }
+  });
+  test('a large wave respects the total object limit even with eleven fruit still in flight', () => {
+    const state = playing();
+    state.wave = 40;
+    state.spawnIn = 0;
+    state.nextId = 12;
+    state.fruits = Array.from({ length: 11 }, (_, i) => fruit(i + 1));
+    stepNinja(state, 0.01, () => 0.999);
+    expect(state.fruits).toHaveLength(16);
+    expect(isNinjaState(state)).toBe(true);
   });
   test('snapshots round-trip and reject invalid, duplicate, or ended state', () => {
     const state = playing();

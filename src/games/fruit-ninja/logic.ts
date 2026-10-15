@@ -1,5 +1,10 @@
 export const WIDTH = 800;
 export const HEIGHT = 600;
+export const MAX_LIVES = 3;
+export const LIFE_SCORE = 100;
+// The original game's exact probability and gesture tolerance are not published.
+export const CRITICAL_CHANCE = 0.05;
+const SWIPE_IDLE = 0.3;
 export const FRUITS = ['apple', 'banana', 'basaha', 'peach', 'sandia'] as const;
 export type FruitKind = (typeof FRUITS)[number];
 export interface Point {
@@ -13,6 +18,14 @@ export interface Fruit extends Point {
   vy: number;
   angle: number;
   spin: number;
+}
+export interface NinjaSwipe {
+  combo: number;
+  lastMove: number;
+  direction: Point | null;
+}
+export function newNinjaSwipe(): NinjaSwipe {
+  return { combo: 0, lastMove: 0, direction: null };
 }
 export interface NinjaState {
   version: 1;
@@ -66,7 +79,7 @@ export function intersects(
   const dx = to.x - from.x;
   const dy = to.y - from.y;
   const length = dx * dx + dy * dy;
-  if (length < 4) return false;
+  if (length === 0) return false;
   const along = Math.max(
     0,
     Math.min(1, ((center.x - from.x) * dx + (center.y - from.y) * dy) / length),
@@ -77,8 +90,32 @@ export function intersects(
     radius ** 2
   );
 }
-export function sliceNinja(state: NinjaState, from: Point, to: Point) {
-  if (state.phase !== 'playing') return { cut: [], bonus: 0, bomb: null };
+export function sliceNinja(
+  state: NinjaState,
+  from: Point,
+  to: Point,
+  random = Math.random,
+  swipe = newNinjaSwipe(),
+) {
+  const result: {
+    cut: Fruit[];
+    bonus: number;
+    bomb: Fruit | null;
+    critical: Fruit[];
+    recovered: number;
+    combo: number;
+  } = { cut: [], bonus: 0, bomb: null, critical: [], recovered: 0, combo: 0 };
+  if (state.phase !== 'playing') return result;
+  const direction = { x: to.x - from.x, y: to.y - from.y };
+  if (direction.x === 0 && direction.y === 0) return result;
+  if (
+    state.elapsed - swipe.lastMove > SWIPE_IDLE ||
+    (swipe.direction &&
+      direction.x * swipe.direction.x + direction.y * swipe.direction.y < 0)
+  )
+    swipe.combo = 0;
+  swipe.direction = direction;
+  swipe.lastMove = state.elapsed;
   const hit = state.fruits.filter((fruit) =>
     intersects(from, to, fruit, RADIUS[fruit.kind]),
   );
@@ -86,21 +123,37 @@ export function sliceNinja(state: NinjaState, from: Point, to: Point) {
   if (bomb) {
     state.phase = 'over';
     state.reason = 'bomb';
-    return { cut: [], bonus: 0, bomb };
+    result.bomb = bomb;
+    return result;
   }
-  if (!hit.length) return { cut: [], bonus: 0, bomb: null };
-  if (state.elapsed > state.comboUntil) state.combo = 0;
+  if (!hit.length) return result;
   let bonus = 0;
   for (const _fruit of hit) {
-    state.combo++;
-    if (state.combo === 3) bonus += 3;
-    else if (state.combo > 3) bonus++;
+    swipe.combo++;
+    if (swipe.combo === 3) bonus += 3;
+    else if (swipe.combo > 3) bonus++;
   }
-  state.comboUntil = state.elapsed + 0.14;
-  state.score += hit.length + bonus;
+  state.combo = swipe.combo;
+  state.comboUntil = state.elapsed + SWIPE_IDLE;
+  const critical = hit.filter(() => random() < CRITICAL_CHANCE);
+  const previousScore = state.score;
+  state.score += hit.length + bonus + critical.length * 10;
+  const recovered = Math.min(
+    state.misses,
+    Math.floor(state.score / LIFE_SCORE) -
+      Math.floor(previousScore / LIFE_SCORE),
+  );
+  state.misses -= recovered;
   const ids = new Set(hit.map((fruit) => fruit.id));
   state.fruits = state.fruits.filter((fruit) => !ids.has(fruit.id));
-  return { cut: hit, bonus, bomb: null };
+  return {
+    ...result,
+    cut: hit,
+    bonus,
+    critical,
+    recovered,
+    combo: swipe.combo,
+  };
 }
 export function stepNinja(state: NinjaState, dt: number, random = Math.random) {
   if (state.phase !== 'playing' || !Number.isFinite(dt) || dt <= 0) return [];
@@ -117,8 +170,8 @@ export function stepNinja(state: NinjaState, dt: number, random = Math.random) {
   state.fruits = state.fruits.filter(
     (fruit) => fruit.y <= HEIGHT + 70 || fruit.vy <= 0,
   );
-  state.misses = Math.min(3, state.misses + missed.length);
-  if (state.misses === 3) {
+  state.misses = Math.min(MAX_LIVES, state.misses + missed.length);
+  if (state.misses === MAX_LIVES) {
     state.phase = 'over';
     state.reason = 'miss';
     return missed;
@@ -126,8 +179,14 @@ export function stepNinja(state: NinjaState, dt: number, random = Math.random) {
   state.spawnIn -= dt;
   if (state.spawnIn <= 0 && state.fruits.length < 12) {
     state.wave++;
-    const count = Math.min(5, 2 + Math.floor(state.wave / 5));
-    const center = 160 + random() * 480;
+    const maxCount = Math.min(6, 2 + Math.floor(state.wave / 5));
+    const count = Math.min(
+      16 - state.fruits.length,
+      2 + Math.floor(random() * (maxCount - 1)),
+    );
+    const spread = 70 + random() * 38;
+    const halfSpan = ((count - 1) * spread) / 2;
+    const center = 70 + halfSpan + random() * (WIDTH - 140 - halfSpan * 2);
     const bombIndex =
       state.wave >= 3 && random() < Math.min(0.65, 0.25 + state.wave * 0.01)
         ? Math.floor(random() * count)
@@ -135,7 +194,7 @@ export function stepNinja(state: NinjaState, dt: number, random = Math.random) {
     for (let i = 0; i < count; i++) {
       const x = Math.max(
         70,
-        Math.min(WIDTH - 70, center + (i - (count - 1) / 2) * 108),
+        Math.min(WIDTH - 70, center + (i - (count - 1) / 2) * spread),
       );
       state.fruits.push({
         id: state.nextId++,
@@ -151,7 +210,7 @@ export function stepNinja(state: NinjaState, dt: number, random = Math.random) {
         spin: (random() - 0.5) * 220,
       });
     }
-    state.spawnIn = Math.max(1.15, 2.3 - state.wave * 0.025);
+    state.spawnIn = Math.max(0.85, 2 - state.wave * 0.025) + random() * 0.3;
   }
   return missed;
 }
@@ -167,13 +226,13 @@ export function isNinjaState(value: unknown): value is NinjaState {
     !['ready', 'playing'].includes(s.phase) ||
     s.reason !== null ||
     !integer(s.score, 0, Number.MAX_SAFE_INTEGER) ||
-    !integer(s.misses, 0, 2) ||
+    !integer(s.misses, 0, MAX_LIVES - 1) ||
     !integer(s.wave, 0, Number.MAX_SAFE_INTEGER) ||
     !integer(s.nextId, 1, Number.MAX_SAFE_INTEGER) ||
     !finite(s.elapsed, 0, Number.MAX_SAFE_INTEGER) ||
     !finite(s.spawnIn, -1, 2.3) ||
     !integer(s.combo, 0, s.nextId) ||
-    !finite(s.comboUntil, 0, s.elapsed + 0.15) ||
+    !finite(s.comboUntil, 0, s.elapsed + SWIPE_IDLE + 0.01) ||
     !Array.isArray(s.fruits) ||
     s.fruits.length > 16
   )
