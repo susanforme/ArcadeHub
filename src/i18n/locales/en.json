@@ -821,5 +821,16 @@
   "games.zuma.nextLevel": "NEXT LEVEL",
   "games.zuma.retry": "TRY AGAIN",
   "games.zuma.restart": "PLAY AGAIN",
-  "games.zuma.enter": "Click the button or press Enter / Space"
+  "games.zuma.enter": "Click the button or press Enter / Space",
+  "games.doodleJump.name": "Doodle Jump",
+  "games.doodleJump.subtitle": "An endless climb on graph paper",
+  "games.doodleJump.description": "Doodler bounces automatically: steer left and right to climb the green platforms. Wrap around the screen edges, follow the upward-scrolling view and avoid falling out of sight. Platforms are generated within jump and steering range. Includes portrait touch controls, gamepad support, pause and autosave. Character, platforms and paper background come from a community remake.",
+  "games.doodleJump.move": "Move left / right and start jumping",
+  "games.doodleJump.touch": "Hold the left or right half of the screen to steer",
+  "games.doodleJump.startControl": "Start / Play again after falling",
+  "games.doodleJump.footer": "← STEER →   ·   AUTO BOUNCE",
+  "games.doodleJump.ready": "Press ← → or Enter to start\nTouch: hold the left / right half\nWrap at the edges · Don't fall!",
+  "games.doodleJump.height": "HEIGHT  {score}",
+  "games.doodleJump.over": "YOU FELL!",
+  "games.doodleJump.again": "JUMP AGAIN  ↵"
 }

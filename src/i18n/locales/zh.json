@@ -821,5 +821,16 @@
   "games.zuma.nextLevel": "进入下一关",
   "games.zuma.retry": "重试本关",
   "games.zuma.restart": "重新冒险",
-  "games.zuma.enter": "点击按钮，或按 Enter / 空格"
+  "games.zuma.enter": "点击按钮，或按 Enter / 空格",
+  "games.doodleJump.name": "涂鸦跳跃",
+  "games.doodleJump.subtitle": "Doodle Jump · 方格纸上的无尽弹跳",
+  "games.doodleJump.description": "Doodler 落地即自动弹跳，只需左右移动，踩着绿色平台不断向上。左右边缘可以穿屏，镜头只向上推进，跌出画面即结束。平台按跳跃轨迹生成，保留可达路线；支持竖屏触控、手柄、暂停和自动存档。角色、平台与纸张背景来自社区复刻素材。",
+  "games.doodleJump.move": "左右移动 / 开始跳跃",
+  "games.doodleJump.touch": "按住屏幕左半侧或右半侧移动",
+  "games.doodleJump.startControl": "开始 / 结束后重玩",
+  "games.doodleJump.footer": "← 左右移动 →   ·   落地自动弹跳",
+  "games.doodleJump.ready": "按 ← → 或 Enter 开始\n触屏：按住左半侧 / 右半侧\n左右可以穿屏 · 别掉下去！",
+  "games.doodleJump.height": "高度  {score}",
+  "games.doodleJump.over": "掉下来了！",
+  "games.doodleJump.again": "再跳一次  ↵"
 }

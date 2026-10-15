@@ -21,6 +21,7 @@ describe('game discovery', () => {
     expect(games.map((game) => game.id)).toEqual(
       expect.arrayContaining([
         '2048',
+        'doodle-jump',
         'flappy-bird',
         'pacman',
         'snake',
