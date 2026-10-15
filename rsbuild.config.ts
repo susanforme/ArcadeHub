@@ -17,6 +17,14 @@ export default defineConfig(({ envMode }) => ({
         : undefined,
     copy: [
       {
+        from: './src/games/puyo-puyo/assets/NOTICE.txt',
+        to: 'licenses/puyo-puyo-notice.txt',
+      },
+      {
+        from: './src/games/snow-bros/assets/SOURCES.md',
+        to: 'licenses/snow-bros-sources.md',
+      },
+      {
         from: './src/games/zuma/assets/SOURCES.md',
         to: 'licenses/zuma-sources.md',
       },

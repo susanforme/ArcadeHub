@@ -1,0 +1,24 @@
+Puyo Puyo Blobs — community artwork
+
+Author: marie_iskandar
+Source page: https://opengameart.org/content/puyo-puyo-blobs
+Direct download: https://opengameart.org/sites/default/files/puyo-ogl.zip
+Published: 2024-01-04
+Retrieved: 2026-10-15
+License declared on the source page: CC0 1.0 Universal
+License: https://creativecommons.org/publicdomain/zero/1.0/
+
+puyo-sheet.png is copied unchanged from puyo-ogl.zip. The author supplies
+16x16 pixel blobs, with 2px between cells, and frames for connected neighbors.
+cover.svg arranges embedded copies of this sheet for the ArcadeHub library.
+The independent Phaser scene and rules are implemented in ArcadeHub.
+Game audio uses the existing ArcadeHub shared sound effects.
+
+This is community-created artwork for a Puyo Puyo-like game, not a claim of
+official game asset provenance. Puyo Puyo and associated original characters
+and trademarks belong to their respective owners (SEGA / Compile).
+
+Additional source consulted for original sprite reference:
+https://www.spriters-resource.com/sega_genesis/puyopuyo/asset/96326/
+The original sprite listing returned HTTP 403; no assets from that listing
+are bundled. The selected OpenGameArt pack has an explicit CC0 dedication.
