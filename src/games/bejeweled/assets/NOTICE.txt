@@ -1,0 +1,29 @@
+Bejeweled community artwork
+
+Source: https://github.com/AfonsoCFonseca/Bejeweled-Game
+Revision: 2abcce819f66f6c0e091870fdec6b164b57f6809
+Retrieved: 2026-10-15
+Community project: AfonsoCFonseca.
+Original Bejeweled franchise, branding and associated artwork: PopCap Games / EA.
+
+Copied unchanged from assets/ at the above revision:
+pieces.png, Bejeweled_title.png, background.jpeg, background1.jpeg,
+background_board.png, Border.png, selectedTile.png.
+cover.svg arranges embedded copies of pieces.png, Bejeweled_title.png and
+background.jpeg for the ArcadeHub library card.
+Flame halos and the hypercube use Phaser overlays and the existing gem images.
+
+Community sources consulted:
+https://www.spriters-resource.com/pc_computer/bejeweled2/page-1/
+https://opengameart.org/content/colored-puzzle-balls
+The Spriters Resource directory returned HTTP 403 during retrieval.
+The community repository above supplied the selected classic-style images.
+
+The upstream repository has no explicit LICENSE file. Public availability
+does not establish an open license for its images, branding or audio.
+No claim of CC0, MIT, official provenance of every image, or commercial reuse
+permission is made here. Confirm rights with the relevant owners before
+public/commercial redistribution.
+
+ArcadeHub's Phaser scene and match-three logic are independently implemented.
+No upstream game code or audio is bundled or executed.
