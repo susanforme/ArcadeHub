@@ -115,7 +115,7 @@ export class MainScene extends SessionScene {
         window.open(
           import.meta.env.DEV
             ? 'https://github.com/masonicGIT/pacman'
-            : '/sources/arcadehub.tar.gz',
+            : 'https://github.com/susanforme/ArcadeHub',
           '_blank',
           'noopener',
         );

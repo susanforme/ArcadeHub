@@ -10,4 +10,4 @@ ArcadeHub changes: module-local engine, deterministic 60 Hz simulation,
 platform input/pause/storage, structured data-only checkpoints, translated HUD.
 Removed original DOM/jQuery/analytics/advertisements/social posting/network score
 reporting and executable-function save serialization. Source is distributed at
-/sources/arcadehub.tar.gz together with this adaptation.
+https://github.com/susanforme/ArcadeHub together with this adaptation.

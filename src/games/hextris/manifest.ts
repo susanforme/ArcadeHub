@@ -9,7 +9,7 @@ export default {
   description: 'games.hextris.description',
   category: 'categories.puzzle',
   cover,
-  source: '/sources/arcadehub.tar.gz',
+  source: 'https://github.com/susanforme/ArcadeHub',
   controls: [
     { key: '← → / A D', description: 'games.hextris.rotate' },
     { key: '↓ / S / Space', description: 'games.hextris.fast' },

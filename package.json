@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "rsbuild build && bun scripts/package-source.ts && bun scripts/build-offline.ts",
+    "build": "rsbuild build && bun scripts/build-offline.ts",
     "check": "biome check --write",
     "dev": "rsbuild",
     "format": "biome format --write",

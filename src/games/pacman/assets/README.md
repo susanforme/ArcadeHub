@@ -9,4 +9,4 @@ Modified for ArcadeHub on 2026-10-13: the classic maze and selected original sou
 
 Original start, death, ghost-eating, fruit-eating and extra-life sounds are distributed. Pellet and power sounds use the platform's existing short effects to avoid overlapping the reference's long eating recordings.
 
-The modified Pac-Man plugin is distributed under GPL-3.0. There is no warranty. Production builds include `licenses/pacman.txt` and `sources/arcadehub.tar.gz`, containing the application's source, assets, dependency lockfile and build configuration. The in-game footer links to both. Other bundled assets retain their own license notices. Build with `bun install --frozen-lockfile` followed by `bun run build`.
+The modified Pac-Man plugin is distributed under GPL-3.0. There is no warranty. Production builds include `licenses/pacman.txt`; the application's source, assets, dependency lockfile and build configuration are available at https://github.com/susanforme/ArcadeHub. The in-game footer links to the license and repository. Other bundled assets retain their own license notices. Build with `bun install --frozen-lockfile` followed by `bun run build`.
