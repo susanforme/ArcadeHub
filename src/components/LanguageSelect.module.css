@@ -5,7 +5,7 @@
   gap: 7px;
   flex-shrink: 0;
   min-height: 32px;
-  color: #57634c;
+  color: #171714;
   cursor: pointer;
 }
 .select {
@@ -14,7 +14,7 @@
   border: 0;
   background: transparent;
   color: inherit;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 1.4;
   cursor: pointer;
@@ -28,10 +28,10 @@
 .chevron {
   position: absolute;
   right: 0;
-  color: #89997b;
+  color: #76736a;
 }
 .control:hover {
-  color: #407253;
+  color: #d94321;
 }
 @media (any-pointer: coarse) {
   .control {

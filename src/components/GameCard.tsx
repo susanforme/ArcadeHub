@@ -7,9 +7,11 @@ import { Icon } from './Icon';
 export function GameCard({
   game,
   save,
+  number,
 }: {
   game: GameManifest;
   save?: GameSave;
+  number?: number;
 }) {
   const { t } = useI18n();
   return (
@@ -17,27 +19,32 @@ export function GameCard({
       <div className={styles.cover}>
         <img
           src={game.cover}
+          loading="lazy"
+          decoding="async"
           alt={t('game.imageAlt', { name: t(game.name) })}
         />
-        <span className={styles.coverTag}>{t(game.category)}</span>
-        <span className={styles.cardPlay}>↗</span>
       </div>
       <div className={styles.cardBody}>
-        <div className={styles.cardTitle}>
-          <h3>{t(game.name)}</h3>
-          <span>{t(game.subtitle)}</span>
-        </div>
-        <p>{t(game.description)}</p>
-        <div className={styles.cardFooter}>
-          <span>
-            {save
-              ? t('library.card.highScore', {
-                  score: save.bestScore.toLocaleString(),
-                })
-              : t('library.card.firstChallenge')}
+        {number !== undefined && (
+          <span className={styles.cardNumber} aria-hidden="true">
+            {String(number).padStart(2, '0')}
           </span>
-          <Icon name="arrow" size={18} />
+        )}
+        <div className={styles.cardCopy}>
+          <div className={styles.cardTitle}>
+            <h3>{t(game.name)}</h3>
+            <span>{t(game.category)}</span>
+          </div>
+          <p title={t(game.description)}>{t(game.description)}</p>
+          {save && (
+            <span className={styles.cardRecord}>
+              {t('library.card.highScore', {
+                score: save.bestScore.toLocaleString(),
+              })}
+            </span>
+          )}
         </div>
+        <Icon name="arrow" size={20} />
       </div>
     </a>
   );

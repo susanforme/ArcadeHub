@@ -1,7 +1,7 @@
 :root {
   font-family: "Inter", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-  color: #252b28;
-  background: #f7f8f2;
+  color: #171714;
+  background: #f5f0e5;
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
 }
@@ -40,7 +40,7 @@ select {
   outline-offset: 5px;
 }
 :focus-visible {
-  outline: 2px solid #407253;
+  outline: 2px solid #d94321;
 }
 button {
   color: inherit;
@@ -52,5 +52,5 @@ p {
   margin-top: 0;
 }
 ::selection {
-  background: #d6e7bf;
+  background: #f0d5c0;
 }

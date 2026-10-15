@@ -17,6 +17,10 @@ export default defineConfig(({ envMode }) => ({
         : undefined,
     copy: [
       {
+        from: './src/app/assets/OFL-NotoSansSC.txt',
+        to: 'licenses/noto-sans-sc.txt',
+      },
+      {
         from: './src/games/brotato/assets/*.txt',
         to: 'licenses/brotato/[name][ext]',
       },

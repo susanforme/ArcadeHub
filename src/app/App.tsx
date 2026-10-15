@@ -12,8 +12,25 @@ import { Audio } from '../shared/audio';
 import { registerOfflineWorker, requestOffline } from '../shared/offline';
 import { type GameSave, listSaves } from '../shared/storage';
 import styles from './App.module.css';
+import snakeCartridge from './assets/snake-cartridge.webp';
 import { useRoute } from './router';
 import { useSettings } from './store';
+
+const featuredIds = [
+  '2048',
+  'battle-city',
+  'bomberman',
+  'pacman',
+  'tetris',
+  't-rex-runner',
+];
+const libraryGames = [...games].sort((a, b) => {
+  const rank = (id: string) => {
+    const index = featuredIds.indexOf(id);
+    return index < 0 ? featuredIds.length : index;
+  };
+  return rank(a.id) - rank(b.id);
+});
 
 function GameDetail({ game, save }: { game: GameManifest; save?: GameSave }) {
   const { t, text } = useI18n();
@@ -209,7 +226,7 @@ export default function App() {
   const currentGame = route.startsWith('/game/')
     ? games.find((game) => game.id === route.slice(6))
     : undefined;
-  const filtered = games.filter(
+  const filtered = libraryGames.filter(
     (game) =>
       (category === 'categories.all' || game.category === category) &&
       `${translate(game.name, 'zh')} ${translate(game.name, 'en')} ${translate(game.subtitle, 'en')}`
@@ -217,9 +234,9 @@ export default function App() {
         .includes(search.toLowerCase()),
   );
   const nav = [
-    { href: '/', name: 'navigation.library', icon: 'games' },
-    { href: '/saves', name: 'navigation.saves', icon: 'save' },
-    { href: '/settings', name: 'navigation.settings', icon: 'settings' },
+    { href: '/', name: 'navigation.library' },
+    { href: '/saves', name: 'navigation.saves' },
+    { href: '/settings', name: 'navigation.settings' },
   ] as const;
   const lastSave = [...saves]
     .filter(
@@ -230,71 +247,120 @@ export default function App() {
   const lastGame = games.find((game) => game.id === lastSave?.id);
   return (
     <div className={styles.shell}>
-      <aside className={styles.sidebar}>
-        <a href="#/" className={styles.brand}>
+      <header className={styles.topbar}>
+        <a href="#/" className={styles.brand} aria-label="ArcadeHub">
           <span className={styles.brandIcon}>
             <Icon name="games" size={25} />
           </span>
           arcade<span>hub</span>
-          <sup>®</sup>
         </a>
-        <span className={styles.navLabel}>{t('sidebar.tagline')}</span>
-        <nav>
+        <span className={styles.mastheadNote}>
+          PLAY SMALL GAMES.
+          <br />
+          LIVE HAPPIER.
+        </span>
+        <nav className={styles.navigation} aria-label={t('navigation.main')}>
           {nav.map((item) => (
             <a
               key={item.href}
-              className={`${styles.navLink} ${route === item.href || (item.href === '/' && currentGame) ? styles.active : ''}`}
               href={`#${item.href}`}
+              className={`${styles.navLink} ${route === item.href || (item.href === '/' && currentGame) ? styles.active : ''}`}
+              aria-current={
+                route === item.href || (item.href === '/' && currentGame)
+                  ? 'page'
+                  : undefined
+              }
             >
-              <Icon name={item.icon} />
               {t(item.name)}
-              {item.href === '/' && (
-                <span className={styles.count}>
-                  {games.length.toString().padStart(2, '0')}
-                </span>
-              )}
             </a>
           ))}
         </nav>
-        <div className={styles.sidebarBottom}>
-          <div className={styles.localBadge}>
-            <span className={styles.liveDot} />
-            {offlineReady ? t('offline.ready') : t('sidebar.localBadge')}
-          </div>
-          <p>
-            {t('sidebar.noAccount')} <br />
-            {t('sidebar.keepRecords')}{' '}
-          </p>
-          <div className={styles.profile}>
-            <span>{t('sidebar.player')}</span>
-            <div>
-              <b>{t('sidebar.localPlayer')}</b>
-              <small>{t('sidebar.playerHint')}</small>
-            </div>
-            <span className={styles.profileDot} />
-          </div>
+        <div className={styles.headerActions}>
+          <LanguageSelect />
+          <button
+            type="button"
+            className={styles.soundButton}
+            aria-label={muted ? t('audio.enable') : t('audio.disable')}
+            aria-pressed={!muted}
+            onClick={() => setMuted(!muted)}
+          >
+            <Icon name="sound" size={18} />
+            {muted ? t('audio.off') : t('audio.on')}
+          </button>
         </div>
-      </aside>
-      <div className={styles.workspace}>
-        <header className={styles.topbar}>
-          <span>{t('library.tagline')}</span>
-          <div>
-            <LanguageSelect />
-            <span className={styles.localLabel}>
-              <span className={styles.liveDot} /> {t('offline.localMode')}{' '}
-            </span>
-            <button
-              type="button"
-              className={styles.soundButton}
-              aria-label={muted ? t('audio.enable') : t('audio.disable')}
-              aria-pressed={!muted}
-              onClick={() => setMuted(!muted)}
+        <span className={styles.mastheadEnd}>
+          GOOD GAMES.
+          <br />
+          BETTER DAYS.
+        </span>
+      </header>
+      <div
+        className={`${styles.workspace} ${route === '/' ? styles.withSidebar : ''}`}
+      >
+        {route === '/' && (
+          <aside className={styles.sidebar}>
+            <h2>{t('sidebar.tagline')}</h2>
+            <nav
+              className={styles.categoryNav}
+              aria-label={t('library.categories')}
             >
-              <Icon name="sound" />
-              {muted ? t('audio.off') : t('audio.on')}
-            </button>
-          </div>
-        </header>
+              {(
+                [
+                  'categories.all',
+                  'categories.arcade',
+                  'categories.puzzle',
+                ] as const
+              ).map((item) => (
+                <button
+                  type="button"
+                  key={item}
+                  aria-pressed={category === item}
+                  className={category === item ? styles.selected : ''}
+                  onClick={() => setCategory(item)}
+                >
+                  <Icon
+                    name={item === 'categories.puzzle' ? 'settings' : 'games'}
+                    size={24}
+                  />
+                  {t(item)}
+                  {item === 'categories.all' && (
+                    <span className={styles.count}>{games.length}</span>
+                  )}
+                </button>
+              ))}
+            </nav>
+            {lastGame && (
+              <section className={styles.resumeSection}>
+                <h2>{t('library.resume.title')}</h2>
+                <a
+                  className={styles.continueCard}
+                  href={`#/game/${lastGame.id}`}
+                >
+                  <img src={lastGame.cover} alt="" />
+                  <div>
+                    <b>{t(lastGame.name)}</b>
+                    <span>
+                      {t('library.resume.lastScore')} {lastSave.score}
+                    </span>
+                    <span className={styles.resumeAction}>
+                      {t('game.resume')}
+                      <Icon name="arrow" size={16} />
+                    </span>
+                  </div>
+                </a>
+              </section>
+            )}
+            <div className={styles.sidebarBottom}>
+              <p>
+                A SMALL GAME.
+                <br />A BRIGHTER YOU.
+              </p>
+              <span className={styles.localBadge}>
+                {offlineReady ? t('offline.ready') : t('sidebar.noAccount')}
+              </span>
+            </div>
+          </aside>
+        )}
         <main className={styles.main}>
           {storageError && (
             <p className={styles.error} role="alert">
@@ -303,78 +369,47 @@ export default function App() {
           )}
           {route === '/' ? (
             <>
-              <div className={styles.pageHeading}>
-                <div>
-                  <span className={styles.eyebrow}>
-                    {t('library.eyebrow')}{' '}
-                  </span>
-                  <h1>
-                    {t('library.title')}
-                    <span className={styles.headingDot}>
-                      {t('common.questionMark')}
-                    </span>
-                  </h1>
-                  <p>{t('library.subtitle')}</p>
-                </div>
-                <span className={styles.pill}>{t('library.readyBadge')}</span>
-              </div>
               <section className={styles.hero}>
                 <div className={styles.heroCopy}>
-                  <span className={styles.heroTag}>
-                    {t('library.hero.badge')}
-                  </span>
-                  <h2>
-                    {t('library.hero.titleFirst')} <br />
+                  <div className={styles.edition}>
+                    <span>{t('library.eyebrow')}</span>
+                  </div>
+                  <h1>
+                    <span>{t('library.hero.titleFirst')}</span>
                     {t('library.hero.titleSecond')}
-                    <span>{t('common.fullStop')}</span>
-                  </h2>
-                  <p>
-                    {t('library.hero.descriptionFirst')} <br />
-                    {t('library.hero.descriptionSecond')}{' '}
-                  </p>
-                  <a className={styles.primary} href="#/game/snake">
-                    {t('library.hero.playSnake')}{' '}
-                    <Icon name="arrow" size={18} />
-                  </a>
-                  <span className={styles.heroFootnote}>
-                    {t('library.hero.features')}{' '}
-                  </span>
+                  </h1>
+                  <div className={styles.heroFootnote}>
+                    <span>{t('library.hero.badge')}</span>
+                    <p>{t('library.hero.descriptionFirst')}</p>
+                    <small>THE ARCADE EDIT.</small>
+                  </div>
                 </div>
-                <div className={styles.heroArt}>
-                  <img
-                    src={games.find((game) => game.id === 'snake')?.cover}
-                    alt={t('library.hero.imageAlt')}
-                  />
-                  <span className={styles.artSticker}>
-                    {t('library.hero.stickerFirst')} <br />
-                    {t('library.hero.stickerSecond')}{' '}
-                  </span>
-                  <span className={styles.artCaption}>
-                    {t('library.hero.caption')}
-                  </span>
+                <div className={styles.featuredGame}>
+                  <a href="#/game/snake" className={styles.heroArt}>
+                    <img
+                      src={snakeCartridge}
+                      alt={t('library.hero.imageAlt')}
+                      fetchPriority="high"
+                    />
+                  </a>
+                  <div className={styles.featuredCaption}>
+                    <div>
+                      <b>{t('games.snake.name')}</b>
+                      <span>{t('categories.arcade')}</span>
+                      <p>{t('library.hero.descriptionSecond')}</p>
+                    </div>
+                    <a className={styles.primary} href="#/game/snake">
+                      {t('library.hero.playSnake')}
+                      <Icon name="arrow" size={21} />
+                    </a>
+                  </div>
                 </div>
               </section>
-              {lastGame && (
-                <a
-                  className={styles.continueCard}
-                  href={`#/game/${lastGame.id}`}
-                >
-                  <span className={styles.continueIcon}>↩</span>
-                  <div>
-                    <b>{t('library.resume.title')}</b>
-                    <span>
-                      {t(lastGame.name)} {t('library.resume.lastScore')}{' '}
-                      {lastSave.score}
-                    </span>
-                  </div>
-                  <span>{t('game.resumeAction')}</span>
-                </a>
-              )}
               <section className={styles.library}>
                 <div className={styles.libraryHeading}>
                   <h2>
                     {t('library.collection')}{' '}
-                    <span>{games.length.toString().padStart(2, '0')}</span>
+                    <span>{filtered.length.toString().padStart(2, '0')}</span>
                   </h2>
                   <label className={styles.search}>
                     <Icon name="search" size={17} />
@@ -386,39 +421,8 @@ export default function App() {
                     />
                   </label>
                 </div>
-                <div className={styles.filters}>
-                  {(
-                    [
-                      'categories.all',
-                      'categories.arcade',
-                      'categories.puzzle',
-                    ] as const
-                  ).map((item) => (
-                    <button
-                      type="button"
-                      key={item}
-                      aria-pressed={category === item}
-                      className={category === item ? styles.selected : ''}
-                      onClick={() => setCategory(item)}
-                    >
-                      {t(item)}
-                    </button>
-                  ))}
-                  <span>{t('library.collectionHint')}</span>
-                </div>
                 <GameList games={filtered} saves={saves} />
               </section>
-              <div className={styles.bottomNote}>
-                <span>✧</span>
-                <div>
-                  <b>{t('library.note.title')}</b>
-                  <p>{t('library.note.description')} </p>
-                </div>
-                <span className={styles.noteStamp}>
-                  {t('library.note.stampFirst')} <br />
-                  {t('library.note.stampSecond')}{' '}
-                </span>
-              </div>
             </>
           ) : currentGame ? (
             <GameDetail
@@ -566,7 +570,9 @@ export default function App() {
             </div>
           )}
           <footer className={styles.footer}>
-            <span>© {new Date().getFullYear()} ArcadeHub</span>
+            <span>
+              © {new Date().getFullYear()} ArcadeHub · THE ARCADE EDIT.
+            </span>
             <span>
               {t('footer.tagline')} <span>↗</span>
             </span>

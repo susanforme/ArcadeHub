@@ -15,10 +15,11 @@ export function GameList({
   return (
     <div className={styles.gameGrid}>
       {games.length ? (
-        games.map((game) => (
+        games.map((game, index) => (
           <GameCard
             key={game.id}
             game={game}
+            number={index + 1}
             save={saves.find((save) => save.id === game.id)}
           />
         ))
