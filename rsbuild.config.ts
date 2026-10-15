@@ -17,6 +17,10 @@ export default defineConfig(({ envMode }) => ({
         : undefined,
     copy: [
       {
+        from: './src/games/zuma/assets/SOURCES.md',
+        to: 'licenses/zuma-sources.md',
+      },
+      {
         from: './src/games/puzzle-bobble/assets/SOURCES.md',
         to: 'licenses/puzzle-bobble-sources.md',
       },
