@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/lazyleung/DigDugJS",
+  "tree": "47f194230f9f0aaad608bfd80612c7d16fad3ff2",
+  "retrieved": "2026-10-15",
+  "asset": "digdugsprite.png",
+  "assetUrl": "https://raw.githubusercontent.com/lazyleung/DigDugJS/master/digdugsprite.png",
+  "sha256": "375dbfa9c62ee7f7c1a65bff8a877d400c3a513bba8e99626e4709bb2132ac26",
+  "license": "Original game graphics remain copyrighted by their original owners; no redistribution license is asserted. See assets/NOTICE.md.",
+  "levels": "Independent deterministic layouts informed by community gameplay references; not an original ROM/map conversion."
+}

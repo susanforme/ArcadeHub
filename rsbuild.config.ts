@@ -17,6 +17,31 @@ export default defineConfig(({ envMode }) => ({
         : undefined,
     copy: [
       ...[
+        'magic-tower',
+        'feeding-frenzy',
+        'insaniquarium',
+        'ski-free',
+        'dig-dug',
+        'ice-climber',
+        'suika',
+        'pinball',
+      ].flatMap((id) => [
+        {
+          from: `./src/games/${id}/README.md`,
+          to: `licenses/${id}/README.md`,
+        },
+        {
+          from: `./src/games/${id}/assets/{LICENSE*,License*,license*,NOTICE*,SOURCE*}`,
+          to: `licenses/${id}/[name][ext]`,
+          noErrorOnMissing: true,
+        },
+        {
+          from: `./src/games/${id}/SOURCE.json`,
+          to: `licenses/${id}/SOURCE.json`,
+          noErrorOnMissing: true,
+        },
+      ]),
+      ...[
         'ns-shaft',
         'color-lines',
         'hextris',

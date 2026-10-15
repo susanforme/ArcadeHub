@@ -1,0 +1,31 @@
+{
+  "upstream": "https://github.com/ckcz123/mota-js",
+  "retrieved": "2026-10-15",
+  "license": "BSD-3-Clause in upstream repository; historical artwork provenance not independently relicensed",
+  "files": {
+    "items.png": {
+      "url": "https://raw.githubusercontent.com/ckcz123/mota-js/master/project/materials/items.png",
+      "sha256": "c46113999752a4d7d592561a520452cf3ee459618adeb46d752645288ca012be"
+    },
+    "hero.png": {
+      "url": "https://raw.githubusercontent.com/ckcz123/mota-js/master/project/images/hero.png",
+      "sha256": "07f2035a5f1c2321e974b234720db9872fe7cd7fd97e9e932ab4d53abd5d886f"
+    },
+    "terrains.png": {
+      "url": "https://raw.githubusercontent.com/ckcz123/mota-js/master/project/materials/terrains.png",
+      "sha256": "82ae3d5ceeaffa89117c2376efde8f741e4bb552f9b4f37a9d5846b29f8ea4de"
+    },
+    "animates.png": {
+      "url": "https://raw.githubusercontent.com/ckcz123/mota-js/master/project/materials/animates.png",
+      "sha256": "03f6e3eb92249b7303cf196f3ff7d3846398a87ad24f40086e8c2929fcf436d4"
+    },
+    "npcs.png": {
+      "url": "https://raw.githubusercontent.com/ckcz123/mota-js/master/project/materials/npcs.png",
+      "sha256": "a664d6551a8ddbde58535f8787851baa66913b170338c222d1c1ac7c4bd514f1"
+    },
+    "enemys.png": {
+      "url": "https://raw.githubusercontent.com/ckcz123/mota-js/master/project/materials/enemys.png",
+      "sha256": "cc44cc393ea86e4ff82db3778bc95611172f26d3f8971cea14ce3bee35df1769"
+    }
+  }
+}

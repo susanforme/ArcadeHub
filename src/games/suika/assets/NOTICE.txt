@@ -1,0 +1,5 @@
+Fruit PNG source: https://github.com/kairess/suika-game/tree/main/public/base
+Snapshot tree: 9fa917ff93e08c3de5538c8179cc757172ea70ff
+Downloaded 2026-10-15. Filenames unchanged. Cover composes these same images.
+Community reference: https://github.com/paulantoine2/suika
+The selected community repository does not provide an explicit license for these images. These are classic Suika-style fruit assets; redistribution/commercial rights are not independently established. Do not describe them as CC0 or MIT. No upstream code is copied. Physics and UI are new ArcadeHub implementations.

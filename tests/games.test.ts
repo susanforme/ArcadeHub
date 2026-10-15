@@ -27,6 +27,16 @@ describe('game discovery', () => {
         'snake',
         'tetris',
         't-rex-runner',
+        'magic-tower',
+        'feeding-frenzy',
+        'lode-runner',
+        'suika',
+        'pang',
+        'dig-dug',
+        'ice-climber',
+        'insaniquarium',
+        'ski-free',
+        'pinball',
       ]),
     );
   });

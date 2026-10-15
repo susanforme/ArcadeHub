@@ -1,0 +1,11 @@
+2D pinball sprites by rounddroid, published 2020-07-10, downloaded 2026-10-15.
+Source: https://opengameart.org/content/2d-pinball-sprites
+License stated by author: CC0 1.0 Universal
+https://creativecommons.org/publicdomain/zero/1.0/
+Original URLs:
+https://opengameart.org/sites/default/files/flipper.png
+https://opengameart.org/sites/default/files/bumper.png
+https://opengameart.org/sites/default/files/slingshot.png
+https://opengameart.org/sites/default/files/wall_7.png
+https://opengameart.org/sites/default/files/ball_4.png
+wall_7.png and ball_4.png renamed. Other PNG files unchanged. Cover composes these assets; scene tints them. Layout and physics are original; this is a classic pinball interpretation, not a claim to reproduce a particular licensed table.

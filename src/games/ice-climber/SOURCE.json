@@ -1,0 +1,17 @@
+{
+  "retrieved": "2026-10-15",
+  "author": "Kenney Vleugels / Kenney.nl",
+  "license": "CC0-1.0",
+  "sources": [
+    "https://kenney.nl/assets/pixel-platformer",
+    "https://kenney.nl/assets/platformer-art-winter",
+    "https://opengameart.org/content/platformer-art-winter",
+    "https://kenney.nl/assets/platformer-art-deluxe"
+  ],
+  "downloads": [
+    "https://kenney.nl/media/pages/assets/pixel-platformer/33bb4921eb-1696667883/kenney_pixel-platformer.zip",
+    "https://kenney.nl/media/pages/assets/platformer-art-winter/c7f8a0fd6c-1677696902/kenney_platformer-art-winter.zip"
+  ],
+  "spritesSha256": "30f3b7fecf6b5872147bb597ef95cbd5d3e991549a6cb19805c9c2a142207a96",
+  "levels": "Independent deterministic layouts inspired by classic gameplay. No original binary maps included."
+}
