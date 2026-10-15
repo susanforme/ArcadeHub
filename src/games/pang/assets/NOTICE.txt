@@ -1,0 +1,47 @@
+Pang / Buster Bros. community assets and stage data
+==================================================
+Primary source: https://github.com/ray77/pang-web
+Pinned commit: 0f99a6de47fcfa11bf8210ad449b10615d2c83a8
+Retrieved: 2026-10-15
+Original clone: Michel Louvet; SDL2 port: Marc-Alexandre Espiaut;
+browser fork: ray77. Upstream license: GPL version 2 (see COPYING).
+
+Files copied unchanged from src/romdisk:
+  sprites.png, fond1.png through fond9.png,
+  shoot.wav, ball_pop.wav, ough.wav, next_level.wav, game_over.wav.
+  title.png is stored here as cover.png.
+The sprite sheet uses magenta as its transparency key; the Phaser loader
+performs that technical color-key conversion at runtime without redrawing
+any character, balloon, ladder, harpoon, platform or power-up.
+
+../levels.json is a data-only transcription of src/levels.c stages 1-26,
+including original object coordinates, platform types, ladder rungs,
+starting ball directions, bounce settings and fixed bonus assignments.
+That derived stage data is distributed under the upstream GPL-2.0 license.
+The complete license is retained in this directory; the project source
+archive includes these files. New TypeScript integration and game logic
+in this plugin are also provided under GPL-2.0.
+
+These are community-preserved classic graphics and audio, not artwork
+created by ArcadeHub. Original Pang / Buster Bros. was developed by
+Mitchell Corporation, with Capcom publishing in North America.
+The upstream GPL statement does not independently establish the community
+project's authority to license original commercial game graphics/audio.
+Original rights remain with their owners; no commercial clearance is claimed.
+
+Other references inspected:
+https://github.com/onderxyilmaz/pang-clone-v1
+  commit e2f1a0ba9d3ec0a301ef376d8a7299c278debfbb; MIT; not copied.
+https://github.com/vicboma1/PangGame
+  commit e9c9cee8aba76bc9f7fef58c44ee6a1367737453; visual reference only.
+
+Scope: native Phaser single-player remake of the classic core with four
+ball sizes, single/double/glue harpoons, breakable and solid platforms,
+ladders, shield, freeze, dynamite and extra-life power-ups, a time limit,
+three starting lives, score/extra lives and save/resume.
+This is not a ROM emulator or an archival 50-stage port. It includes the
+26 consecutive layouts actually present in the chosen community source;
+the original arcade release has additional stages. Collision resolution,
+continuous-time physics and timing are newly implemented, so the remake
+does not claim frame-identical behavior. Two-player mode, enemy animals,
+fruit bonuses, the arcade travel map and original music are not included.

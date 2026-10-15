@@ -1,0 +1,26 @@
+Dr. Mario — original artwork and community-source notice
+
+Community source: https://github.com/kedholmmoch/Dr-Mario-JS
+Commit: eee7bb5cb6f8be0abee5e03add9515cf7506d15b
+Imported without modification:
+- sprites.png <- assets/images/dr-mario-sprites.png
+- misc.png <- assets/images/dr-mario-misc-5.png
+- fever.mp3 <- assets/sounds/Fever_music.mp3
+
+The sprite sheets reproduce original Dr. Mario characters, viruses, capsules,
+and bottle artwork. The miscellaneous sheet credits General Dr. Mario (NES)
+Sprite Sheet, Black Squirrel. Dr. Mario and its original artwork/music are
+copyright Nintendo. The community repository does not supply a LICENSE file
+or an independent permission grant for these Nintendo assets. Public source
+availability is not a claim that the original art or music is freely licensed.
+The cover embeds cropped regions of the original sprites; only its layout is new.
+
+No upstream JavaScript is bundled. The Phaser scene and TypeScript rules were
+implemented for ArcadeHub. Single-player rules follow the original NES manual:
+https://www.world-of-nintendo.com/manuals/nes/dr_mario.shtml
+
+Boards are generated from the classic virus-level rules (4–84 viruses at levels
+0–20), not hand-authored levels. This is a native recreation, not ROM emulation.
+NES random-number sequences, exact frame timings, two-player battles, ending
+cutscenes, and the Chill music option are not included. Fever music and shared
+ArcadeHub effects obey the platform mute/volume controls and pause with the game.

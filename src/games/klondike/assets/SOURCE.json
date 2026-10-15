@@ -1,0 +1,11 @@
+{
+  "artworkRepository": "https://github.com/zeke/solitaire",
+  "commit": "df766a1c53ecab5369801cf1b56da066f2a55f70",
+  "sourceDllSha256": "0fb81e48d8b45e9995ae1e05fd28c1631dbbcdc71180904c1356bfa2c1ead506",
+  "assets": {
+    "empty.png": "1660b9809f3d2f2600e7b111615cf260e83243b35bc7facc163b0661c37d7b55",
+    "recycle.png": "1ca45c02eb38eeb46f4cdcdc2c8b793c993b272b4556daf2f4fff175c3f0f1f2",
+    "cards.png": "43cde396de91cceb3c54be8dec3e60b7687f2152b0fed440e9e074cb7875284d",
+    "back.png": "bf8a9392df0e2085aa7835fa540fe238bc0359ea8800e83b6955dc6508b875b8"
+  }
+}

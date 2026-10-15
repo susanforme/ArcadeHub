@@ -1,0 +1,2525 @@
+[
+  {
+    "number": 1,
+    "background": 1,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 7,
+        "y": 19,
+        "size": 0,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 99,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [],
+    "ladders": []
+  },
+  {
+    "number": 2,
+    "background": 1,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 88,
+        "y": 18,
+        "size": 0,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 0,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [
+      {
+        "x": 129,
+        "y": 81,
+        "type": 21,
+        "bonus": 99
+      },
+      {
+        "x": 161,
+        "y": 81,
+        "type": 21,
+        "bonus": 99
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 3,
+    "background": 1,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 44,
+        "y": 32,
+        "size": 0,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 144,
+        "y": 101,
+        "size": 2,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 8,
+        "bonus": 0,
+        "bonus_parent": 0
+      }
+    ],
+    "platforms": [
+      {
+        "x": 145,
+        "y": 81,
+        "type": 21,
+        "bonus": 99
+      },
+      {
+        "x": 145,
+        "y": 138,
+        "type": 21,
+        "bonus": 99
+      },
+      {
+        "x": 41,
+        "y": 73,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 249,
+        "y": 73,
+        "type": 20,
+        "bonus": 0
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 4,
+    "background": 2,
+    "playerX": 166,
+    "balls": [
+      {
+        "x": 7,
+        "y": 19,
+        "size": 0,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 99,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [
+      {
+        "x": 153,
+        "y": 152,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 161,
+        "y": 152,
+        "type": 23,
+        "bonus": 0
+      }
+    ],
+    "ladders": [
+      {
+        "x": 130,
+        "y": 153,
+        "rungs": 12
+      },
+      {
+        "x": 170,
+        "y": 153,
+        "rungs": 12
+      }
+    ]
+  },
+  {
+    "number": 5,
+    "background": 2,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 17,
+        "y": 70,
+        "size": 0,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 2,
+        "bonus_parent": 0
+      },
+      {
+        "x": 241,
+        "y": 120,
+        "size": 1,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 6
+      }
+    ],
+    "platforms": [
+      {
+        "x": 65,
+        "y": 56,
+        "type": 22,
+        "bonus": 0
+      },
+      {
+        "x": 65,
+        "y": 81,
+        "type": 22,
+        "bonus": 0
+      },
+      {
+        "x": 257,
+        "y": 56,
+        "type": 22,
+        "bonus": 5
+      },
+      {
+        "x": 257,
+        "y": 81,
+        "type": 22,
+        "bonus": 0
+      },
+      {
+        "x": 161,
+        "y": 57,
+        "type": 22,
+        "bonus": 0
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 6,
+    "background": 2,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 122,
+        "y": 16,
+        "size": 0,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 2,
+        "bonus_parent": 0
+      },
+      {
+        "x": 160,
+        "y": 16,
+        "size": 0,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      }
+    ],
+    "platforms": [
+      {
+        "x": 49,
+        "y": 65,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 265,
+        "y": 65,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 153,
+        "y": 65,
+        "type": 25,
+        "bonus": 0
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 7,
+    "background": 3,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 173,
+        "y": 31,
+        "size": 0,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 99,
+        "bonus_parent": 99
+      },
+      {
+        "x": 129,
+        "y": 85,
+        "size": 1,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 2
+      }
+    ],
+    "platforms": [
+      {
+        "x": 49,
+        "y": 49,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 57,
+        "y": 57,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 65,
+        "y": 65,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 81,
+        "y": 105,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 89,
+        "y": 121,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 257,
+        "y": 49,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 249,
+        "y": 57,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 241,
+        "y": 65,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 225,
+        "y": 105,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 217,
+        "y": 121,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 233,
+        "y": 73,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 73,
+        "y": 73,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 140,
+        "y": 121,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 113,
+        "y": 121,
+        "type": 25,
+        "bonus": 0
+      },
+      {
+        "x": 184,
+        "y": 121,
+        "type": 25,
+        "bonus": 0
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 8,
+    "background": 3,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 118,
+        "y": 79,
+        "size": 1,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 10,
+        "bonus": 6,
+        "bonus_parent": 0
+      },
+      {
+        "x": 177,
+        "y": 79,
+        "size": 1,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [
+      {
+        "x": 33,
+        "y": 97,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 65,
+        "y": 97,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 33,
+        "y": 105,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 65,
+        "y": 105,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 225,
+        "y": 97,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 257,
+        "y": 97,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 225,
+        "y": 105,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 257,
+        "y": 105,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 153,
+        "y": 49,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 161,
+        "y": 49,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 153,
+        "y": 129,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 161,
+        "y": 129,
+        "type": 23,
+        "bonus": 0
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 9,
+    "background": 3,
+    "playerX": 165,
+    "balls": [
+      {
+        "x": 92,
+        "y": 61,
+        "size": 0,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 99,
+        "bonus_parent": 99
+      },
+      {
+        "x": 187,
+        "y": 61,
+        "size": 0,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 99,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [
+      {
+        "x": 73,
+        "y": 183,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 73,
+        "y": 191,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 151,
+        "y": 183,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 151,
+        "y": 191,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 235,
+        "y": 183,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 235,
+        "y": 191,
+        "type": 24,
+        "bonus": 0
+      }
+    ],
+    "ladders": [
+      {
+        "x": 51,
+        "y": 184,
+        "rungs": 4
+      },
+      {
+        "x": 90,
+        "y": 184,
+        "rungs": 4
+      },
+      {
+        "x": 129,
+        "y": 184,
+        "rungs": 4
+      },
+      {
+        "x": 169,
+        "y": 184,
+        "rungs": 4
+      },
+      {
+        "x": 213,
+        "y": 184,
+        "rungs": 4
+      },
+      {
+        "x": 253,
+        "y": 184,
+        "rungs": 4
+      }
+    ]
+  },
+  {
+    "number": 10,
+    "background": 4,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 10,
+        "y": 54,
+        "size": 1,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 10,
+        "bonus": 99,
+        "bonus_parent": 0
+      },
+      {
+        "x": 247,
+        "y": 45,
+        "size": 0,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 0,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [
+      {
+        "x": 25,
+        "y": 89,
+        "type": 27,
+        "bonus": 0
+      },
+      {
+        "x": 49,
+        "y": 113,
+        "type": 27,
+        "bonus": 0
+      },
+      {
+        "x": 121,
+        "y": 89,
+        "type": 27,
+        "bonus": 0
+      },
+      {
+        "x": 145,
+        "y": 113,
+        "type": 27,
+        "bonus": 99
+      },
+      {
+        "x": 217,
+        "y": 89,
+        "type": 27,
+        "bonus": 0
+      },
+      {
+        "x": 241,
+        "y": 113,
+        "type": 27,
+        "bonus": 0
+      },
+      {
+        "x": 73,
+        "y": 89,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 96,
+        "y": 113,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 169,
+        "y": 89,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 193,
+        "y": 113,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 264,
+        "y": 89,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 288,
+        "y": 113,
+        "type": 26,
+        "bonus": 0
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 11,
+    "background": 4,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 87,
+        "y": 20,
+        "size": 1,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 185,
+        "y": 37,
+        "size": 0,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 0,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [
+      {
+        "x": 9,
+        "y": 62,
+        "type": 25,
+        "bonus": 0
+      },
+      {
+        "x": 73,
+        "y": 53,
+        "type": 25,
+        "bonus": 0
+      },
+      {
+        "x": 153,
+        "y": 38,
+        "type": 25,
+        "bonus": 7
+      },
+      {
+        "x": 233,
+        "y": 54,
+        "type": 25,
+        "bonus": 0
+      },
+      {
+        "x": 297,
+        "y": 62,
+        "type": 25,
+        "bonus": 99
+      },
+      {
+        "x": 49,
+        "y": 94,
+        "type": 25,
+        "bonus": 0
+      },
+      {
+        "x": 128,
+        "y": 86,
+        "type": 25,
+        "bonus": 0
+      },
+      {
+        "x": 177,
+        "y": 86,
+        "type": 25,
+        "bonus": 0
+      },
+      {
+        "x": 257,
+        "y": 94,
+        "type": 25,
+        "bonus": 99
+      },
+      {
+        "x": 89,
+        "y": 126,
+        "type": 25,
+        "bonus": 0
+      },
+      {
+        "x": 218,
+        "y": 126,
+        "type": 25,
+        "bonus": 99
+      },
+      {
+        "x": 129,
+        "y": 150,
+        "type": 25,
+        "bonus": 0
+      },
+      {
+        "x": 177,
+        "y": 150,
+        "type": 25,
+        "bonus": 0
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 12,
+    "background": 4,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 7,
+        "y": 19,
+        "size": 0,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 0,
+        "bonus_parent": 99
+      },
+      {
+        "x": 244,
+        "y": 19,
+        "size": 0,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 0,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [
+      {
+        "x": 113,
+        "y": 55,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 167,
+        "y": 55,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 62,
+        "y": 156,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 62,
+        "y": 164,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 242,
+        "y": 156,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 242,
+        "y": 164,
+        "type": 24,
+        "bonus": 0
+      }
+    ],
+    "ladders": [
+      {
+        "x": 145,
+        "y": 56,
+        "rungs": 36
+      }
+    ]
+  },
+  {
+    "number": 13,
+    "background": 5,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 134,
+        "y": 60,
+        "size": 0,
+        "direction": 1,
+        "vel": -5,
+        "vel_cst": 12.5,
+        "bonus": 3,
+        "bonus_parent": 99
+      },
+      {
+        "x": 20,
+        "y": 105,
+        "size": 1,
+        "direction": 1,
+        "vel": -5,
+        "vel_cst": 10,
+        "bonus": 99,
+        "bonus_parent": 3
+      }
+    ],
+    "platforms": [
+      {
+        "x": 8,
+        "y": 139,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 50,
+        "y": 139,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 104,
+        "y": 139,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 136,
+        "y": 139,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 180,
+        "y": 139,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 234,
+        "y": 139,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 280,
+        "y": 139,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 49,
+        "y": 80,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 248,
+        "y": 80,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 108,
+        "y": 38,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 192,
+        "y": 38,
+        "type": 24,
+        "bonus": 0
+      }
+    ],
+    "ladders": [
+      {
+        "x": 212,
+        "y": 140,
+        "rungs": 5
+      },
+      {
+        "x": 82,
+        "y": 140,
+        "rungs": 15
+      }
+    ]
+  },
+  {
+    "number": 14,
+    "background": 5,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 9,
+        "y": 9,
+        "size": 0,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 99,
+        "bonus_parent": 99
+      },
+      {
+        "x": 222,
+        "y": 76,
+        "size": 1,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 10,
+        "bonus": 99,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [
+      {
+        "x": 65,
+        "y": 118,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 119,
+        "y": 118,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 151,
+        "y": 118,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 183,
+        "y": 118,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 215,
+        "y": 118,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 8,
+        "y": 66,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 40,
+        "y": 66,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 248,
+        "y": 55,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 280,
+        "y": 55,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 75,
+        "y": 28,
+        "type": 22,
+        "bonus": 0
+      },
+      {
+        "x": 54,
+        "y": 81,
+        "type": 22,
+        "bonus": 0
+      }
+    ],
+    "ladders": [
+      {
+        "x": 97,
+        "y": 119,
+        "rungs": 5
+      },
+      {
+        "x": 247,
+        "y": 119,
+        "rungs": 20
+      }
+    ]
+  },
+  {
+    "number": 15,
+    "background": 5,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 68,
+        "y": 128,
+        "size": 1,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 10,
+        "bonus": 99,
+        "bonus_parent": 99
+      },
+      {
+        "x": 68,
+        "y": 22,
+        "size": 1,
+        "direction": -1,
+        "vel": -5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 99
+      },
+      {
+        "x": 246,
+        "y": 20,
+        "size": 1,
+        "direction": 1,
+        "vel": -5,
+        "vel_cst": 10,
+        "bonus": 99,
+        "bonus_parent": 99
+      },
+      {
+        "x": 246,
+        "y": 135,
+        "size": 1,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [
+      {
+        "x": 8,
+        "y": 109,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 62,
+        "y": 109,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 94,
+        "y": 109,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 147,
+        "y": 109,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 179,
+        "y": 109,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 211,
+        "y": 109,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 265,
+        "y": 109,
+        "type": 20,
+        "bonus": 0
+      }
+    ],
+    "ladders": [
+      {
+        "x": 243,
+        "y": 109,
+        "rungs": 23
+      },
+      {
+        "x": 125,
+        "y": 109,
+        "rungs": 6
+      },
+      {
+        "x": 40,
+        "y": 109,
+        "rungs": 23
+      }
+    ]
+  },
+  {
+    "number": 16,
+    "background": 6,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 21,
+        "y": 14,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 99,
+        "bonus_parent": 0
+      },
+      {
+        "x": 25,
+        "y": 30,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 29,
+        "y": 46,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 33,
+        "y": 62,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 36,
+        "y": 77,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 41,
+        "y": 92,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 45,
+        "y": 110,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 50,
+        "y": 127,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 299,
+        "y": 14,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 99,
+        "bonus_parent": 0
+      },
+      {
+        "x": 295,
+        "y": 30,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 291,
+        "y": 46,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 287,
+        "y": 62,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 284,
+        "y": 77,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 279,
+        "y": 92,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 275,
+        "y": 110,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 270,
+        "y": 127,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 0
+      }
+    ],
+    "platforms": [],
+    "ladders": []
+  },
+  {
+    "number": 17,
+    "background": 6,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 18,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 26,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 34,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 42,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 50,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 58,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 66,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 74,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 230,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 238,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 246,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 254,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 262,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 270,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 278,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 286,
+        "y": 18,
+        "size": 3,
+        "direction": 1,
+        "vel": 0.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 69,
+        "y": 56,
+        "size": 0,
+        "direction": -1,
+        "vel": 1,
+        "vel_cst": 11,
+        "bonus": 0,
+        "bonus_parent": 2
+      },
+      {
+        "x": 194,
+        "y": 64,
+        "size": 1,
+        "direction": 1,
+        "vel": 1,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 2
+      }
+    ],
+    "platforms": [
+      {
+        "x": 17,
+        "y": 29,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 49,
+        "y": 29,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 81,
+        "y": 29,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 113,
+        "y": 29,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 145,
+        "y": 29,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 177,
+        "y": 29,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 209,
+        "y": 29,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 241,
+        "y": 29,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 273,
+        "y": 29,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 9,
+        "y": 29,
+        "type": 27,
+        "bonus": 7
+      },
+      {
+        "x": 305,
+        "y": 29,
+        "type": 27,
+        "bonus": 99
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 18,
+    "background": 6,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 18,
+        "y": 150,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 8,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 26,
+        "y": 150,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 8,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 34,
+        "y": 150,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 8,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 42,
+        "y": 150,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 8,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 230,
+        "y": 150,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 8,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 238,
+        "y": 150,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 8,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 246,
+        "y": 150,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 8,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 254,
+        "y": 150,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 8,
+        "bonus": 0,
+        "bonus_parent": 0
+      }
+    ],
+    "platforms": [
+      {
+        "x": 65,
+        "y": 85,
+        "type": 21,
+        "bonus": 2
+      },
+      {
+        "x": 220,
+        "y": 85,
+        "type": 21,
+        "bonus": 99
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 19,
+    "background": 7,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 77,
+        "y": 17,
+        "size": 0,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 0,
+        "bonus_parent": 99
+      },
+      {
+        "x": 229,
+        "y": 19,
+        "size": 1,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 10,
+        "bonus": 0,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [
+      {
+        "x": 47,
+        "y": 136,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 79,
+        "y": 136,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 111,
+        "y": 136,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 143,
+        "y": 136,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 175,
+        "y": 136,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 207,
+        "y": 136,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 239,
+        "y": 136,
+        "type": 20,
+        "bonus": 0
+      }
+    ],
+    "ladders": [
+      {
+        "x": 8,
+        "y": 100,
+        "rungs": 25
+      },
+      {
+        "x": 290,
+        "y": 100,
+        "rungs": 25
+      }
+    ]
+  },
+  {
+    "number": 20,
+    "background": 7,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 92,
+        "y": 27,
+        "size": 0,
+        "direction": 1,
+        "vel": -5,
+        "vel_cst": 12.5,
+        "bonus": 99,
+        "bonus_parent": 99
+      },
+      {
+        "x": 193,
+        "y": 27,
+        "size": 0,
+        "direction": -1,
+        "vel": -5,
+        "vel_cst": 12.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      }
+    ],
+    "platforms": [
+      {
+        "x": 32,
+        "y": 48,
+        "type": 25,
+        "bonus": 0
+      },
+      {
+        "x": 272,
+        "y": 48,
+        "type": 25,
+        "bonus": 0
+      },
+      {
+        "x": 128,
+        "y": 140,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 160,
+        "y": 140,
+        "type": 20,
+        "bonus": 0
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 21,
+    "background": 7,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 92,
+        "y": 27,
+        "size": 0,
+        "direction": 1,
+        "vel": -5,
+        "vel_cst": 12.5,
+        "bonus": 99,
+        "bonus_parent": 99
+      },
+      {
+        "x": 193,
+        "y": 27,
+        "size": 0,
+        "direction": -1,
+        "vel": -5,
+        "vel_cst": 12.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      }
+    ],
+    "platforms": [
+      {
+        "x": 127,
+        "y": 127,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 159,
+        "y": 127,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 153,
+        "y": 65,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 58,
+        "y": 80,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 254,
+        "y": 80,
+        "type": 24,
+        "bonus": 0
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 22,
+    "background": 8,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 60,
+        "y": 27,
+        "size": 0,
+        "direction": 1,
+        "vel": -5,
+        "vel_cst": 12.5,
+        "bonus": 0,
+        "bonus_parent": 99
+      },
+      {
+        "x": 218,
+        "y": 27,
+        "size": 0,
+        "direction": 1,
+        "vel": -5,
+        "vel_cst": 12.5,
+        "bonus": 0,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [
+      {
+        "x": 48,
+        "y": 104,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 80,
+        "y": 104,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 112,
+        "y": 104,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 144,
+        "y": 104,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 176,
+        "y": 104,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 208,
+        "y": 104,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 240,
+        "y": 104,
+        "type": 20,
+        "bonus": 0
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 23,
+    "background": 8,
+    "playerX": 214,
+    "balls": [
+      {
+        "x": 133,
+        "y": 20,
+        "size": 0,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 99,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [
+      {
+        "x": 49,
+        "y": 33,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 121,
+        "y": 33,
+        "type": 22,
+        "bonus": 0
+      },
+      {
+        "x": 193,
+        "y": 33,
+        "type": 22,
+        "bonus": 0
+      },
+      {
+        "x": 265,
+        "y": 33,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 49,
+        "y": 65,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 121,
+        "y": 65,
+        "type": 22,
+        "bonus": 0
+      },
+      {
+        "x": 193,
+        "y": 65,
+        "type": 22,
+        "bonus": 0
+      },
+      {
+        "x": 265,
+        "y": 65,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 49,
+        "y": 97,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 121,
+        "y": 97,
+        "type": 22,
+        "bonus": 0
+      },
+      {
+        "x": 193,
+        "y": 97,
+        "type": 22,
+        "bonus": 0
+      },
+      {
+        "x": 265,
+        "y": 97,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 49,
+        "y": 129,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 121,
+        "y": 129,
+        "type": 22,
+        "bonus": 0
+      },
+      {
+        "x": 193,
+        "y": 129,
+        "type": 22,
+        "bonus": 0
+      },
+      {
+        "x": 265,
+        "y": 129,
+        "type": 23,
+        "bonus": 0
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 24,
+    "background": 8,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 205,
+        "y": 20,
+        "size": 0,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 99,
+        "bonus_parent": 99
+      },
+      {
+        "x": 69,
+        "y": 20,
+        "size": 0,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 99,
+        "bonus_parent": 99
+      }
+    ],
+    "platforms": [
+      {
+        "x": 49,
+        "y": 33,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 265,
+        "y": 33,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 49,
+        "y": 65,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 265,
+        "y": 65,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 49,
+        "y": 97,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 265,
+        "y": 97,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 49,
+        "y": 129,
+        "type": 23,
+        "bonus": 0
+      },
+      {
+        "x": 265,
+        "y": 129,
+        "type": 23,
+        "bonus": 0
+      }
+    ],
+    "ladders": []
+  },
+  {
+    "number": 25,
+    "background": 9,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 50,
+        "y": 10,
+        "size": 0,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 99,
+        "bonus_parent": 99
+      },
+      {
+        "x": 50,
+        "y": 10,
+        "size": 0,
+        "direction": 1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 99,
+        "bonus_parent": 99
+      },
+      {
+        "x": 200,
+        "y": 10,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 205,
+        "y": 15,
+        "size": 3,
+        "direction": -1,
+        "vel": 6.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 210,
+        "y": 20,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 215,
+        "y": 22,
+        "size": 3,
+        "direction": 1,
+        "vel": -6.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 220,
+        "y": 25,
+        "size": 3,
+        "direction": 1,
+        "vel": 6.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      },
+      {
+        "x": 225,
+        "y": 30,
+        "size": 3,
+        "direction": -1,
+        "vel": -6.5,
+        "vel_cst": 6.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      }
+    ],
+    "platforms": [
+      {
+        "x": 281,
+        "y": 65,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 33,
+        "y": 65,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 273,
+        "y": 73,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 41,
+        "y": 73,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 265,
+        "y": 81,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 49,
+        "y": 81,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 233,
+        "y": 89,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 57,
+        "y": 81,
+        "type": 21,
+        "bonus": 7
+      },
+      {
+        "x": 89,
+        "y": 89,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 217,
+        "y": 89,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 208,
+        "y": 97,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 105,
+        "y": 97,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 200,
+        "y": 105,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 113,
+        "y": 105,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 192,
+        "y": 113,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 121,
+        "y": 113,
+        "type": 26,
+        "bonus": 0
+      },
+      {
+        "x": 129,
+        "y": 121,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 177,
+        "y": 121,
+        "type": 24,
+        "bonus": 0
+      }
+    ],
+    "ladders": [
+      {
+        "x": 288,
+        "y": 57,
+        "rungs": 36
+      },
+      {
+        "x": 11,
+        "y": 57,
+        "rungs": 36
+      }
+    ]
+  },
+  {
+    "number": 26,
+    "background": 9,
+    "playerX": 150,
+    "balls": [
+      {
+        "x": 7,
+        "y": 19,
+        "size": 0,
+        "direction": -1,
+        "vel": -10,
+        "vel_cst": 12.5,
+        "bonus": 0,
+        "bonus_parent": 0
+      }
+    ],
+    "platforms": [
+      {
+        "x": 28,
+        "y": 159,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 184,
+        "y": 159,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 60,
+        "y": 159,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 216,
+        "y": 159,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 92,
+        "y": 159,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 248,
+        "y": 159,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 124,
+        "y": 159,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 152,
+        "y": 159,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 280,
+        "y": 159,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 8,
+        "y": 102,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 41,
+        "y": 102,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 73,
+        "y": 102,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 105,
+        "y": 102,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 137,
+        "y": 102,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 169,
+        "y": 102,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 201,
+        "y": 102,
+        "type": 20,
+        "bonus": 0
+      },
+      {
+        "x": 232,
+        "y": 102,
+        "type": 24,
+        "bonus": 0
+      },
+      {
+        "x": 249,
+        "y": 102,
+        "type": 21,
+        "bonus": 0
+      },
+      {
+        "x": 281,
+        "y": 102,
+        "type": 20,
+        "bonus": 0
+      }
+    ],
+    "ladders": [
+      {
+        "x": 130,
+        "y": 159,
+        "rungs": 10
+      },
+      {
+        "x": 162,
+        "y": 103,
+        "rungs": 14
+      }
+    ]
+  }
+]

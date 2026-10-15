@@ -1,0 +1,21 @@
+Windows Solitaire / Klondike artwork
+
+Community preservation source: https://github.com/zeke/solitaire
+Commit: df766a1c53ecab5369801cf1b56da066f2a55f70
+cards.png is the repository's original 13 x 4 atlas, with 71 x 96 pixel cards.
+back.png, empty.png and recycle.png were extracted from bitmap resources 54,
+53 and 68 of the same repository's cards.dll and converted losslessly to PNG.
+The DLL is not distributed by ArcadeHub.
+
+The upstream README identifies the art as the original Microsoft Windows
+cards.dll artwork. Card faces are credited to Susan Kare; several backs to
+Leslie Kooy. Original artwork rights remain with their respective holders.
+The community repository does not supply a separate license granting artwork
+rights. This notice records provenance; it does not relicense those images.
+
+Rules/reference implementation reviewed:
+https://github.com/erendn/solitaire-js
+Commit: c77d2d52c83a10e7242796a36b7e8049f8a44329
+No upstream JavaScript or modern replacement deck is shipped. ArcadeHub's
+TypeScript implementation uses ordinary random Klondike deals (not the
+reference's reverse-generated guaranteed-solvable deals).

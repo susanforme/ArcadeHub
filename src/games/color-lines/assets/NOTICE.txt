@@ -1,0 +1,22 @@
+Color Lines — artwork and reference notice
+
+balls.svg is the community ball theme from GNOME Five or More:
+https://github.com/GNOME/five-or-more
+Commit: 3ab38fec52dfa58acb4791f5d1564759e8fa2658
+Path: data/balls.svg
+GNOME Five or More is a community port of Color Lines. This is GNOME community
+artwork, not the original Gamos/Windows artwork. Only an accessibility title was added; all visual paths are unchanged. The
+upstream project's GPL-2.0-or-later terms are retained with the complete SVG
+source and COPYING.
+The cover embeds frames from that SVG; its layout was composed for ArcadeHub.
+
+Gameplay reference: https://github.com/cmsrs/balllines
+Commit: 4ef152e7a47dbfbf3050132aa15303af116b5d0c
+Copyright (c) 2014 Robert Szczepański, MIT (LICENSE-reference).
+No upstream JavaScript is bundled. The TypeScript rules and Phaser scene are a
+new implementation of the classic 9x9, seven-color, five-in-a-row game.
+
+Color Lines was created by Oleg Demin, Gennady Denisov and Igor Ivkin and
+published by Gamos in 1992. Names identify the game being recreated.
+This game has generated board states, not a fixed collection of level maps.
+Sound effects use ArcadeHub's shared audio assets and global volume controls.

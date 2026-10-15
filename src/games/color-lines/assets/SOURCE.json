@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/GNOME/five-or-more",
+  "commit": "3ab38fec52dfa58acb4791f5d1564759e8fa2658",
+  "files": [
+    {
+      "file": "balls.svg",
+      "upstreamPath": "data/balls.svg",
+      "upstreamSha256": "da21a703a5bf892ee8d061b88d7be3284883b290350fa2954c9e20902a276f3e",
+      "sha256": "4732eb46c2e381bc6da5f297e7bc2e8691be7c9678ec7a8256e9e5cf83c5ea1c"
+    }
+  ]
+}

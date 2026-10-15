@@ -1,0 +1,24 @@
+{
+  "repository": "https://github.com/kedholmmoch/Dr-Mario-JS",
+  "commit": "eee7bb5cb6f8be0abee5e03add9515cf7506d15b",
+  "files": [
+    {
+      "file": "sprites.png",
+      "upstreamPath": "assets/images/dr-mario-sprites.png",
+      "upstreamSha256": "a082bf461803cb5fe3408eb8618998b9b0f4effaa321ce2b5cb70e1fc1ce6fa6",
+      "sha256": "a082bf461803cb5fe3408eb8618998b9b0f4effaa321ce2b5cb70e1fc1ce6fa6"
+    },
+    {
+      "file": "misc.png",
+      "upstreamPath": "assets/images/dr-mario-misc-5.png",
+      "upstreamSha256": "bc44291ce92a948ec9bf9dfb9da870bba1b0493378e7d96351c0e78323e4c357",
+      "sha256": "bc44291ce92a948ec9bf9dfb9da870bba1b0493378e7d96351c0e78323e4c357"
+    },
+    {
+      "file": "fever.mp3",
+      "upstreamPath": "assets/sounds/Fever_music.mp3",
+      "upstreamSha256": "f7bfc7a846636628d6566757f14a438aa45c24949060d58618bfc98706053fa3",
+      "sha256": "f7bfc7a846636628d6566757f14a438aa45c24949060d58618bfc98706053fa3"
+    }
+  ]
+}

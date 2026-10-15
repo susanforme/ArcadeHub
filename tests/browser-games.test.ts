@@ -16,6 +16,9 @@ const engines = import.meta.glob<ArcadeEngine>(
   '../src/games/*/vendor/engine.js',
   { eager: true, import: 'default' },
 );
+const migrated = games.filter(
+  (game) => game.source === 'https://github.com/juliensimon/browser-games',
+);
 const audioNode: unknown = new Proxy(
   {
     currentTime: 0,
@@ -88,9 +91,6 @@ function canvasFor(width: number, height: number) {
 }
 test('all games use the same Phaser plugin contract and retain source attribution', () => {
   expect(games.map((game) => game.id)).toContain('metal-slug');
-  const migrated = games.filter(
-    (game) => game.source === 'https://github.com/juliensimon/browser-games',
-  );
   expect(migrated).toHaveLength(12);
   for (const game of games) {
     expect(typeof game.load).toBe('function');
@@ -106,8 +106,10 @@ test('all games use the same Phaser plugin contract and retain source attributio
     ).toBeGreaterThan(0);
   }
 });
-for (const [path, engine] of Object.entries(engines)) {
-  const id = path.split('/').at(-3) as string;
+// Other upstream adaptations also have vendor/engine.js, with their own
+// contracts and tests. This suite exercises the browser-games adapter only.
+for (const { id } of migrated) {
+  const engine = engines[`../src/games/${id}/vendor/engine.js`];
   test(`${id}: starts, renders, advances and restores entity state without DOM listeners`, () => {
     expect(engine.config.width).toBeGreaterThan(0);
     expect(engine.config.height).toBeGreaterThan(0);

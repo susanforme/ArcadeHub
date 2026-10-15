@@ -1,7 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { mkdir } from 'node:fs/promises';
 
-// Ship corresponding source alongside the GPL Pac-Man adaptation, including its platform dependencies.
+// Ship corresponding source for the GPL game adaptations and their platform dependencies.
 await mkdir('dist/sources', { recursive: true });
 execFileSync(
   'tar',

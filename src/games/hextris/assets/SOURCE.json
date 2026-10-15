@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/Hextris/hextris",
+  "commit": "3f4847dc8fd7dab3d1c87e6324b9159d92fbd396",
+  "files": {
+    "math.js": "032789a4e1b7f509dd0d1f70becc6dd8de1429b9d36c12bce64de5fe320afc9e",
+    "Hex.js": "021ac309917508afea58295ce8db7205768f39da38bbc6147adb2c5cc3240ff0",
+    "Block.js": "8dc16633cf4443126d66b2b4851d113067a8dfe52c85db30531c8920c039110c",
+    "Text.js": "7eb73bf9f10b97f2fb00d5af182ba8f649723cc82fdcae66b131eafc2d754a75",
+    "checking.js": "9f8761f25c184013fbbaf29d0e6141e3064c0b103132c6f97a1c93d8e0595821",
+    "wavegen.js": "05c9b4f996ea32f0aabf1e99ce4cb9ab8fe4cc4596dde9b2c06f63c8400e8150",
+    "update.js": "f6983acf1cee3e09d1f71d6ddfe1badba4ee4394734d8a99cb231db249a87c1a",
+    "comboTimer.js": "90c9df8009abb46fd92d51a9631e4e67a9fd2095080a373a7c0e8ff1fc599a9b"
+  },
+  "license": "GPL-3.0-or-later"
+}

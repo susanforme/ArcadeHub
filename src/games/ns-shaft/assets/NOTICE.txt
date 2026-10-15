@@ -1,0 +1,24 @@
+NS-SHAFT community reference assets
+==================================
+Source: https://github.com/mitty-fun/NS-Shaft-Tutorial
+Pinned commit: aac459510b57ffc43dc8363a8f5789f0ff4627f5
+Retrieved: 2026-10-15
+Files: player.png, wall.png, ceiling.png, normal.png, nails.png,
+conveyor_left.png, conveyor_right.png, trampoline.png, fake.png,
+hit.wav, jump.ogg. cover.svg composes the supplied pixel sprites.
+
+The upstream teaching repository supplies these classic NS-SHAFT-style
+images and sounds without a LICENSE file or individual asset license.
+Their presence in a public repository does not establish permission from
+the original rights holder. Do not describe these assets as CC0 or original
+ArcadeHub artwork. Original NS-SHAFT is by Akihiko Kusanagi / NAGI-P SOFT.
+The official page retains copyright and permits distribution of the original
+unchanged package; that statement is not a license for extracted artwork:
+https://www.nagi-p.com/v1/eng/nsshaft.html
+
+Implementation: new TypeScript/Phaser integration, using the documented
+classic rules. Six platform types, life recovery/damage, moving ceiling,
+increasing scroll speed, seed-preserving saves and single-player controls.
+Unlike an archival port, timing and generated platform sequences are newly
+implemented; there is no claim of binary-identical physics or level data.
+NS-SHAFT generates its shaft rather than using a fixed authored level pack.

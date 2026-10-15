@@ -1,0 +1,53 @@
+{
+  "name": "Lode Runner TotalRecall",
+  "repository": "https://github.com/SimonHung/LodeRunner_TotalRecall",
+  "commit": "cceca5d5a15a21f724836654a46bf2501968e142",
+  "upstreamVersion": "2.30e",
+  "retrieved": "2026-10-15",
+  "author": "Simon Hung",
+  "license": "No explicit upstream application or asset redistribution license found; see assets/NOTICE.txt.",
+  "campaign": {
+    "name": "Classic Lode Runner (Apple II 1983)",
+    "levels": 150,
+    "columns": 28,
+    "rows": 16,
+    "source": "lodeRunner.v.classic.js",
+    "sourceSha256": "a1749462ee09f9c16b70a41562c3f96c174694ce403b0fd825d649036b130fbd"
+  },
+  "rules": [
+    "lodeRunner.def.js",
+    "lodeRunner.main.js: buildLevelMap and moveSprite2Top",
+    "lodeRunner.runner.js",
+    "lodeRunner.guard.js"
+  ],
+  "adaptations": [
+    "Module-local state and no CreateJS/browser global dependency",
+    "Phaser-owned 23 Hz fixed-step simulation and CanvasTexture rendering",
+    "Complete validated snapshots with serializable random state",
+    "ArcadeHub keyboard/gamepad/touch controls, pause and global sound volume",
+    "Stage selector and simulation-driven death/completion transitions"
+  ],
+  "assetsSha256": {
+    "assets/cover.png": "db6c6a7fe7804968febfbcc1024c88ba93b125836347a442abc33dd720e09010",
+    "assets/images/block.png": "55dccb126a24f63429765ae75d2a14b23446f4f4a9944b21af647b0548baee17",
+    "assets/images/brick.png": "0e78cb1b5b7bc21efd40add79c0be1e2a1026ebd9a9f8f0b233a7c607fbafb10",
+    "assets/images/gold.png": "859df92ee14ba578c07414aa340dd29044fc026eda22b2a4ad85c6670b34e3dc",
+    "assets/images/ground.png": "5944d1d8fbed336c648632b3db1dd978a4fde49b12670fff2b7d4923544e3013",
+    "assets/images/guard.png": "15e7afbe0e102e10ae2d8aa5482ef2b1c7b9b0c5f50d4d5d3126d79b09a90c06",
+    "assets/images/hole.png": "6c21c088f145d53c67bf4a44a3a57647dba5c032de90cf8ec55265c04a77e0a6",
+    "assets/images/ladder.png": "1e9dc248ae946816a5d5c72f6caf2c9c3f546a43668bfb12696639bb61b8f723",
+    "assets/images/redhat.png": "46e2a2f5f42f02948e648a85f4daafdee2d2ac99ee451957f632c805df14373b",
+    "assets/images/rope.png": "d7d6ce02df1ca97001306d4f4bf7088fc7723466b59a10ebe68415ffb0e52234",
+    "assets/images/runner.png": "d37e7cad1256892550fa8571ead0297bb6f28fa1cabbf918e4658c6ba9a0b656",
+    "assets/images/text.png": "a1ff9ba2c5849ae3170bacbff2ec13b232e83227ff5473e2702abca55bc48b04",
+    "assets/sounds/born.mp3": "f7d6530faf6cd564c2de63a91ec0d8aedceeff892143e1bf7e94fcf73d12eed9",
+    "assets/sounds/dead.mp3": "041387edc75f87e3c747a44d9a5f954aa82339b645d09f3e72d21bb51bbb2cd7",
+    "assets/sounds/dig.mp3": "1c8be55773619d847c8cf8b9e2af210ea65638b5dc4af28f8a9c29e20bdd192e",
+    "assets/sounds/down.mp3": "b871a727488c845b161a0a57afdb2e4481a2dbd7c4e063bd22dacf1444c4ff49",
+    "assets/sounds/fall.mp3": "e5063d8e2788787a1f059149d0d119ec7e8d919a2cd7e643f99a18d6475e35d6",
+    "assets/sounds/getGold.mp3": "345fd911b6e588570ca1d1bb57b2d5a3ae2051cad54022bb811d758bf9e15f80",
+    "assets/sounds/goldFinish.mp3": "ecd059c71df5117e21a27eb76caf3a89c620e1c0e7b88644229ecfb70bb18e9e",
+    "assets/sounds/pass.mp3": "d34e5fe2fbf83884a285ad066ffb95ad134ddf62c20faaf9ebb2c0bea1df19a2",
+    "assets/sounds/trap.mp3": "290ff0cdfffbd356cde709fc1f1f87fed5454c8e55cb2e4f9f001b3a1d00ce4c"
+  }
+}

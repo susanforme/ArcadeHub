@@ -16,6 +16,34 @@ export default defineConfig(({ envMode }) => ({
           )
         : undefined,
     copy: [
+      ...[
+        'ns-shaft',
+        'color-lines',
+        'hextris',
+        'klondike',
+        'dr-mario',
+        'lode-runner',
+        'pang',
+      ].map((id) => ({
+        from: `./src/games/${id}/assets/NOTICE.txt`,
+        to: `licenses/${id}/NOTICE.txt`,
+      })),
+      {
+        from: './src/games/hextris/assets/LICENSE.md',
+        to: 'licenses/hextris/LICENSE.md',
+      },
+      {
+        from: './src/games/color-lines/assets/COPYING',
+        to: 'licenses/color-lines/COPYING',
+      },
+      {
+        from: './src/games/color-lines/assets/LICENSE-reference',
+        to: 'licenses/color-lines/LICENSE-reference',
+      },
+      {
+        from: './src/games/pang/assets/COPYING',
+        to: 'licenses/pang/COPYING',
+      },
       {
         from: './src/games/puyo-puyo/assets/NOTICE.txt',
         to: 'licenses/puyo-puyo-notice.txt',

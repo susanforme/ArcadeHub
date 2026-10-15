@@ -208,3 +208,24 @@ J/X 射击，Space/K 跳跃，L/C 手雷，↑/W 向上瞄准，↓/S 下蹲。�
 ## 土豆兄弟 / Brotato
 
 新增 `brotato` 插件：20 波自动战斗、三种角色、六种武器与六槽构筑、十种属性取舍道具、每级四选一强化、随机商店（锁定 / 刷新 / 合成 / 回收），以及最终 Boss。支持 WASD / 方向键、拖动与八向虚拟手柄，复用暂停和存档。玩法依据和社区素材授权见 [游戏说明](src/games/brotato/README.md)。
+
+## 经典 2D 游戏复刻
+
+以下七款均为平台原生 Phaser 插件，复用暂停、重开、全局音量、键盘/触屏、
+中英文与 IndexedDB 存档。素材、来源版本和原版差异记录在各游戏目录，
+构建将来源声明及相关许可证复制到 `licenses/<id>/`，完整源码随
+`sources/arcadehub.tar.gz` 分发。
+
+| 游戏 | ID | 规则与资源 |
+| --- | --- | --- |
+| [小朋友下楼梯 NS-SHAFT](src/games/ns-shaft/README.md) | `ns-shaft` | 社区 Phaser 素材；普通、钉刺、传送带、弹簧、翻转平台，血量和逐渐加速的下落挑战。 |
+| [五子连珠 Color Lines](src/games/color-lines/README.md) | `color-lines` | 9×9 棋盘、七色球、路径移动与五连消除；使用 GNOME Five or More 社区球形美术。 |
+| [Hextris](src/games/hextris/README.md) | `hextris` | 直接适配原作的六方向波次、矢量画面、跨边消除与连击；去除原站 DOM、分析和网络上报。 |
+| [Windows 纸牌 Klondike](src/games/klondike/README.md) | `klondike` | 社区保存的 Windows 原版牌面与牌背；翻一张/三张、拖拽、双击归位、撤销、提示和自动收牌。 |
+| [马里奥医生 Dr. Mario](src/games/dr-mario/README.md) | `dr-mario` | 社区保存的 NES 精灵；双胶囊、病毒、拆分重力消除、等级与速度选择。 |
+| [淘金者 Lode Runner](src/games/lode-runner/README.md) | `lode-runner` | Total Recall 的经典 150 关、原 Apple II 图像/音效及成熟守卫 AI；完整保存棋盘、挖坑与敌人状态。 |
+| [Pang / Buster Bros.](src/games/pang/README.md) | `pang` | Pang for Linux 社区关卡及原风格背景/精灵；移动、射绳、气球分裂与关卡挑战。 |
+
+这些资源的社区公开来源与原始美术权利分别记录，未将缺少明确许可的
+原作素材声明为 CC0 或 MIT。具体接入范围见各自 `README.md`；社区素材
+不统一标称为官方原版素材。

@@ -1,0 +1,8 @@
+import type { GamePlugin } from '../../core/types';
+import { HEIGHT, WIDTH } from './logic';
+import { MainScene } from './MainScene';
+
+export default {
+  scenes: [MainScene],
+  config: { width: WIDTH, height: HEIGHT, pixelArt: true },
+} satisfies GamePlugin;

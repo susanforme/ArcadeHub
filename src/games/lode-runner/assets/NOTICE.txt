@@ -1,0 +1,28 @@
+Lode Runner — classic Apple II assets and level data
+
+Upstream: LodeRunner TotalRecall by Simon Hung
+https://github.com/SimonHung/LodeRunner_TotalRecall
+Pinned commit: cceca5d5a15a21f724836654a46bf2501968e142
+Upstream version: 2.30e; guard AI version: 4
+Retrieved: 2026-10-15
+
+images/*.png: copied unchanged from image/Theme/APPLE2/ in the pinned source.
+cover.png: copied unchanged from image/lodeRunner.png.
+sounds/*.mp3: copied unchanged from sound/Theme/APPLE2/, except goldFinish.mp3,
+which is copied from sound/goldFinish.mp3.
+../levels.ts: the complete 150-level classicData from lodeRunner.v.classic.js;
+only the JavaScript declaration and formatting were changed for TypeScript.
+The source attributes these maps to the Lode Runner (Apple II 1983) disk image,
+extracted by Simon Hung on 2014-02-20.
+
+../vendor/engine.js includes lodeRunner.def.js, buildLevelMap/moveSprite2Top from
+lodeRunner.main.js, lodeRunner.runner.js and lodeRunner.guard.js, adapted to a
+local module with a Phaser-owned render/update host. Original attribution and
+AI reference comments are retained. See ../README.md and ../SOURCE.json.
+
+License status: the selected upstream repository supplies no LICENSE file or
+explicit redistribution license for its application code or game assets.
+Its @license heading is an attribution comment, not a permission grant.
+These files are not represented as MIT, CC0, or public-domain assets.
+Lode Runner and the original game artwork/levels remain associated with their
+respective rights holders. This provenance notice grants no additional rights.

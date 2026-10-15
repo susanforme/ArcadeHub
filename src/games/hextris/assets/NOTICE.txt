@@ -1,0 +1,13 @@
+Hextris by Logan Engstrom, Garrett Finucane, Noah Moroze and Michael Yang.
+Source: https://github.com/Hextris/hextris
+Commit: 3f4847dc8fd7dab3d1c87e6324b9159d92fbd396
+License: GNU GPL version 3 or later; see LICENSE.md.
+
+The original math, Hex, Block, checking, wavegen, update, timer and text
+code and original icon are retained. The game artwork is the original
+procedural vector artwork, not replacement text or placeholder graphics.
+ArcadeHub changes: module-local engine, deterministic 60 Hz simulation,
+platform input/pause/storage, structured data-only checkpoints, translated HUD.
+Removed original DOM/jQuery/analytics/advertisements/social posting/network score
+reporting and executable-function save serialization. Source is distributed at
+/sources/arcadehub.tar.gz together with this adaptation.
